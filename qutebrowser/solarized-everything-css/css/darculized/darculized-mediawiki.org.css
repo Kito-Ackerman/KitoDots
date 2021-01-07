@@ -1,0 +1,144 @@
+* {
+  border-color: #ddd !important;
+}
+a {
+  color: #89ddff !important;
+}
+a:visited {
+  color: #f07178 !important;
+}
+body {
+  background-color: #292d3e !important;
+  color: #ddd !important;
+}
+html {
+  background-color: #292d3e !important;
+}
+input,
+textarea {
+  background-color: #292d3d !important;
+  color: #ddd !important;
+}
+blockquote,
+pre {
+  background-color: #292d3d !important;
+  color: #ddd !important;
+}
+body * {
+  border-color: #303447 !important;
+}
+#content {
+  background-color: #292d3e !important;
+  color: #ddd !important;
+}
+#mw-head,
+#mw-panel {
+  background-color: #292d3d !important;
+  color: #ddd !important;
+}
+#mw-head div.portal,
+#mw-panel div.portal {
+  background-image: none !important;
+}
+#mw-head {
+  background-color: #292d3d !important;
+  background-image: linear-gradient(to bottom, #292d3e, #292d3d) !important;
+}
+#mw-panel,
+#p-logo {
+  background-image: linear-gradient(to right, #292d3e, #292d3d) !important;
+}
+div.vectorTabs {
+  background-image: linear-gradient(to bottom, #292d3e, #292d3d) !important;
+}
+div.vectorTabs ul {
+  background-image: linear-gradient(to bottom, #292d3e, #292d3d) !important;
+}
+div.vectorTabs ul li {
+  background-color: #292d3d !important;
+  background-image: none !important;
+  padding: 0px 1px 0px 1px !important;
+}
+div.vectorTabs span {
+  background-color: #292d3d !important;
+  background-image: linear-gradient(to bottom, #292d3e, #292d3d) !important;
+}
+div.vectorTabs li.selected,
+div.vectorTabs li.selected span {
+  background-color: transparent !important;
+  background-image: linear-gradient(to bottom, #292d3d, #292d3e) !important;
+}
+.mw-wiki-logo {
+  filter: opacity(50%);
+}
+div#simpleSearch #searchInput {
+  background-color: #292d3e !important;
+  padding: 0.05em 0px 0.2em 0.2em !important;
+}
+.ambox,
+.infobox,
+#toc,
+#toctitle,
+.toclevel-1 {
+  background-color: #292d3d !important;
+  border-color: #303447 !important;
+  color: #ddd !important;
+}
+.catlinks {
+  background-color: #292d3d !important;
+  border-color: #303447 !important;
+  color: #ddd !important;
+}
+.navbox {
+  background-color: #292d3d !important;
+  border-color: #303447 !important;
+  color: #ddd !important;
+}
+.navbox .th,
+.navbox .navbox-title {
+  background-color: #303447 !important;
+}
+.navbox-abovebelow,
+th.navbox-group,
+.navbox-subgroup,
+.navbox-title {
+  background-color: #2c3142 !important;
+}
+.navbox-even {
+  background-color: #292d3e !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  border-color: #303447 !important;
+  color: #ddd !important;
+}
+code {
+  background-color: #303447 !important;
+  border-color: #303447 !important;
+  color: #ddd !important;
+}
+div.thumbinner {
+  background-color: #292d3d !important;
+  border-color: #303447 !important;
+}
+img {
+  filter: opacity(75%);
+}
+img.thumbimage {
+  border-color: #303447 !important;
+}
+.mw-body .external {
+  opacity: 0.5 !important;
+}
+table.wikitable {
+  background-color: #292d3e !important;
+  border-color: #303447 !important;
+  color: #ddd !important;
+}
+table.wikitable > * > tr > th {
+  background-color: #292d3d !important;
+}
