@@ -264,13 +264,31 @@ root.buttons(my_table.join(
 globalkeys = my_table.join(
 
     -- {{{ Personal keybindings
-    -- dmenu
+    -- rofi
     awful.key({ modkey, "Shift" }, "Return",
     function ()
         awful.util.spawn("rofi -show run -theme kito-dmenu")
     end,
-    {description = "show ulauncher", group = "hotkeys"}),
+    {description = "show rofi dmenu", group = "hotkeys"}),
 
+    awful.key({ modkey, "Shift" }, "w",
+    function()
+      awful.util.spawn("sh /home/kito/.config/rofi/scripts/whereis.sh")
+    end,
+    {description = "show rofi whereis script", group = "hotkeys"}),
+
+    awful.key({ modkey, "Shift" }, "x",
+    function()
+      awful.util.spawn("sh /home/kito/.config/rofi/scripts/powermenu.sh")
+    end,
+    {description = "show rofi powermenu script", group = "hotkeys"}),
+    
+    awful.key({ modkey, "Shift" }, "q",
+    function()
+      awful.util.spawn("sh /home/kito/.config/rofi/scripts/qute.sh")
+    end,
+    {description = "show rofi qutebrowser script", group = "hotkeys"}),
+    
     --spawn alacritty
     awful.key({modkey},"Return",
     function () awful.util.spawn( terminal ) end,
@@ -517,35 +535,6 @@ globalkeys = my_table.join(
               {description = "+10%", group = "hotkeys"}),
     awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
               {description = "-10%", group = "hotkeys"}),
-
-    -- ALSA volume control
-    --awful.key({ modkey1 }, "Up",
-    awful.key({ }, "XF86AudioRaiseVolume",
-        function ()
-            os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
-            beautiful.volume.update()
-        end),
-    --awful.key({ modkey1 }, "Down",
-    awful.key({ }, "XF86AudioLowerVolume",
-        function ()
-            os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
-            beautiful.volume.update()
-        end),
-    awful.key({ }, "XF86AudioMute",
-        function ()
-            os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
-            beautiful.volume.update()
-        end),
-    awful.key({ modkey1, "Shift" }, "m",
-        function ()
-            os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
-            beautiful.volume.update()
-        end),
-    awful.key({ modkey1, "Shift" }, "0",
-        function ()
-            os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
-            beautiful.volume.update()
-        end),
 
     -- Copy primary to clipboard (terminals to gtk)
     awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
@@ -911,22 +900,11 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 #+BEGIN_SRC lua
 awful.spawn.with_shell("kdeconnect-cli")
 awful.spawn.with_shell("/usr/bin/emacs --daemon &")
-awful.spawn.with_shell("picom --config  $HOME/.config/picom/picom.conf")
+awful.spawn.with_shell("picom --experimental-backends --config  $HOME/.config/picom/picom.conf")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("volumeicon")
-awful.spawn.with_shell("feh --bg-scale /home/atem/Immagini/sfondo_Blackarch.png")
---Autorun program
-autorun = true
-autorunApps =
-{
-
-    "fehbg",
-    "mictray",
-}
-if autorun then
-    for app = 1,#autorunApps do
-        awful.util.spawn(autorunApps[app])
-    end
-end
+awful.spawn.with_shell("feh --bg-scale ~/Immagini/sfondo_Blackarch.png")
 
 #+END_SRC
+
+#+RESULTS:
