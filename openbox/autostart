@@ -1,0 +1,30 @@
+## Restore Wallpaper
+feh --bg-scale "~/Immagini/sfondo_Blackarch.png"
+
+## xfce4-settings daemon
+lxapparence&
+
+## Start Compositing Manager
+exec picom --experimental-backends &
+
+## Launch Polybar
+sh ~/.config/polybar/launch.sh
+
+## Start Music Player Daemon
+exec mpd &
+
+## Notification Daemon
+exec dunst &
+
+## Enable Super Keys For Menu
+ksuperkey -e 'Super_L=Alt_L|F1' &
+ksuperkey -e 'Super_R=Alt_L|F1' &
+
+## Enable power management
+xfce4-power-manager &
+
+## Adjust backlight (AMD)
+#blight -d amdgpu_bl0 set 20%
+
+## Issue Tracker (Don't Remove IT)
+issue_tracker.sh
