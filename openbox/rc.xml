@@ -271,7 +271,7 @@
         <width>32%</width>
       </action>
     </keybind>
-    <keybind key="A-x">
+    <keybind key="A-m">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
         <x>34%</x>
@@ -406,7 +406,7 @@
       </action>
     </keybind>
     <!-- Launch Applications -->
-    <keybind key="W-f">
+    <keybind key="W-C-f">
       <action name="Execute">
         <command>pcmanfm</command>
       </action>
@@ -416,9 +416,14 @@
         <command>termite</command>
       </action>
     </keybind>
-    <keybind key="W-w">
+    <keybind key="W-C-q">
       <action name="Execute">
         <command>qutebrowser</command>
+      </action>
+    </keybind>
+    <keybind key="W-C-b">
+      <action name="Execute">
+        <command>firefox-developer-edition</command>
       </action>
     </keybind>
     <keybind key="W-n">
@@ -461,27 +466,14 @@
         <command>tasks</command>
       </action>
     </keybind>
-
     <keybind key="W-A-e">
-      <action name="Emacs IDLE">
+      <action name="Execute">
         <command>emacsclient -c -a 'emacs'</command>
       </action>
     </keybind>
     <keybind key="W-A-d">
-      <action name="Dired">
+      <action name="Execute">
         <command>emacsclient -c -a 'emacs' --eval '(dired nil)'</command>
-      </action>
-    </keybind>
-
-    <keybind key="W-f">
-      <action name="PCmanFM">
-        <command>PCManFM</command>
-      </action>
-    </keybind>
-    
-    <keybind key="W-w">
-      <action name="qutebrowser">
-        <command>qutebrowser</command>
       </action>
     </keybind>
     <!-- Openbox -->

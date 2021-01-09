@@ -28,3 +28,6 @@ xfce4-power-manager &
 
 ## Issue Tracker (Don't Remove IT)
 issue_tracker.sh
+
+##Emacs
+/usr/bin/emacs --daemon &

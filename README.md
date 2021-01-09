@@ -23,3 +23,10 @@ I added only a custom theme and a custom start page inspired from dt. The custom
 
 ## Alacritty
 Alacritty is my terminal. I found it very quick in tasks and customizable. I edit yaml file to match up with my palenight theme
+
+##Openbox
+The new entry of my config. I use it for chill when i wouldn't i tiling wm, maybe for testing some programs or for show something to someones. I know the openbox config are quite bloated but it is ok for the use i would give to this wm
+
+### Polybar
+polybar is the best bar for any wm. Is a bit bloat but looks absolutely gorgeous ! I have a lots of files beacouse i installed archcraft and it is shipped with a lot of themes. and i would play whit them
+
