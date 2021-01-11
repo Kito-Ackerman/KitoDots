@@ -1,90 +1,85 @@
-2021-01-08	rc.xml KEYBINDS
--------------------------------
-
- 0	W-1           				GoToDesktop
- 1	W-2           				GoToDesktop
- 2	W-3           				GoToDesktop
- 3	W-4           				GoToDesktop
- 4	W-5           				GoToDesktop
- 5	W-6           				GoToDesktop
- 6	W-7           				GoToDesktop
- 7	W-8           				GoToDesktop
- 8	W-9           				GoToDesktop
- 9	S-W-1         				SendToDesktop
-10	S-W-2         				SendToDesktop
-11	S-W-3         				SendToDesktop
-12	S-W-4         				SendToDesktop
-13	S-W-5         				SendToDesktop
-14	A-Tab         				NextWindow
-15	W-Tab         				NextWindow
-16	W-Left        				UnmaximizeFull
-17	W-Right       				UnmaximizeFull
-18	W-Up          				MaximizeFull
-19	W-Down        				UnmaximizeFull
-20	W-k           				Unmaximize
-21	W-h           				Unmaximize
-22	W-j           				Unmaximize
-23	W-l           				Unmaximize
-24	A-z           				Unmaximize
-25	A-x           				Unmaximize
-26	A-c           				Unmaximize
-27	W-A-Up        				MoveRelative
-28	W-A-Down      				MoveRelative
-29	W-A-Left      				MoveRelative
-30	W-A-Right     				MoveRelative
-31	C-A-Right     				ResizeRelative
-32	C-A-Left      				ResizeRelative
-33	C-A-Down      				ResizeRelative
-34	C-A-Up        				ResizeRelative
-35	W-S-Left      				SendToDesktopLeft
-36	W-S-Right     				SendToDesktopRight
-37	XF86AudioRaiseVolume	volume-up
-38	XF86AudioLowerVolume	volume-down
-39	XF86AudioMute  			amixer set Master toggle
-40	XF86AudioStop  			mpc stop
-41	XF86AudioPlay  			mpc toggle
-42	XF86AudioPrev  			mpc prev
-43	XF86AudioNext  			mpc next
-44	XF86MonBrightnessUp	backlight-up
-45	XF86MonBrightnessDown	backlight-down
-46	Print         				scrot 'Screenshot_%Y-%m-%d-%I-%M-%S_$wx$h.png' -e 'mv $f $$(xdg-user-d.....
-47	A-Print       				scrot -d 5 'Screenshot_%Y-%m-%d-%I-%M-%S_$wx$h.png' -e 'mv $f $$(xdg-u.....
-48	C-Print       				scrot -u -b 'Screenshot_%Y-%m-%d-%I-%M-%S_$wx$h.png' -e 'mv $f $$(xdg-.....
-49	W-f           				pcmanfm
-50	W-Return      				termite
-51	W-w           				qutebrowser
-52	W-n           				networkmanager_dmenu
-53	W-Shift-Return 			rofi -show run --theme kito-dmenu
-54	W-m           				~/.config/rofi/bin/mpd
-55	W-x           				~/.config/rofi/bin/powermenu
-56	W-s           				~/.config/rofi/bin/screenshot
-57	W-i           				~/.config/rofi/bin/network
-58	W-p           				color_picker
-59	W-v           				tasks
-60	W-A-e         				Emacs IDLE
-61	W-A-d         				Dired
-62	W-f           				PCmanFM
-63	W-w           				qutebrowser
-64	C-S-Escape     			Exit
-65	C-S-BackSpace  			Restart
-66	C-S-R         				Reconfigure
-67	W-Escape      				xkill
-68	W-q           				Close
-69	A-F5          				Iconify
-70	A-F6          				ToggleMaximize
-71	A-F7          				ToggleDecorations
-72	W-d           				ToggleShowDesktop
-73	A-r           				Resize
-74	A-m           				Move
-75	W-space       				root-menu
-76	C-A-space     				app-menu
-77	A-space       				client-menu
-78	W-KP_1        				UnmaximizeFull
-79	W-KP_2        				UnmaximizeFull
-80	W-KP_3        				UnmaximizeFull
-81	W-KP_4        				UnmaximizeFull
-82	W-KP_5        				MaximizeFull
-83	W-KP_6        				UnmaximizeFull
-84	W-KP_7        				UnmaximizeFull
-85	W-KP_8        				UnmaximizeFull
-86	W-KP_9        				UnmaximizeFull
+o W-1             	GoToDesktop
+o W-2             	GoToDesktop
+o W-3             	GoToDesktop
+o W-4             	GoToDesktop
+o W-5             	GoToDesktop
+o W-6             	GoToDesktop
+o W-7             	GoToDesktop
+o W-8             	GoToDesktop
+o W-9             	GoToDesktop
+o S-W-1           	SendToDesktop
+o S-W-2           	SendToDesktop
+o S-W-3           	SendToDesktop
+o S-W-4           	SendToDesktop
+o S-W-5           	SendToDesktop
+o A-Tab           	NextWindow
+o W-Tab           	NextWindow
+o W-Left          	UnmaximizeFull
+o W-Right         	UnmaximizeFull
+o W-Up            	MaximizeFull
+o W-Down          	UnmaximizeFull
+o W-k             	Unmaximize
+o W-h             	Unmaximize
+o W-j             	Unmaximize
+o W-l             	Unmaximize
+o A-z             	Unmaximize
+o A-m             	Unmaximize
+o A-c             	Unmaximize
+o W-A-Up          	MoveRelative
+o W-A-Down        	MoveRelative
+o W-A-Left        	MoveRelative
+o W-A-Right       	MoveRelative
+o C-A-Right       	ResizeRelative
+o C-A-Left        	ResizeRelative
+o C-A-Down        	ResizeRelative
+o C-A-Up          	ResizeRelative
+o W-S-Left        	SendToDesktopLeft
+o W-S-Right       	SendToDesktopRight
+x XF86AudioRaiseVolume	volume-up
+x XF86AudioLowerVolume	volume-down
+x XF86AudioMute   	amixer set Master toggle
+x XF86AudioStop   	mpc stop
+x XF86AudioPlay   	mpc toggle
+x XF86AudioPrev   	mpc prev
+x XF86AudioNext   	mpc next
+x XF86MonBrightnessUp	backlight-up
+x XF86MonBrightnessDown	backlight-down
+x Print           	scrot 'Screenshot_%Y-%m-%d-%I-%M-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
+x A-Print         	scrot -d 5 'Screenshot_%Y-%m-%d-%I-%M-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
+x C-Print         	scrot -u -b 'Screenshot_%Y-%m-%d-%I-%M-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
+x W-f             	pcmanfm
+x W-Return        	termite
+x W-n             	networkmanager_dmenu
+x W-Shift-Return  	rofi -show run --theme kito-dmenu
+x W-x             	~/.config/rofi/bin/powermenu
+x W-S-s           	~/.config/rofi/bin/screenshot
+x W-i             	~/.config/rofi/bin/network
+x W-p             	color_picker
+x W-v             	tasks
+o W-A-e           	Emacs IDLE
+o A-d             	Dired
+o W-f             	PCmanFM
+o W-w             	qutebrowser
+o C-S-Escape      	Exit
+o C-S-BackSpace   	Restart
+o C-S-R           	Reconfigure
+x W-Escape        	xkill
+o W-q             	Close
+o A-F5            	Iconify
+o A-F6            	ToggleMaximize
+o A-F7            	ToggleDecorations
+o W-d             	ToggleShowDesktop
+o A-r             	Resize
+o A-m             	Move
+o W-space         	root-menu
+o C-A-space       	app-menu
+o A-space         	client-menu
+o W-KP_1          	UnmaximizeFull
+o W-KP_2          	UnmaximizeFull
+o W-KP_3          	UnmaximizeFull
+o W-KP_4          	UnmaximizeFull
+o W-KP_5          	MaximizeFull
+o W-KP_6          	UnmaximizeFull
+o W-KP_7          	UnmaximizeFull
+o W-KP_8          	UnmaximizeFull
+o W-KP_9          	UnmaximizeFull

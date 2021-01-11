@@ -1,17 +1,14 @@
 ## Restore Wallpaper
-feh --bg-scale "~/Immagini/sfondo_Blackarch.png"
+#exec ~/.fehbg`
 
-## xfce4-settings daemon
+## lxapparence
 lxapparence&
 
 ## Start Compositing Manager
-exec picom --experimental-backends &
-
+picom --experimental-backends &
 ## Launch Polybar
 sh ~/.config/polybar/launch.sh
 
-## Start Music Player Daemon
-exec mpd &
 
 ## Notification Daemon
 exec dunst &

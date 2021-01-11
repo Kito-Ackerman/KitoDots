@@ -6,11 +6,7 @@
 
 config_version: 2
 settings:
-  content.notifications:
-    https://www.zdnet.com: false
-  content.user_stylesheets:
-    global: null
   statusbar.show:
-    global: never
+    global: always
   tabs.show:
-    global: never
+    global: always

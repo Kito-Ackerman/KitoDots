@@ -19,14 +19,14 @@ theme.dir                                       = os.getenv("HOME") .. "/.config
 theme.font                                      = "Mononoki Nerd Font 9"
 theme.taglist_font                              = "Mononoki Nerd Font Bold 7"
 theme.fg_normal                                 = "#ffffff"
-theme.fg_focus                                  = --[["#FDA55C"[[]] "#7197E7"
+theme.fg_focus                                  = --[["#FDA55C"[[]] "#89ddff"
 theme.fg_urgent                                 = "#b74822"
 theme.bg_normal                                 = "#282a36"
 theme.bg_focus                                  = "#FDA55C"
 theme.bg_urgent                                 = "#3F3F3F"
 theme.taglist_fg_focus                          = "#282a36"
-theme.tasklist_bg_focus                         = "#7197E7"
-theme.tasklist_fg_focus                         = --[["#FDA55C"]] "#7197E7"
+theme.tasklist_bg_focus                         = "#89ddff"
+theme.tasklist_fg_focus                         = --[["#FDA55C"]] "#89ddff"
 theme.border_width                              = 2
 theme.border_normal                             = "#282a36"
 theme.border_focus                              = "#F07178"
@@ -409,24 +409,24 @@ function theme.at_screen_connect(s)
            -- wibox.container.background(wibox.container.margin(wibox.widget { mailicon, mail and mail.widget, layout = wibox.layout.align.horizontal }, 4, 7), "#343434"),
             arrow("alpha","#FDA55C"),
             wibox.container.background(wibox.container.margin(clock, 4, 8), "#FDA55C"),
-            arrow("#FDA55C", "#7197E7"),
-            wibox.container.background(wibox.container.margin(wibox.widget { mpdicon, theme.mpd.widget, layout = wibox.layout.align.horizontal }, 3, 6), "#7197E7"),
-            arrow("#7197E7", "#FDA55C"),
+            arrow("#FDA55C", "#89ddff"),
+            wibox.container.background(wibox.container.margin(wibox.widget { mpdicon, theme.mpd.widget, layout = wibox.layout.align.horizontal }, 3, 6), "#89ddff"),
+            arrow("#89ddff", "#FDA55C"),
             wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, 2, 3), "#FDA55C"),
-            arrow("#FDA55C", "#7197E7"),
-            wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, 2, 3), "#7197E7"),
-            arrow("#7197E7", "#FDA55C"),
+            arrow("#FDA55C", "#89ddff"),
+            wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, 2, 3), "#89ddff"),
+            arrow("#89ddff", "#FDA55C"),
             wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, 3, 4), "#FDA55C"),
-            arrow("#FDA55C", "#7197E7"),
-            wibox.container.background(wibox.container.margin(wibox.widget { weathericon, theme.weather.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#7197E7"),
-            arrow("#7197E7", "#FDA55C"),
-           -- wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#7197E7"),
-           -- arrow("#7197E7", "#FDA55C"),
+            arrow("#FDA55C", "#89ddff"),
+            wibox.container.background(wibox.container.margin(wibox.widget { weathericon, theme.weather.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#89ddff"),
+            arrow("#89ddff", "#FDA55C"),
+           -- wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#89ddff"),
+           -- arrow("#89ddff", "#FDA55C"),
             wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#FDA55C"),
             arrow("#FDA55C", "alpha"),
                         --]]
             s.mylayoutbox,
-            wibox.widget.systray("#7197E7"),
+            wibox.widget.systray("#89ddff"),
         },
     }
 end

@@ -19,7 +19,7 @@
     <primaryMonitor>Mouse</primaryMonitor>
   </placement>
   <theme>
-    <name>forest</name>
+    <name>manhattan</name>
     <titleLayout>DSLIMC</titleLayout>
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
@@ -406,7 +406,7 @@
       </action>
     </keybind>
     <!-- Launch Applications -->
-    <keybind key="W-C-f">
+    <keybind key="W-f">
       <action name="Execute">
         <command>pcmanfm</command>
       </action>
@@ -414,16 +414,6 @@
     <keybind key="W-Return">
       <action name="Execute">
         <command>termite</command>
-      </action>
-    </keybind>
-    <keybind key="W-C-q">
-      <action name="Execute">
-        <command>qutebrowser</command>
-      </action>
-    </keybind>
-    <keybind key="W-C-b">
-      <action name="Execute">
-        <command>firefox-developer-edition</command>
       </action>
     </keybind>
     <keybind key="W-n">
@@ -436,17 +426,12 @@
         <command>rofi -show run --theme kito-dmenu</command>
       </action>
     </keybind>
-    <keybind key="W-m">
-      <action name="Execute">
-        <command>~/.config/rofi/bin/mpd</command>
-      </action>
-    </keybind>
     <keybind key="W-x">
       <action name="Execute">
         <command>~/.config/rofi/bin/powermenu</command>
       </action>
     </keybind>
-    <keybind key="W-s">
+    <keybind key="W-S-s">
       <action name="Execute">
         <command>~/.config/rofi/bin/screenshot</command>
       </action>
@@ -467,13 +452,23 @@
       </action>
     </keybind>
     <keybind key="W-A-e">
-      <action name="Execute">
-        <command>emacsclient -c -a 'emacs'</command>
+      <action name="Emacs IDLE">
+        <command>emacs</command>
       </action>
     </keybind>
-    <keybind key="W-A-d">
-      <action name="Execute">
-        <command>emacsclient -c -a 'emacs' --eval '(dired nil)'</command>
+    <keybind key="A-d">
+      <action name="Dired">
+        <command>emacs--eval '(dired nil)'</command>
+      </action>
+    </keybind>
+    <keybind key="W-f">
+      <action name="PCmanFM">
+        <command>PCManFM</command>
+      </action>
+    </keybind>
+    <keybind key="W-w">
+      <action name="qutebrowser">
+        <command>qutebrowser</command>
       </action>
     </keybind>
     <!-- Openbox -->

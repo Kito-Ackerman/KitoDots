@@ -65,12 +65,12 @@
 			</item>
 			<item label="Music Player">
 				<action name="Execute">
-					<execute>termite -e ncmpcpp</execute>
+					<execute>deadbeef</execute>
 				</action>
 			</item>
 			<item label="Visualizer">
 				<action name="Execute">
-					<execute>termite -e 'ncmpcpp -s visualizer'</execute>
+					<execute>termite -e 'cava'</execute>
 				</action>
 			</item>
 		</menu>

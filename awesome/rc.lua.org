@@ -904,7 +904,7 @@ awful.spawn.with_shell("picom --experimental-backends --config  $HOME/.config/pi
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("volumeicon")
 awful.spawn.with_shell("feh --bg-scale ~/Immagini/sfondo_Blackarch.png")
-
+awful.spawn.with_shell("dunst &")
 #+END_SRC
 
 #+RESULTS:
