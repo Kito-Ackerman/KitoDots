@@ -1,5 +1,33 @@
 #+TITLE: AWESOMEWM CONFIG
 #+PROPERTY: header-args :tangle rc.lua
+#+STARTUP: showeverything
+
+
+* Table Of Contents :toc:
+- [[#imports][imports]]
+- [[#error-message-in-rclua][error message in rc.lua]]
+- [[#run_oncecmd_arr-function][run_once(cmd_arr) function]]
+- [[#themes][themes]]
+  - [[#info][Info]]
+  - [[#cod][cod]]
+- [[#setting-mod][setting mod]]
+- [[#settings-variables][settings variables]]
+  - [[#apps][apps]]
+  - [[#variables-of-awesomewm][variables of AwesomeWM]]
+- [[#menu-options][menu options]]
+- [[#other-options][other options]]
+  - [[#wallpaper-resolution][wallpaper resolution]]
+- [[#keybindings][keybindings]]
+  - [[#keybindings-apps][keybindings apps]]
+  - [[#keybindings-awesome][keybindings awesome]]
+  - [[#keybindings-menubar][keybindings menubar]]
+- [[#rules-for-clients][rules for clients]]
+- [[#auto-move-windows][auto-move windows]]
+- [[#floating-windows-options][floating windows options]]
+- [[#startup-functions][startup functions]]
+- [[#titlebar][titlebar]]
+- [[#border-for-maximazed-windows][border for maximazed windows]]
+- [[#startup-apps][startup apps]]
 
 * imports
 modules for make awesome working
@@ -34,7 +62,7 @@ local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 #+RESULTS:
 
-* Notifica di errore in rc.lua
+* error message in rc.lua
 Error message to watch source error in notification
 #+BEGIN_SRC lua
 if awesome.startup_errors then
@@ -59,7 +87,7 @@ do
 end
 
 #+END_SRC
-* funzione run_once(cmd_arr)
+* run_once(cmd_arr) function
 #+BEGIN_SRC lua
 
 local function run_once(cmd_arr)
@@ -71,13 +99,13 @@ end
 run_once({ "unclutter -root" }) -- entries must be comma-separated
 
 #+END_SRC
-* impostazione dei temi
-** Usati
+* themes
+** Info
    - Powerrow-orange ( custom theme with palenight colors )
    - Powerrow-blue ( the source theme where i toke source to make powerrow-orange )
    - Powerrow ( the source theme of powerarrow-blue )
 
-** codice
+** cod
 #+BEGIN_SRC lua
 
 local themes = {
@@ -93,7 +121,7 @@ beautiful.init(theme_path)
 
 #+END_SRC
 
-* impostazione dei tasti funzione
+* setting mod
 variables for modkey
 
 #+BEGIN_SRC lua
@@ -103,9 +131,9 @@ local altkey       = "Mod1"
 local modkey1      = "Control"
 
 #+END_SRC
-* impostazione delle variabili predefinite
+* settings variables
 setting variables for apps. Is nice to set for make app hopping easyer
-** applicazioni
+** apps
 #+BEGIN_SRC lua
 
 -- personal variables
@@ -119,7 +147,7 @@ local terminal          = "alacritty"
 local virtualmachine    = "virtualbox"
 
 #+END_SRC
-** variabili di AwesomeWM
+** variables of AwesomeWM
 #+BEGIN_SRC lua
 
 -- awesome variables
@@ -207,7 +235,7 @@ beautiful.init(string.format(gears.filesystem.get_configuration_dir() .. "/theme
 
 beautiful.useless_gap = 10
 #+END_SRC
-* impostazione del menù
+* menu options
 #+BEGIN_SRC lua
 awesome menus
 local myawesomemenu = {
@@ -237,9 +265,9 @@ awful.util.mymainmenu = freedesktop.menu.build({
 --menubar.utils.terminal = terminal -- Set the Menubar terminal for applications that require it
 
 #+END_SRC
-* impostazioni aggiuntive
+* other options
 some wallpaper options, util for wms
-** wallpaper che cambia con la risoluzione dello schermo
+** wallpaper resolution
 #+BEGIN_SRC lua
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
@@ -264,8 +292,8 @@ root.buttons(my_table.join(
 
 #+END_SRC
 
-* impostazione dei keybindings
-** keybindings applicazioni
+* keybindings
+** keybindings apps
 keybindings for apps
 #+BEGIN_SRC lua
 
@@ -694,7 +722,7 @@ clientbuttons = gears.table.join(
 root.keys(globalkeys)
 
 #+END_SRC
-* impostare la regola per creare nuovi client
+* rules for clients
 #+BEGIN_SRC lua
 
 -- Rules to apply to new clients (through the "manage" signal).
@@ -714,8 +742,8 @@ awful.rules.rules = {
     },
 
 #+END_SRC
-* auto-move windows nei giusti tag
-automove in right tags
+* auto-move windows
+automove in right tags, for productivity
 #+BEGIN_SRC lua
 
     -- Titlebars
@@ -767,8 +795,8 @@ automove in right tags
 
 
 #+END_SRC
-* impostazioni per le finiestre fluttuanti
-floating clients
+* floating windows options
+floating clients, nice for download windows or something similar
 #+BEGIN_SRC lua
 
     -- Floating clients.
@@ -824,7 +852,7 @@ floating clients
 }
 
 #+END_SRC
-* funzioni da eseguire all' apertura d un nuovo client
+* startup functions
 startup functions
 #+BEGIN_SRC lua
 
@@ -843,8 +871,8 @@ client.connect_signal("manage", function (c)
 end)
 
 #+END_SRC
-* barra del titolo
-titlebar
+* titlebar
+titlebar options
 #+BEGIN_SRC lua
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
@@ -899,7 +927,7 @@ client.connect_signal("mouse::enter", function(c)
 end)
 
 #+END_SRC
-* disabilitare i bordi per le finiestre massimizzate
+* border for maximazed windows
 maximized windows without border
 #+BEGIN_SRC lua
 
@@ -918,7 +946,7 @@ client.connect_signal("property::maximized", border_adjust)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 #+END_SRC
-* applicazioni all'avvio
+* startup apps
 startup apps
 #+BEGIN_SRC lua
 awful.spawn.with_shell("kdeconnect-cli")
