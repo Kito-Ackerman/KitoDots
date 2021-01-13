@@ -7,7 +7,6 @@
 - [[#imports][Imports]]
 - [[#variables][Variables]]
 - [[#autostart][Autostart]]
-- [[#gridselect][Gridselect]]
 - [[#treeselect][Treeselect]]
   - [[#treeselect-menu-entries][Treeselect Menu Entries]]
   - [[#treeselect-settings][Treeselect Settings]]
@@ -111,7 +110,7 @@ import XMonad.Util.SpawnOnce
 #+END_SRC
 
 * Variables
-It's nice to assign values to stuff that you will use more than once in the config. Setting values for things like font, terminal and editor means you only have to change the value here to make changes globally.
+Is nice assign varables to command for speed up configs hopping
 
 #+BEGIN_SRC haskell
 -- Variables
@@ -153,7 +152,15 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 #+END_SRC
 
 * Autostart
-These are commands we want XMonad to execute on startup, such as running a compositor, setting our wallpaper, starting the emacs daemon, and starting our system tray and the applications that belong in it.
+These are commands we want XMonad to execute on startup, I use
+1. Feh (wallpaper)
+2. Lxsession
+3. picom jonaburg
+4. some icons for trayer ( the sistem tray )
+5. emacs daemon
+6. ntfsfixall tool ( for fix dualboot drives )
+7. kdeconnect daemon
+8. dunst notification
 
 #+BEGIN_SRC haskell
 --Startup apps
@@ -174,53 +181,8 @@ myStartupHook = do
 
 #+END_SRC
 
-* Gridselect
-GridSelect displays items (programs, open windows, etc.) in a 2D grid and lets the user select from it with the cursor/hjkl keys or the mouse.
-
-#+BEGIN_SRC haskell
-
-myColorizer :: Window -> Bool -> X (String, String)
-myColorizer = colorRangeFromClassName
-                  (0x28,0x2c,0x34) -- lowest inactive bg
-                  (0x28,0x2c,0x34) -- highest inactive bg
-                  (0xc7,0x92,0xea) -- active bg
-                  (0xc0,0xa7,0x9a) -- inactive fg
-                  (0x28,0x2c,0x34) -- active fg
-
--- gridSelect menu layout
-mygridConfig :: p -> GSConfig Window
-mygridConfig colorizer = (buildDefaultGSConfig myColorizer)
-    { gs_cellheight   = 40
-    , gs_cellwidth    = 200
-    , gs_cellpadding  = 6
-    , gs_originFractX = 0.5
-    , gs_originFractY = 0.5
-    , gs_font         = myFont
-    }
-
-spawnSelected' :: [(String, String)] -> X ()
-spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
-    where conf = def
-                   { gs_cellheight   = 40
-                   , gs_cellwidth    = 200
-                   , gs_cellpadding  = 6
-                   , gs_originFractX = 0.5
-                   , gs_originFractY = 0.5
-                   , gs_font         = myFont
-                   }
-
-myAppGrid = [ ("Audacity", "audacity")
-                 , ("Emacs", "emacsclient -c -a emacs")
-                 , ("Firefox", "firefox")
-                 , ("Geany", "geany")
-                 , ("Gimp", "gimp")
-                 , ("LibreOffice Impress", "loimpress")
-                 , ("LibreOffice Writer", "lowriter")
-                 ]
-#+END_SRC
-
 * Treeselect
-TreeSelect displays your workspaces or actions in a Tree-like format.  You can select desired workspace/action with the cursor or hjkl keys.  My TreeSelect menu is rather large and includes a mixture of applications, web bookmarks, configuration files and xmonad actions.
+TreeSelect displays your workspaces or actions in a Tree-like format.  You can launch entries with one click
 
 ** Treeselect Menu Entries
 #+BEGIN_SRC haskell
@@ -469,7 +431,6 @@ myTreeNavigation = M.fromList
 
 #+END_SRC
 
-
 * Scratchpads
 Allows to have several floating scratchpads running different applications.  Import Util.NamedScratchpad and bind a key to namedScratchpadSpawnAction.  In the example below, I create two named scratchpads: (1) a scratchpad for my terminal, and (2) a scratchpad for moc which is a termina music player.
 
@@ -498,7 +459,14 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
 #+END_SRC
 
 * Layouts
-Makes setting the spacingRaw simpler to write. The spacingRaw module adds a configurable amount of space around windows.
+Create some layout for tiling
+- normal tiling
+- maximazed layout
+- matrix layout ( tiling without master )
+- Spiral ( or dwintile )
+- Treerow ( tile but with master on top )
+- tabs ( maximazed with tab bar )
+- floating layout
 
 #+BEGIN_SRC haskell
 mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
@@ -622,7 +590,6 @@ myManageHook = composeAll
      -- name of my workspaces, and the names would very long if using clickable workspaces.
      [title =? "Oracle VM VirtualBox Manager"     --> doFloat
      , className =? "VirtualBox Manager" --> doShift  ( myClickableWorkspaces !! 4 )
-     , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      ] <+> namedScratchpadManageHook myScratchPads
 #+END_SRC
 
