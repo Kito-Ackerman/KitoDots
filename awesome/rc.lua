@@ -69,10 +69,10 @@ local altkey       = "Mod1"
 local modkey1      = "Control"
 
 -- personal variables
-local browser           = "firefox-developer-edition"
+local browser           = "brave-dev"
 local minimalbrowser    = "qutebrowser"
 local editor            = "emacs"
-local filemanager       = "thunar"
+local filemanager       = "pcmanfm"
 local mediaplayer       = "celluloid"
 local scrlocker         = "slimlock"
 local terminal          = "alacritty"
@@ -212,31 +212,36 @@ root.buttons(my_table.join(
 globalkeys = my_table.join(
 
     -- {{{ Personal keybindings
-    -- rofi
+    -- dmenu
     awful.key({ modkey, "Shift" }, "Return",
     function ()
-        awful.util.spawn("rofi -show run -theme kito-dmenu")
+        awful.util.spawn("dmenu_run")
     end,
-    {description = "show rofi dmenu", group = "hotkeys"}),
+    {description = "show dmenu", group = "hotkeys"}),
 
-    awful.key({ modkey, "Shift" }, "w",
+    awful.key({ modkey, "Shift" }, "c",
     function()
-      awful.util.spawn("sh /home/kito/.config/rofi/scripts/whereis.sh")
+      awful.util.spawn("sh /home/kito/.dmenu/dmenu-edit-config.sh")
     end,
-    {description = "show rofi whereis script", group = "hotkeys"}),
+    {description = "show dmenu config script", group = "hotkeys"}),
 
     awful.key({ modkey, "Shift" }, "x",
     function()
-      awful.util.spawn("sh /home/kito/.config/rofi/scripts/powermenu.sh")
+      awful.util.spawn("sh /home/kito/.dmenu/powermenu-dmenu.sh")
     end,
-    {description = "show rofi powermenu script", group = "hotkeys"}),
+    {description = "show dmenu powermenu script", group = "hotkeys"}),
     
     awful.key({ modkey, "Shift" }, "q",
     function()
-      awful.util.spawn("sh /home/kito/.config/rofi/scripts/qute.sh")
+      awful.util.spawn("sh /home/kito/.dmenu/dmenu-qute.sh")
     end,
-    {description = "show rofi qutebrowser script", group = "hotkeys"}),
+    {description = "show dmenu qutebrowser script", group = "hotkeys"}),
     
+    awful.key({ modkey, "Shift" }, "s",
+    function()
+      awful.util.spawn("sh /home/kito/.dmenu/dmenu-scrot.sh")
+    end,
+    {description = "show dmenu screenshot script", group = "hotkeys"}),
     --spawn alacritty
     awful.key({modkey},"Return",
     function () awful.util.spawn( terminal ) end,
@@ -262,8 +267,8 @@ globalkeys = my_table.join(
         {description = "Gnome screenshot", group = "screenshots"}),
 
      -- file manager
-    awful.key({modkey, modkey1},"f", function() awful.util.spawn("thunar") end,
-    {description = "thunar file manager", group ="gui apps"}),
+    awful.key({modkey, modkey1},"f", function() awful.util.spawn("pcmanfm") end,
+    {description = "pcmanfm file manager", group ="gui apps"}),
     --chat client
     awful.key({modkey, modkey1},"c",function() awful.util.spawn("ferdi") end,
     {decription = "chat client", group="gui apps"}),

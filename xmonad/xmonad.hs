@@ -87,7 +87,7 @@ myTerminal :: String
 myTerminal = "alacritty"   -- Sets default terminal
 
 myBrowser :: String
-myBrowser = "firefox-developer-edition"
+myBrowser = "brave-dev"
 myMinimalBrowser :: String
 myMinimalBrowser = "qutebrowser"
 
@@ -124,6 +124,7 @@ myStartupHook = do
           spawnOnce "/usr/bin/emacs --daemon &"
           spawnOnce "ntfsfixall"
           spawnOnce "kdeconnect-cli"
+          spawnOnce "dunst &"
           -- spawnOnce "kak -d -s mysession &"
           setWMName "LG3D"
 
@@ -303,10 +304,10 @@ treeselectAction a = TS.treeselectAction a
            [ Node (TS.TSNode "xmobar" "status bar" (spawn (myEditor ++ "/home/kito/.config/xmobar/xmobarrc0"))) []
            ]
        , Node (TS.TSNode "+ xmonad configs" "My xmonad config files" (return ()))
-           [ Node (TS.TSNode "xmonad.hs" "My XMonad Main" (spawn (myEditor ++ "/home/kito/.xmonad/xmonad.hs.org"))) []
+           [ Node (TS.TSNode "xmonad.hs" "My XMonad Main" (spawn (myEditor ++ "/home/kito/.xmonad/README.org"))) []
            ]
        , Node (TS.TSNode "alacritty" "alacritty terminal emulator" (spawn (myEditor ++ "/home/kito/.config/alacritty/alacritty.yml"))) []
-       , Node (TS.TSNode "awesome" "awesome window manager" (spawn (myEditor ++ "/home/kito/.config/awesome/rc.lua.org"))) []
+       , Node (TS.TSNode "awesome" "awesome window manager" (spawn (myEditor ++ "/home/kito/.config/awesome/README.org"))) []
        , Node (TS.TSNode "bashrc" "the bourne again shell" (spawn (myEditor ++ "/home/kito/.bashrc.org"))) []
        , Node (TS.TSNode "neovim init.vim" "neovim text editor" (spawn (myEditor ++ "/home/kito/.config/nvim/init.vim"))) []
        , Node (TS.TSNode "polybar" "easy-to-use status bar" (spawn (myEditor ++ "/home/kito/.config/polybar/config"))) []
@@ -460,13 +461,6 @@ spirals  = renamed [Replace "spirals"]
            $ subLayout [] (smartBorders Simplest)
            $ mySpacing' 8
            $ spiral (6/7)
-threeCol = renamed [Replace "threeCol"]
-           $ windowNavigation
-           $ addTabs shrinkText myTabTheme
-           $ subLayout [] (smartBorders Simplest)
-           $ limitWindows 7
-           $ mySpacing' 4
-           $ ThreeCol 1 (3/100) (1/2)
 threeRow = renamed [Replace "threeRow"]
            $ windowNavigation
            $ addTabs shrinkText myTabTheme
@@ -508,7 +502,6 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                                  ||| noBorders tabs
                                  ||| matrix
                                  ||| spirals
-                                 ||| threeCol
                                  ||| threeRow
 
 -- myWorkspaces = [" dev ", " www ", " sys ", " doc ", " vbox ", " chat ", " mus ", " vid ", " gfx "]
@@ -551,12 +544,12 @@ myKeys =
         , ("M-S-r", spawn "xmonad --restart")   -- Restarts xmonad
           
     -- Rofi scripts
-        , ("M-p x", spawn "exec /home/kito/.config/rofi/scripts/powermenu.sh")             -- Quits xmonad
-        , ("M-p w", spawn "exec /home/kito/.config/rofi/scripts/whereis.sh")                  -- Calculator
-        , ("M-p q", spawn "exec /home/kito/.config/rofi/scripts/qute.sh")                  -- Calculator
-
-    -- Run Prompt
-        , ("M-S-<Return>", spawn "rofi -show run -theme kito-dmenu") -- Shell Prompt
+        , ("M-S-x", spawn "exec /home/kito/.dmenu/powermenu-dmenu.sh")             -- Quits xmonad
+        , ("M-p x", spawn "exec /home/kito/.dmenu/powermenu-dmenu.sh")             -- Quits xmonad
+        , ("M-p c", spawn "exec /home/kito/.dmenu/dmenu-edit-config.sh")           -- Edit configs
+        , ("M-p q", spawn "exec /home/kito/.dmenu/dmenu-qute.sh")                  -- Qutebrowser
+        , ("M-p s", spawn "exec /home/kito/.dmenu/dmenu-scrot.sh")                 -- scrot
+        , ("M-S-<Return>", spawn "dmenu_run")                                      -- Shell Prompt
 
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal))
@@ -637,7 +630,7 @@ myKeys =
         -- , ("M-C-<Return>", namedScratchpadAction myScratchPads "terminal")
         -- , ("M-C-c", namedScratchpadAction myScratchPads "mocp")
 
-    -- Emacs (CTRL-e followed by a key)
+    -- Emacs (M-e followed by a key)
         , ("M-e e", spawn "emacsclient -c -a 'emacs'")                            -- start emacs
         , ("M-e b", spawn "emacsclient -c -a 'emacs' --eval '(ibuffer)'")         -- list emacs buffers
         , ("M-e d", spawn "emacsclient -c -a 'emacs' --eval '(dired nil)'")       -- dired emacs file manager
