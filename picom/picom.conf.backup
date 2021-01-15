@@ -20,8 +20,9 @@ unredir-if-possible = true;
 detect-transient = true;
 detect-client-leader = true;
 
-#mark-ovredir-focused = false;
-#use-ewmh-active-win = true;
+# mark-wmwin-focused = false:
+# # mark-ovredir-focused = false;
+# use-ewmh-active-win = true;
 
 # These might or might NOT help with performance
 # glx-no-stencil = true;
@@ -122,9 +123,10 @@ fade-exclude = [
     # Only fade AwesomeWM wiboxes
     # (Notice the inverse condition)
     "class_g != 'awesome'",
-    "class_g != 'xmonad'",
-    "class_g != 'rofi'",
-    
+    #"class_g != 'xmonad'",
+    #"class_g != 'rofi'",
+    #"class_g != 'openbox'",
+    "class_g != 'dmenu'"
 ];
 
 # === Blurring ===
@@ -161,14 +163,12 @@ blur-background-exclude = [
 # >> Rounded corners
 # corner-radius = 608
 # For HiDPI
-corner-radius = 5
+corner-radius = 6
 
 rounded-corners-exclude = [
     # "_NET_WM_WINDOW_TYPE@:a *= 'NOTIFICATION'",
-    "window_type *= 'dock'",
     # "window_type *= 'xmobar'",
     #"class_g = 'awesome'",
-    #"class_g = 'Tint2'",
     #"window_type = 'menu'",
     "window_type = 'tooltip'",
     #"window_type = 'popup_menu'",
