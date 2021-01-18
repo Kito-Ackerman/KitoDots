@@ -1,44 +1,44 @@
 * {
-  border-color: #fabd2f !important;
+  border-color: #fff !important;
 }
 a {
-  color: #458588 !important;
+  color: #4271ae !important;
 }
 a:visited {
-  color: #d3869b !important;
+  color: #8959a8 !important;
 }
 body {
-  background-color: #282828 !important;
-  color: #83a598 !important;
+  background-color: #efefef !important;
+  color: #3e999f !important;
 }
 html {
-  background-color: #282828 !important;
+  background-color: #efefef !important;
 }
 input,
 textarea {
-  background-color: #3c3836 !important;
-  color: #83a598 !important;
+  background-color: #fff !important;
+  color: #3e999f !important;
 }
 blockquote,
 pre {
-  background-color: #3c3836 !important;
-  color: #83a598 !important;
+  background-color: #fff !important;
+  color: #3e999f !important;
 }
 code {
   font-size: 1.2em;
 }
 pre {
   box-shadow: none;
-  background-color: #44403e !important;
+  background-color: #fff !important;
   font-size: 1.2em;
 }
 img {
   margin: 0.25em;
 }
 .buttons {
-  background-color: #3c3836 !important;
-  box-shadow: 0 0 10px #8ec07c;
-  color: #8ec07c !important;
+  background-color: #fff !important;
+  box-shadow: 0 0 10px #718c00;
+  color: #718c00 !important;
   font-family: sans-serif;
   font-size: 1.5rem;
   position: fixed;
@@ -60,7 +60,7 @@ img {
   text-align: center;
 }
 #tabs {
-  background-color: #3c3836 !important;
+  background-color: #fff !important;
   float: left;
   margin: 0px 0px 20px 0px;
   padding: 0;
@@ -87,11 +87,11 @@ img {
   text-decoration: none;
 }
 #tabs li a:hover {
-  color: #9ac9cc !important;
+  color: #9db8da !important;
 }
 #tabs li.ui-tabs-active a {
-  background-color: #44403e !important;
-  color: #67afb2 !important;
+  background-color: #fff !important;
+  color: #6c94c7 !important;
 }
 #content {
   clear: both;
@@ -100,7 +100,7 @@ img {
   text-align: right;
 }
 blockquote {
-  background-color: #3c3836 !important;
+  background-color: #fff !important;
   padding-left: 0.75em;
   padding-right: 0.75em;
   padding-top: 0.01em;
@@ -135,7 +135,7 @@ h5,
 h6 {
   font-family: sans-serif;
   border-bottom: 2px solid;
-  border-color: #44403e !important;
+  border-color: #fff !important;
 }
 a:hover {
   text-decoration: underline;
@@ -145,12 +145,12 @@ a:hover {
   float: right;
 }
 .tag {
-  background-color: #282828 !important;
-  color: #8ec07c !important;
+  background-color: #efefef !important;
+  color: #718c00 !important;
   border: 0px;
 }
 .tag span {
-  background-color: #44403e !important;
+  background-color: #fff !important;
   margin: 0.25em;
   padding: 0.25em;
 }
@@ -168,12 +168,12 @@ a:hover {
   text-decoration: underline;
 }
 #minitoc {
-  background-color: #3c3836 !important;
+  background-color: #fff !important;
   position: fixed;
   bottom: 5em;
   left: -5.5em;
   transform: rotate(90deg);
-  box-shadow: 0px 0px 10px #8ec07c;
+  box-shadow: 0px 0px 10px #718c00;
   padding-top: 0.1em;
   padding-bottom: 0.1em;
   padding-left: 0.5em;

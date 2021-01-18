@@ -1,59 +1,59 @@
 * {
-  border-color: #fabd2f !important;
+  border-color: #fff !important;
 }
 a {
-  color: #458588 !important;
+  color: #4271ae !important;
 }
 a:visited {
-  color: #d3869b !important;
+  color: #8959a8 !important;
 }
 body {
-  background-color: #282828 !important;
-  color: #83a598 !important;
+  background-color: #efefef !important;
+  color: #3e999f !important;
 }
 html {
-  background-color: #282828 !important;
+  background-color: #efefef !important;
 }
 input,
 textarea {
-  background-color: #3c3836 !important;
-  color: #83a598 !important;
+  background-color: #fff !important;
+  color: #3e999f !important;
 }
 blockquote,
 pre {
-  background-color: #3c3836 !important;
-  color: #83a598 !important;
+  background-color: #fff !important;
+  color: #3e999f !important;
 }
 div#page div#header {
-  background-color: #282828 !important;
+  background-color: #efefef !important;
 }
 div#page div#header a {
-  color: #d3869b !important;
+  color: #8959a8 !important;
 }
 .post {
-  background-color: #282828 !important;
+  background-color: #efefef !important;
 }
 .post * {
   overflow: auto !important;
 }
 .post h2 {
-  background-color: #3c3836 !important;
+  background-color: #fff !important;
 }
 .post h2 a {
-  color: #8ec07c !important;
+  color: #718c00 !important;
 }
 .post div.entry {
-  background-color: #282828 !important;
-  color: #83a598 !important;
+  background-color: #efefef !important;
+  color: #3e999f !important;
 }
 .post div.entry blockquote {
-  background-color: #3c3836 !important;
+  background-color: #fff !important;
 }
 .post div.entry kbd {
-  background-color: #3c3836 !important;
-  border-color: #b8bb26 !important;
+  background-color: #fff !important;
+  border-color: #d6d6d6 !important;
   box-shadow: none !important;
-  color: #8ec07c !important;
+  color: #718c00 !important;
   text-shadow: 0px 1px 0px #000 !important;
 }
 .post pre.mode-line {

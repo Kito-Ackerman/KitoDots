@@ -1,33 +1,33 @@
 * {
-  border-color: #fabd2f !important;
+  border-color: #fff !important;
 }
 a {
-  color: #458588 !important;
+  color: #4271ae !important;
 }
 a:visited {
-  color: #d3869b !important;
+  color: #8959a8 !important;
 }
 body {
-  background-color: #282828 !important;
-  color: #83a598 !important;
+  background-color: #efefef !important;
+  color: #3e999f !important;
 }
 html {
-  background-color: #282828 !important;
+  background-color: #efefef !important;
 }
 input,
 textarea {
-  background-color: #3c3836 !important;
-  color: #83a598 !important;
+  background-color: #fff !important;
+  color: #3e999f !important;
 }
 blockquote,
 pre {
-  background-color: #3c3836 !important;
-  color: #83a598 !important;
+  background-color: #fff !important;
+  color: #3e999f !important;
 }
 .post-actions {
-  background-color: #3c3836 !important;
+  background-color: #fff !important;
 }
 .textarea-wrapper {
-  background-color: #282828 !important;
-  color: #83a598 !important;
+  background-color: #efefef !important;
+  color: #3e999f !important;
 }

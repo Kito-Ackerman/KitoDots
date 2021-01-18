@@ -1,35 +1,35 @@
 * {
-  border-color: #fabd2f !important;
+  border-color: #fff !important;
 }
 a {
-  color: #458588 !important;
+  color: #4271ae !important;
 }
 a:visited {
-  color: #d3869b !important;
+  color: #8959a8 !important;
 }
 body {
-  background-color: #282828 !important;
-  color: #83a598 !important;
+  background-color: #efefef !important;
+  color: #3e999f !important;
 }
 html {
-  background-color: #282828 !important;
+  background-color: #efefef !important;
 }
 input,
 textarea {
-  background-color: #3c3836 !important;
-  color: #83a598 !important;
+  background-color: #fff !important;
+  color: #3e999f !important;
 }
 blockquote,
 pre {
-  background-color: #3c3836 !important;
-  color: #83a598 !important;
+  background-color: #fff !important;
+  color: #3e999f !important;
 }
 table {
-  background-color: #282828 !important;
+  background-color: #efefef !important;
 }
 #hnmain > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > table,
 #hnmain > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > table {
-  background-color: #fb4934 !important;
+  background-color: #f5871f !important;
 }
 #hnmain > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) a,
 #hnmain > tbody:nth-child(1) > tr:nth-child(1) a {
@@ -37,48 +37,48 @@ table {
 }
 #hnmain > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > tbody:nth-child(1) > tr:nth-child(2),
 #hnmain > tbody:nth-child(1) > tr:nth-child(2) {
-  background-color: #282828 !important;
+  background-color: #efefef !important;
 }
 #hnmain > tbody:nth-child(1) > tr:nth-child(2) {
-  background-color: #282828 !important;
+  background-color: #efefef !important;
 }
 .title a {
-  color: #83a598 !important;
+  color: #3e999f !important;
 }
 .title a:visited {
-  color: #b8bb26 !important;
+  color: #d6d6d6 !important;
 }
 a.storylink {
-  color: #8ec07c !important;
+  color: #718c00 !important;
   font-weight: bold;
 }
 .sitestr {
-  color: #458588 !important;
+  color: #4271ae !important;
 }
 #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) {
-  background-color: #282828 !important;
+  background-color: #efefef !important;
 }
 #hnmain .comhead {
-  color: #8ec07c !important;
+  color: #718c00 !important;
 }
 #hnmain .c00 {
-  color: #83a598 !important;
+  color: #3e999f !important;
 }
 #hnmain a.hnuser {
-  color: #d79921 !important;
+  color: #eab700 !important;
 }
 #hnmain span.age a {
-  color: #b8bb26 !important;
+  color: #d6d6d6 !important;
 }
 .cdd {
-  color: rgba(255,34,23,0.65) !important;
+  color: rgba(179,0,0,0.65) !important;
 }
 .comment i {
-  color: #d3869b !important;
+  color: #8959a8 !important;
 }
 #hnmain > tbody:nth-child(1) > tr:nth-child(4) {
-  background-color: #282828 !important;
+  background-color: #efefef !important;
 }
 #hnmain > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) {
-  background-color: #fb4934 !important;
+  background-color: #f5871f !important;
 }
