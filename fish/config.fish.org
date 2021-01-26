@@ -7,16 +7,15 @@
 set -U fish_user_paths $fish_user_paths $HOME/.local/bin/
 set fish greeting
 set TERM "xterm-256color"
-set EDITOR "emacsclient -t -a ''"
+set EDITOR "nvim"
 set VISUAL "emacsclient -t -a emacs"
 #+END_SRC
 * Prompt
 #+BEGIN_SRC fish
-
 ##prompt##
 function fish_prompt
     set -l last_status $status
-    echo -n '['
+    echo -n '| '
 
     ##User
     set_color cyan
@@ -30,19 +29,19 @@ function fish_prompt
     set_color red
     echo -n (prompt_hostname)
     set_color normal
-    echo -n ':'
-
-    ##Git
-    printf '%s ' (__fish_git_prompt)
-    set_color normal
+    echo -n ': '
 
     ##Cartelle
     set_color yellow
     echo -n (prompt_pwd)
 
+    ##Git
+    printf '%s ' (__fish_git_prompt)
+    set_color normal
+
     ##$
     set_color normal
-    echo -n ']$ '
+    echo -n ' > '
     set_color normal
 end
 #+END_SRC
