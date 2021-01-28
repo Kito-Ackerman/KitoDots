@@ -1,5 +1,5 @@
 * {
-  border-color: #ddd !important;
+  border-color: #d8dee9 !important;
 }
 a {
   color: #89ddff !important;
@@ -8,37 +8,37 @@ a:visited {
   color: #f07178 !important;
 }
 body {
-  background-color: #292d3e !important;
-  color: #ddd !important;
+  background-color: #3b4252 !important;
+  color: #e5e9f0 !important;
 }
 html {
-  background-color: #292d3e !important;
+  background-color: #3b4252 !important;
 }
 input,
 textarea {
-  background-color: #292d3d !important;
-  color: #ddd !important;
+  background-color: #434c5e !important;
+  color: #e5e9f0 !important;
 }
 blockquote,
 pre {
-  background-color: #292d3d !important;
-  color: #ddd !important;
+  background-color: #434c5e !important;
+  color: #e5e9f0 !important;
 }
 code {
   font-size: 1.2em;
 }
 pre {
   box-shadow: none;
-  background-color: #303447 !important;
+  background-color: #495366 !important;
   font-size: 1.2em;
 }
 img {
   margin: 0.25em;
 }
 .buttons {
-  background-color: #292d3d !important;
-  box-shadow: 0 0 10px #ddd;
-  color: #ddd !important;
+  background-color: #434c5e !important;
+  box-shadow: 0 0 10px #e5e9f0;
+  color: #e5e9f0 !important;
   font-family: sans-serif;
   font-size: 1.5rem;
   position: fixed;
@@ -60,7 +60,7 @@ img {
   text-align: center;
 }
 #tabs {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
   float: left;
   margin: 0px 0px 20px 0px;
   padding: 0;
@@ -90,7 +90,7 @@ img {
   color: #c1d4ff !important;
 }
 #tabs li.ui-tabs-active a {
-  background-color: #303447 !important;
+  background-color: #495366 !important;
   color: #a1bfff !important;
 }
 #content {
@@ -100,7 +100,7 @@ img {
   text-align: right;
 }
 blockquote {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
   padding-left: 0.75em;
   padding-right: 0.75em;
   padding-top: 0.01em;
@@ -135,7 +135,7 @@ h5,
 h6 {
   font-family: sans-serif;
   border-bottom: 2px solid;
-  border-color: #303447 !important;
+  border-color: #495366 !important;
 }
 a:hover {
   text-decoration: underline;
@@ -145,12 +145,12 @@ a:hover {
   float: right;
 }
 .tag {
-  background-color: #292d3e !important;
-  color: #ddd !important;
+  background-color: #3b4252 !important;
+  color: #e5e9f0 !important;
   border: 0px;
 }
 .tag span {
-  background-color: #303447 !important;
+  background-color: #495366 !important;
   margin: 0.25em;
   padding: 0.25em;
 }
@@ -168,12 +168,12 @@ a:hover {
   text-decoration: underline;
 }
 #minitoc {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
   position: fixed;
   bottom: 5em;
   left: -5.5em;
   transform: rotate(90deg);
-  box-shadow: 0px 0px 10px #ddd;
+  box-shadow: 0px 0px 10px #e5e9f0;
   padding-top: 0.1em;
   padding-bottom: 0.1em;
   padding-left: 0.5em;

@@ -1,5 +1,5 @@
 * {
-  border-color: #ddd !important;
+  border-color: #d8dee9 !important;
 }
 a {
   color: #89ddff !important;
@@ -8,110 +8,110 @@ a:visited {
   color: #f07178 !important;
 }
 body {
-  background-color: #292d3e !important;
-  color: #ddd !important;
+  background-color: #3b4252 !important;
+  color: #e5e9f0 !important;
 }
 html {
-  background-color: #292d3e !important;
+  background-color: #3b4252 !important;
 }
 input,
 textarea {
-  background-color: #292d3d !important;
-  color: #ddd !important;
+  background-color: #434c5e !important;
+  color: #e5e9f0 !important;
 }
 blockquote,
 pre {
-  background-color: #292d3d !important;
-  color: #ddd !important;
+  background-color: #434c5e !important;
+  color: #e5e9f0 !important;
 }
 #sr-header-area {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
 }
 #sr-header-area .srdrop .selected {
-  color: #ddd !important;
+  color: #e5e9f0 !important;
 }
 #sr-header-area #sr-more-link {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
 }
 .link.promotedlink.promoted {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
 }
 .link .usertext .md {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
 }
 .linkinfo {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
 }
 .linklisting .odd {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
 }
 .thing .title {
-  color: #ddd !important;
+  color: #e5e9f0 !important;
 }
 div.md {
-  color: #ddd !important;
+  color: #e5e9f0 !important;
 }
 body.comment {
-  background-color: #292d3e !important;
+  background-color: #3b4252 !important;
 }
 .commentarea > .usertext {
-  background-color: #292d3e !important;
+  background-color: #3b4252 !important;
 }
 .commentarea .menuarea {
-  background-color: #292d3e !important;
+  background-color: #3b4252 !important;
 }
 .comments-page .panestack-title {
-  background-color: #292d3e !important;
+  background-color: #3b4252 !important;
 }
 .listing-chooser {
-  background-color: #292d3e !important;
+  background-color: #3b4252 !important;
 }
 .listing-chooser .intro {
-  background-color: #292d3e !important;
-  color: #ddd !important;
+  background-color: #4c566a !important;
+  color: #e5e9f0 !important;
 }
 .listing-chooser .grippy {
-  background-color: #292d3e !important;
+  background-color: #3b4252 !important;
 }
 .listing-chooser .grippy:after {
   border-right: none !important;
 }
 .listing-chooser li {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
 }
 .listing-chooser li.selected {
-  background-color: #292d3e !important;
+  background-color: #4c566a !important;
   box-shadow: none;
 }
 .listing-chooser li a {
-  color: #ddd !important;
+  color: #e5e9f0 !important;
 }
 .listing-chooser li a .description {
-  color: #ddd !important;
+  color: #e5e9f0 !important;
 }
 .titlebox {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
 }
 .titlebox form.toggle {
-  background-color: #292d3d !important;
-  color: #ddd !important;
+  background-color: #434c5e !important;
+  color: #e5e9f0 !important;
 }
 .side .usertext-body .md {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
 }
 .side {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
 }
 .sidebox .spacer {
-  background-color: #292d3d !important;
-  color: #ddd !important;
+  background-color: #434c5e !important;
+  color: #e5e9f0 !important;
 }
 .tabmenu li a {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
 }
 #header-bottom-right {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
 }
 .morelink .nub {
-  background-color: #292d3d !important;
+  background-color: #434c5e !important;
 }

@@ -1,5 +1,5 @@
 * {
-  border-color: #ddd !important;
+  border-color: #d8dee9 !important;
 }
 a {
   color: #89ddff !important;
@@ -8,24 +8,24 @@ a:visited {
   color: #f07178 !important;
 }
 body {
-  background-color: #292d3e !important;
-  color: #ddd !important;
+  background-color: #3b4252 !important;
+  color: #e5e9f0 !important;
 }
 html {
-  background-color: #292d3e !important;
+  background-color: #3b4252 !important;
 }
 input,
 textarea {
-  background-color: #292d3d !important;
-  color: #ddd !important;
+  background-color: #434c5e !important;
+  color: #e5e9f0 !important;
 }
 blockquote,
 pre {
-  background-color: #292d3d !important;
-  color: #ddd !important;
+  background-color: #434c5e !important;
+  color: #e5e9f0 !important;
 }
 * {
-  border-color: #ddd !important;
+  border-color: #d8dee9 !important;
 }
 a {
   color: #89ddff !important;
@@ -34,41 +34,41 @@ a:visited {
   color: #f07178 !important;
 }
 body {
-  background-color: #292d3e !important;
-  color: #ddd !important;
+  background-color: #3b4252 !important;
+  color: #e5e9f0 !important;
 }
 html {
-  background-color: #292d3e !important;
+  background-color: #3b4252 !important;
 }
 input,
 textarea {
-  background-color: #292d3d !important;
-  color: #ddd !important;
+  background-color: #434c5e !important;
+  color: #e5e9f0 !important;
 }
 tr:hover,
 blockquote,
 pre {
-  background-color: #292d3d !important;
-  color: #ddd !important;
+  background-color: #434c5e !important;
+  color: #e5e9f0 !important;
 }
 #toolMenu li {
-  background-color: #292d3e !important;
+  background-color: #3b4252 !important;
 }
 .navPanel,
 .navIntraTool {
-  background-color: #292d3e !important;
+  background-color: #3b4252 !important;
 }
 .instruction,
 .sakaiCopyrightInfo {
-  color: #ddd !important;
+  color: #e5e9f0 !important;
 }
 .listHier th {
-  background-color: #303447 !important;
+  background-color: #495366 !important;
 }
 ul.makeMenu {
-  background-color: #303447 !important;
-  border: 1px solid #303447 !important;
+  background-color: #495366 !important;
+  border: 1px solid #495366 !important;
 }
 tr.external {
-  background-color: #303447 !important;
+  background-color: #495366 !important;
 }

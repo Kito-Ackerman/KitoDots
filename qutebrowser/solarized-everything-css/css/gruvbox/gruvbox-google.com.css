@@ -1,34 +1,34 @@
 * {
-  border-color: #fff !important;
+  border-color: #fabd2f !important;
 }
 a {
-  color: #4271ae !important;
+  color: #458588 !important;
 }
 a:visited {
-  color: #8959a8 !important;
+  color: #d3869b !important;
 }
 body {
-  background-color: #efefef !important;
-  color: #3e999f !important;
+  background-color: #282828 !important;
+  color: #83a598 !important;
 }
 html {
-  background-color: #efefef !important;
+  background-color: #282828 !important;
 }
 input,
 textarea {
-  background-color: #fff !important;
-  color: #3e999f !important;
+  background-color: #3c3836 !important;
+  color: #83a598 !important;
 }
 blockquote,
 pre {
-  background-color: #fff !important;
-  color: #3e999f !important;
+  background-color: #3c3836 !important;
+  color: #83a598 !important;
 }
 .sfbgg {
-  background-color: #fff !important;
+  background-color: #3c3836 !important;
 }
 .sbib_a {
-  background: linear-gradient(to bottom, #fff, #efefef) !important;
+  background: linear-gradient(to bottom, #3c3836, #282828) !important;
 }
 input#lst-ib,
 #sb_ifc0.sbib_b,
@@ -37,38 +37,38 @@ input#lst-ib,
 }
 #lst-ib,
 .sbsb_a {
-  background-color: #efefef !important;
+  background-color: #282828 !important;
 }
 .kpbb {
-  background-image: linear-gradient(to bottom, #6c94c7, #4271ae) !important;
+  background-image: linear-gradient(to bottom, #67afb2, #458588) !important;
 }
 #hdtbSum {
-  background-color: #efefef !important;
+  background-color: #282828 !important;
 }
 #hdtbMenus.hdtb-td-o {
-  background-color: #efefef !important;
+  background-color: #282828 !important;
 }
 #hdtb-tls.hdtb-tl {
-  background-image: linear-gradient(to bottom, #efefef, #fff) !important;
+  background-image: linear-gradient(to bottom, #282828, #3c3836) !important;
 }
 #hdtb-tls.hdtb-tl.hdtb-tl-sel {
-  background-image: linear-gradient(to bottom, #fff, #efefef) !important;
+  background-image: linear-gradient(to bottom, #3c3836, #282828) !important;
 }
 #abar_button_opt.ab_button {
-  background: linear-gradient(to bottom, #efefef, #fff) !important;
+  background: linear-gradient(to bottom, #282828, #3c3836) !important;
 }
 #appbar {
-  background-color: #efefef !important;
+  background-color: #282828 !important;
 }
 cite {
-  color: #718c00 !important;
+  color: #98971a !important;
 }
 .ab_dropdown {
-  background-color: #efefef !important;
+  background-color: #282828 !important;
 }
 div.crp {
-  background-color: #efefef !important;
+  background-color: #282828 !important;
 }
 #fbar {
-  background-color: #fff !important;
+  background-color: #3c3836 !important;
 }

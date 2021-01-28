@@ -7,8 +7,8 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=t
                            , "xft:Mononoki Nerd Font:pixelsize=16:antialias=true:hinting=true"
                            , "xft:FontAwesome:pixelsize=13"
                            ]
-       , bgColor = "#292d3e"
-       , fgColor = "#89ddff"
+       , bgColor = "#2e3440"
+       , fgColor = "#D8DEE9"
        , position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 }
        , lowerOnStart = True
        , hideOnStart = False

@@ -14,8 +14,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "Tema
-Plug 'rakr/vim-one'
-Plug 'drewtempelmeyer/palenight.vim'
+Plug 'arcticicestudio/nord-vim'
 "utiliti varie
 Plug 'tpope/vim-sensible'
 
@@ -51,10 +50,8 @@ endif
 if (has("termguicolors"))
   set termguicolors
 endif
-"colorscheme one
-"set background=light
-colorscheme palenight
-let g:palent_terminal_italics=1
+
+colorscheme nord
 set number norelativenumber
 "ricerca con evidenziatore
 endif

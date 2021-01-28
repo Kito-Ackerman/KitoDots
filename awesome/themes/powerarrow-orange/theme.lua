@@ -18,18 +18,18 @@ theme.dir                                       = os.getenv("HOME") .. "/.config
 --theme.wallpaper                                 = theme.dir .. "/starwars.jpg"
 theme.font                                      = "Mononoki Nerd Font 9"
 theme.taglist_font                              = "Mononoki Nerd Font Bold 7"
-theme.fg_normal                                 = "#ffffff"
+theme.fg_normal                                 = "#ECEFF4"
 theme.fg_focus                                  = --[["#FDA55C"[[]] "#89ddff"
 theme.fg_urgent                                 = "#b74822"
-theme.bg_normal                                 = "#282a36"
+theme.bg_normal                                 = "#2e3440"
 theme.bg_focus                                  = "#FDA55C"
 theme.bg_urgent                                 = "#3F3F3F"
 theme.taglist_fg_focus                          = "#282a36"
 theme.tasklist_bg_focus                         = "#89ddff"
 theme.tasklist_fg_focus                         = --[["#FDA55C"]] "#89ddff"
 theme.border_width                              = 2
-theme.border_normal                             = "#282a36"
-theme.border_focus                              = "#F07178"
+theme.border_normal                             = "#82aaff"
+theme.border_focus                              = "#82ddff"
 theme.border_marked                             = "#CC9393"
 theme.titlebar_bg_focus                         = "#3F3F3F"
 theme.titlebar_bg_normal                        = "#3F3F3F"
@@ -264,7 +264,7 @@ theme.fs = lain.widget.fs({
 --]]
 local rofi_button = awful.widget.button({ image = theme.widget_rofi })
 rofi_button:buttons(awful.util.table.join(
-  awful.button({ }, 1, function () awful.util.spawn("rofi -show drun") end)
+  awful.button({ }, 1, function () awful.util.spawn("dmenu_run -c -i -l 10 -p ' Run :' ") end)
 ))
 -- Battery
 local baticon = wibox.widget.imagebox(theme.widget_battery)
