@@ -138,10 +138,10 @@ myBorderWidth :: Dimension
 myBorderWidth = 2          -- Sets border width for windows
 
 myNormColor :: String
-myNormColor   = "#282c34"  -- Border color of normal windows
+myNormColor   = "#82aaff"  -- Border color of normal windows
 
 myFocusColor :: String
-myFocusColor  = "#46d9ff"  -- Border color of focused windows
+myFocusColor  = "#82ddff"  -- Border color of focused windows
 
 altMask :: KeyMask
 altMask = mod1Mask         -- Setting this for use in xprompts
@@ -530,7 +530,7 @@ myTabTheme = def { fontName            = myFont
                  , activeBorderColor   = "#46d9ff"
                  , inactiveBorderColor = "#282c34"
                  , activeTextColor     = "#282c34"
-                 , inactiveTextColor   = "#d0d0d0"
+                 , inactiveTextColor   = "#ECEFF4"
                  }
 
 
@@ -771,7 +771,7 @@ main = do
                         , ppHidden = xmobarColor "#82aaff" "" . wrap "*" ""   -- Hidden workspaces in xmobar
                         , ppHiddenNoWindows = xmobarColor "#89ddff" ""        -- Hidden workspaces (no windows)
                         , ppTitle = xmobarColor "#b3afc2" "" . shorten 60     -- Title of active window in xmobar
-                        , ppSep =  "<fc=#d0d0d0> <fn=2>|</fn> </fc>"          -- Separators in xmobar
+                        , ppSep =  "<fc=#D8DEE9> <fn=2>|</fn> </fc>"          -- Separators in xmobar
                         , ppUrgent = xmobarColor "#f07178" "" . wrap "!" "!"  -- Urgent workspace
                         , ppExtras  = [windowCount]                           -- # of windows current workspace
                         , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
