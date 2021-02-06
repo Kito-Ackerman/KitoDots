@@ -227,6 +227,7 @@ treeselectAction a = TS.treeselectAction a
            [ Node (TS.TSNode "Emacs Client" "Doom Emacs launched as client" (spawn "emacsclient -c -a emacs")) []
            , Node (TS.TSNode "M-x dired" "File manager for Emacs" (spawn "emacsclient -c -a '' --eval '(dired nil)'")) []
            , Node (TS.TSNode "M-x eshell" "The Eshell in Emacs" (spawn "emacsclient -c -a '' --eval '(eshell)'")) []
+           , Node (TS.TSNode "M-x elfeed" "RSS reader in Emacs" (spawn "emacsclient -c -a '' --eval '(elfeed)'")) []
            , Node (TS.TSNode "M-x ibuffer" "Emacs buffer list" (spawn "emacsclient -c -a '' --eval '(ibuffer)'")) []
            , Node (TS.TSNode "M-x vterm" "Emacs Terminal" (spawn "emacsclient -c -a '' --eval '(+vterm/here nil))'")) []
            ]
@@ -705,6 +706,7 @@ myKeys =
         , ("M-e b", spawn "emacsclient -c -a 'emacs' --eval '(ibuffer)'")         -- list emacs buffers
         , ("M-e d", spawn "emacsclient -c -a 'emacs' --eval '(dired nil)'")       -- dired emacs file manager
         , ("M-e s", spawn "emacsclient -c -a 'emacs' --eval '(eshell)'")          -- eshell within emacs
+        , ("M-e f", spawn "emacsclient -c -a 'emacs' --eval '(elfeed)'")          -- emacs feed reader
         , ("M-e v", spawn "emacsclient -c -a 'emacs' --eval '(+vterm/here nil)'") -- vterm within emacs
         -- emms is an emacs audio player. I set it to auto start playing in a specific directory.
 

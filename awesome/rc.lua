@@ -163,6 +163,7 @@ beautiful.init(string.format(gears.filesystem.get_configuration_dir() .. "/theme
 
 beautiful.useless_gap = 10
 
+-- awesome menus
 local myawesomemenu = {
     { "hotkeys", function() return false, hotkeys_popup.show_help end },
     { "manual", terminal .. " -e 'man awesome'" },
@@ -262,6 +263,8 @@ globalkeys = my_table.join(
         {description = "emacs file manager ", group = "gui apps"}),
     awful.key({ modkey, altkey }, "s",function () awful.util.spawn("emacsclient -c -a '' --eval '(eshell)'") end,
         {description = "emacs eshell", group = "gui apps"}),
+    awful.key({ modkey, altkey }, "f",function () awful.util.spawn("emacsclient -c -a '' --eval '(elfeed)'") end,
+        {description = "emacs feed reader", group = "gui apps"}),
      -- screenshots
      awful.key({modkey},"Print", function() awful.util.spawn("gnome-screenshot -i") end,
         {description = "Gnome screenshot", group = "screenshots"}),
@@ -816,7 +819,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn.with_shell("kdeconnect-cli")
 awful.spawn.with_shell("/usr/bin/emacs --daemon &")
 awful.spawn.with_shell("picom --experimental-backends --config  $HOME/.config/picom/picom.conf")
-awful.spawn.with_shell("nm-applet")
-awful.spawn.with_shell("volumeicon")
+awful.spawn.with_shell("nm-applet &")
+awful.spawn.with_shell("volumeicon &")
 awful.spawn.with_shell("feh --bg-scale ~/Immagini/sfondo_Blackarch.png")
 awful.spawn.with_shell("dunst &")
+awful.spawn.with_shell("LG3D")

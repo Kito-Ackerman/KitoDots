@@ -58,6 +58,7 @@ alias df="df -ahiT --total"
 alias ls="ls -CF --color=auto"
 alias ll="ls -lisa --color=auto"
 alias lsl="ls -lhFA | less"
+alias cat="bat"
 
 ###Cd
 alias D="cd /mnt/103C02053C01E696"

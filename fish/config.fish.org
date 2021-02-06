@@ -68,6 +68,7 @@ alias df="df -ahiT --total"
 alias ls="ls -CF --color=auto"
 alias ll="ls -lisa --color=auto"
 alias lsl="ls -lhFA | less"
+alias cat="bat"
 #+END_SRC
 ** cd
 #+BEGIN_SRC fish

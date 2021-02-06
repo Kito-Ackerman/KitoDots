@@ -101,10 +101,10 @@ myBorderWidth :: Dimension
 myBorderWidth = 2          -- Sets border width for windows
 
 myNormColor :: String
-myNormColor   = "#282c34"  -- Border color of normal windows
+myNormColor   = "#82aaff"  -- Border color of normal windows
 
 myFocusColor :: String
-myFocusColor  = "#46d9ff"  -- Border color of focused windows
+myFocusColor  = "#82ddff"  -- Border color of focused windows
 
 altMask :: KeyMask
 altMask = mod1Mask         -- Setting this for use in xprompts
@@ -169,6 +169,7 @@ treeselectAction a = TS.treeselectAction a
            [ Node (TS.TSNode "Emacs Client" "Doom Emacs launched as client" (spawn "emacsclient -c -a emacs")) []
            , Node (TS.TSNode "M-x dired" "File manager for Emacs" (spawn "emacsclient -c -a '' --eval '(dired nil)'")) []
            , Node (TS.TSNode "M-x eshell" "The Eshell in Emacs" (spawn "emacsclient -c -a '' --eval '(eshell)'")) []
+           , Node (TS.TSNode "M-x elfeed" "RSS reader in Emacs" (spawn "emacsclient -c -a '' --eval '(elfeed)'")) []
            , Node (TS.TSNode "M-x ibuffer" "Emacs buffer list" (spawn "emacsclient -c -a '' --eval '(ibuffer)'")) []
            , Node (TS.TSNode "M-x vterm" "Emacs Terminal" (spawn "emacsclient -c -a '' --eval '(+vterm/here nil))'")) []
            ]
@@ -448,7 +449,7 @@ myTabTheme = def { fontName            = myFont
                  , activeBorderColor   = "#46d9ff"
                  , inactiveBorderColor = "#282c34"
                  , activeTextColor     = "#282c34"
-                 , inactiveTextColor   = "#d0d0d0"
+                 , inactiveTextColor   = "#ECEFF4"
                  }
 
 
@@ -595,6 +596,7 @@ myKeys =
         , ("M-e b", spawn "emacsclient -c -a 'emacs' --eval '(ibuffer)'")         -- list emacs buffers
         , ("M-e d", spawn "emacsclient -c -a 'emacs' --eval '(dired nil)'")       -- dired emacs file manager
         , ("M-e s", spawn "emacsclient -c -a 'emacs' --eval '(eshell)'")          -- eshell within emacs
+        , ("M-e f", spawn "emacsclient -c -a 'emacs' --eval '(elfeed)'")          -- emacs feed reader
         , ("M-e v", spawn "emacsclient -c -a 'emacs' --eval '(+vterm/here nil)'") -- vterm within emacs
         -- emms is an emacs audio player. I set it to auto start playing in a specific directory.
 
@@ -646,7 +648,7 @@ main = do
                         , ppHidden = xmobarColor "#82aaff" "" . wrap "*" ""   -- Hidden workspaces in xmobar
                         , ppHiddenNoWindows = xmobarColor "#89ddff" ""        -- Hidden workspaces (no windows)
                         , ppTitle = xmobarColor "#b3afc2" "" . shorten 60     -- Title of active window in xmobar
-                        , ppSep =  "<fc=#d0d0d0> <fn=2>|</fn> </fc>"          -- Separators in xmobar
+                        , ppSep =  "<fc=#D8DEE9> <fn=2>|</fn> </fc>"          -- Separators in xmobar
                         , ppUrgent = xmobarColor "#f07178" "" . wrap "!" "!"  -- Urgent workspace
                         , ppExtras  = [windowCount]                           -- # of windows current workspace
                         , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
