@@ -620,7 +620,7 @@ myKeys =
         , ("M-p c", spawn "exec /home/kito/.dmenu/dmenu-edit-config.sh")           -- Edit configs
         , ("M-p q", spawn "exec /home/kito/.dmenu/dmenu-qute.sh")                  -- Qutebrowser
         , ("M-p s", spawn "exec /home/kito/.dmenu/dmenu-scrot.sh")                 -- scrot
-        , ("M-S-<Return>", spawn "dmenu_run -i -p ' Run :'")                                      -- Shell Prompt
+        , ("M-S-<Return>", spawn "dmenu_run -nf '#999' -nb '#292d3e' -sf '#eee' -sb '#0077bb' -p ' Run :'")                                      -- Shell Prompt
 
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal))

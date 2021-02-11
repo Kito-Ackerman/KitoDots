@@ -1,0 +1,5 @@
+#!/bin/bash
+
+url=$(echo -e "$(cat ~/.config/qutebrowser/quickmarks)" | awk '{print $2}'| dmenu -nf '#999' -nb '#292d3e' -sf '#eee' -sb '#0077bb' -l 10 -p ' Search :' )
+
+qutebrowser ":open $url"
