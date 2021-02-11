@@ -4,6 +4,7 @@
 
 
 * Table Of Contents :toc:
+- [[#about-this-config][about this config]]
 - [[#imports][imports]]
 - [[#error-message-in-rclua][error message in rc.lua]]
 - [[#run_oncecmd_arr-function][run_once(cmd_arr) function]]
@@ -28,6 +29,12 @@
 - [[#titlebar][titlebar]]
 - [[#border-for-maximazed-windows][border for maximazed windows]]
 - [[#startup-apps][startup apps]]
+
+* about this config
+This is a screenshot of my config. AwesomeWM is a dinamic tiling window manager ex-branch of dwm but rewritten in lua script language
+
+#+CAPTION: AwesomeWM Scrot
+#+ATTR_HTML: :alt XMonad Scrot :title AwesomeWM Scrot :align left [[https://github.com/atem-karma/KitoDots/blob/master/image/awesome.png?raw=true]]
 
 * imports
 modules for make awesome working

@@ -25,6 +25,8 @@
 #+ATTR_HTML: :alt XMonad Scrot :title XMonad Scrot :align left
 Xmonad is a dynamically tiling X11 window manager that is written and configured in Haskell.
 - XMonad Official Website: [[https://xmonad.org][https://xmonad.org]]
+#+CAPTION: XMonad Scrot
+#+ATTR_HTML: :alt XMonad Scrot :title XMonad Scrot :align left [[https://github.com/atem-karma/KitoDots/blob/master/image/xmonad.png?raw=true]]
 * Imports
 These are Haskell modules that we must import so that we can use their functions later in the config.
 
@@ -646,11 +648,6 @@ myKeys =
         , ("M-S-d", decScreenSpacing 4)         -- Decrease screen spacing
         , ("M-S-i", incScreenSpacing 4)         -- Increase screen spacing
 
-    -- Grid Select (CTR-g followed by a key)
-        -- , ("C-g g", spawnSelected' myAppGrid)                 -- grid select favorite apps
-        -- , ("C-g t", goToSelected $ mygridConfig myColorizer)  -- goto selected window
-        -- , ("C-g b", bringSelected $ mygridConfig myColorizer) -- bring selected window
-
     -- Tree Select
         , ("C-t t", treeselectAction tsDefaultConfig)
 
@@ -728,14 +725,6 @@ myKeys =
 
 #+END_SRC
 
-#+RESULTS:
-: <interactive>:126:64-70: error:
-:     Not in scope: ‘W.stack’
-:     No module named ‘W’ is imported.
-: 
-: <interactive>:126:79-83: error:
-:     Not in scope: ‘W.tag’
-:     No module named ‘W’ is imported.
 
 * Main
 This is the "main" of XMonad. This where everything in our configs comes together and works.
