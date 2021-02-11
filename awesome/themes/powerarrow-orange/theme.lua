@@ -264,7 +264,7 @@ theme.fs = lain.widget.fs({
 --]]
 local rofi_button = awful.widget.button({ image = theme.widget_rofi })
 rofi_button:buttons(awful.util.table.join(
-  awful.button({ }, 1, function () awful.util.spawn("dmenu_run -c -i -l 10 -p ' Run :' ") end)
+  awful.button({ }, 1, function () awful.util.spawn("dmenu_run -nf '#999' -nb '#292d3e' -sf '#eee' -sb '#0077bb' -c -i -l 10 -p ' Run :' ") end)
 ))
 -- Battery
 local baticon = wibox.widget.imagebox(theme.widget_battery)
