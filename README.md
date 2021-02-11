@@ -1,2 +1,4 @@
 # KitoDots
-Dotfiles for xmonad and awesome inspired bi DistroTube
+Dotfiles for xmonad ,awesome and openbox
+
+look at master this branch is bugged
