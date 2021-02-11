@@ -435,7 +435,7 @@
     </keybind>
     <keybind key="W-Shift-Return">
       <action name="Execute">
-        <command>dmenu_run -c -l 10 -p ' Run :'</command>
+        <command>dmenu_run -nf '#999' -nb '#292d3e' -sf '#eee' -sb '#0077bb' -c -l 10 -p ' Run :'</command>
       </action>
     </keybind>
     <keybind key="W-x">
