@@ -1,15 +1,12 @@
-## Restore Wallpaper
-#exec ~/.fehbg`
-
 ## lxapparence
 lxapparence&
-
+## feh
+feh --bg-scale $HOME/Immagini/sfondo_Blackarch.png
 ## Start Compositing Manager
 picom --experimental-backends &
-## Launch Polybar
-sh ~/.config/polybar/launch.sh
 
-
+##polybar
+sh /home/kito/.config/polybar/launch.sh
 ## Notification Daemon
 exec dunst &
 
@@ -17,8 +14,6 @@ exec dunst &
 ksuperkey -e 'Super_L=Alt_L|F1' &
 ksuperkey -e 'Super_R=Alt_L|F1' &
 
-## Enable power management
-xfce4-power-manager &
 
 ## Adjust backlight (AMD)
 #blight -d amdgpu_bl0 set 20%

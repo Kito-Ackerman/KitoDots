@@ -19,7 +19,7 @@
     <primaryMonitor>Mouse</primaryMonitor>
   </placement>
   <theme>
-    <name>manhattan</name>
+    <name>dark</name>
     <titleLayout>DSLIMC</titleLayout>
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
@@ -61,17 +61,17 @@
     </font>
   </theme>
   <desktops>
-    <number>9</number>
+    <number>6</number>
     <firstdesk>0</firstdesk>
     <names>
-      <name>DEV</name>
-      <name>WWW</name>
-      <name>CHAT</name>
-      <name>SYS</name>
-      <name>DOC</name>
-      <name>GLX</name>
-      <name>RANDOM</name>
-      <name>VBOX</name>
+      <name>&#xF111;</name>
+      <name>&#xF111;</name>
+      <name>&#xF111;</name>
+      <name>&#xF111;</name>
+      <name>&#xF111;</name>
+      <name>&#xF111;</name>
+      <name>&#xF111;</name>
+      <name>&#xF111;</name>
       <name>VBOXC</name>
     </names>
     <popupTime>0</popupTime>
@@ -176,6 +176,18 @@
     <keybind key="S-W-5">
       <action name="SendToDesktop">
         <desktop>5</desktop>
+      </action>
+    </keybind>
+    <keybind key="C-A-Left">
+      <action name="GoToDesktop">
+        <to>left</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="C-A-Right">
+      <action name="GoToDesktop">
+        <to>right</to>
+        <wrap>no</wrap>
       </action>
     </keybind>
     <!-- Switch b/w Applications -->
@@ -315,22 +327,22 @@
       </action>
     </keybind>
     <!-- Resize -->
-    <keybind key="C-A-Right">
+    <keybind key="W-C-Right">
       <action name="ResizeRelative">
         <right>20</right>
       </action>
     </keybind>
-    <keybind key="C-A-Left">
+    <keybind key="W-C-Left">
       <action name="ResizeRelative">
         <right>-20</right>
       </action>
     </keybind>
-    <keybind key="C-A-Down">
+    <keybind key="W-C-Down">
       <action name="ResizeRelative">
         <bottom>20</bottom>
       </action>
     </keybind>
-    <keybind key="C-A-Up">
+    <keybind key="W-C-Up">
       <action name="ResizeRelative">
         <bottom>-20</bottom>
       </action>
@@ -413,7 +425,7 @@
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>termite</command>
+        <command>alacritty</command>
       </action>
     </keybind>
     <keybind key="W-n">
@@ -423,32 +435,12 @@
     </keybind>
     <keybind key="W-Shift-Return">
       <action name="Execute">
-        <command>rofi -show run --theme kito-dmenu</command>
+        <command>dmenu_run -c -l 10 -p ' Run :'</command>
       </action>
     </keybind>
     <keybind key="W-x">
       <action name="Execute">
-        <command>~/.config/rofi/bin/powermenu</command>
-      </action>
-    </keybind>
-    <keybind key="W-S-s">
-      <action name="Execute">
-        <command>~/.config/rofi/bin/screenshot</command>
-      </action>
-    </keybind>
-    <keybind key="W-i">
-      <action name="Execute">
-        <command>~/.config/rofi/bin/network</command>
-      </action>
-    </keybind>
-    <keybind key="W-p">
-      <action name="Execute">
-        <command>color_picker</command>
-      </action>
-    </keybind>
-    <keybind key="W-v">
-      <action name="Execute">
-        <command>tasks</command>
+        <command>~/.dmenu/powermenu-dmenu.sh</command>
       </action>
     </keybind>
     <keybind key="W-A-e">
@@ -458,7 +450,7 @@
     </keybind>
     <keybind key="A-d">
       <action name="Dired">
-        <command>emacs--eval '(dired nil)'</command>
+        <command>emacs --eval '(dired nil)'</command>
       </action>
     </keybind>
     <keybind key="W-f">
@@ -466,7 +458,7 @@
         <command>PCManFM</command>
       </action>
     </keybind>
-    <keybind key="W-w">
+    <keybind key="W-b">
       <action name="qutebrowser">
         <command>qutebrowser</command>
       </action>
@@ -919,12 +911,10 @@
 	  <focus>yes</focus>
 	</application> -->
     <!--
-
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
   # you may use one or more of the name/class/role/title/type rules to specify
   # windows to match
-
   <application name="the window's _OB_APP_NAME property (see obxprop)"
               class="the window's _OB_APP_CLASS property (see obxprop)"
           groupname="the window's _OB_APP_GROUP_NAME property (see obxprop)"
@@ -935,27 +925,19 @@
                       (if unspecified, then it is 'dialog' for child windows)">
   # you may set only one of name/class/role/title/type, or you may use more
   # than one together to restrict your matches.
-
   # the name, class, role, and title use simple wildcard matching such as those
   # used by a shell. you can use * to match any characters and ? to match
   # any single character.
-
   # the type is one of: normal, dialog, splash, utility, menu, toolbar, dock,
   #    or desktop
-
   # when multiple rules match a window, they will all be applied, in the
   # order that they appear in this list
-
-
     # each rule element can be left out or set to 'default' to specify to not 
     # change that attribute of the window
-
     <decor>yes</decor>
     # enable or disable window decorations
-
     <shade>no</shade>
     # make the window shaded when it appears, or not
-
     <position force="no">
       # the position is only used if both an x and y coordinate are provided
       # (and not set to 'default')
@@ -972,7 +954,6 @@
       # specifies the monitor in a xinerama setup.
       # 1 is the first head, or 'mouse' for wherever the mouse is
     </position>
-
     <size>
       # the size to make the window.
       <width>20</width>
@@ -982,35 +963,26 @@
       # appears on.
       <height>30%</height>
     </size>
-
     <focus>yes</focus>
     # if the window should try be given focus when it appears. if this is set
     # to yes it doesn't guarantee the window will be given focus. some
     # restrictions may apply, but Openbox will try to
-
     <desktop>1</desktop>
     # 1 is the first desktop, 'all' for all desktops
-
     <layer>normal</layer>
     # 'above', 'normal', or 'below'
-
     <iconic>no</iconic>
     # make the window iconified when it appears, or not
-
     <skip_pager>no</skip_pager>
     # asks to not be shown in pagers
-
     <skip_taskbar>no</skip_taskbar>
     # asks to not be shown in taskbars. window cycling actions will also
     # skip past such windows
-
     <fullscreen>yes</fullscreen>
     # make the window in fullscreen mode when it appears
-
     <maximized>true</maximized>
     # 'Horizontal', 'Vertical' or boolean (yes/no)
   </application>
-
   # end of the example
 -->
   </applications>

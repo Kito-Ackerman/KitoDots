@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 # Launch the bar
-STYLE="forest"
+Killall -q polybar
 
-bash "$HOME"/.config/polybar/"$STYLE"/launch.sh
+polybar example &

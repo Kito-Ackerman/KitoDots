@@ -1,212 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/  file:///usr/share/openbox/menu.xsd">
-  <menu id="root-menu" title="Menu" label="Openbox 3">
-<!--	<separator label="Main Menu"/>  -->
-		<item label="Terminal Emulator">
-			<action name="Execute">
-				<command>termite</command>
-			</action>
-		</item>
-		<item label="Web Browser">
-			<action name="Execute">
-				<command>qutebrowser</command>
-			</action>
-		</item>
-		<item label="File Manager">
-			<action name="Execute">
-				<command>pcmanfm</command>
-			</action>
-		</item>
-		<item label="Text Editor">
-			<action name="Execute">
-				<command>emacs</command>
-			</action>
-		</item>
-		<separator/>
-		<menu execute="obmenu-generator" id="app-menu" label="Applications"/>
-		<menu id="root-menu-8397" label="Apps As Root">
-			<item label="Terminal (termite)">
-				<action name="Execute">
-					<execute>apps_as_root.sh termite</execute>
-				</action>
-			</item>
-			<item label="File Manager (pcmanfm)">
-				<action name="Execute">
-					<execute>apps_as_root.sh 'dbus-run-session pcmanfm'</execute>
-				</action>
-			</item>
-			<item label="Text Editor (geany)">
-				<action name="Execute">
-					<execute>apps_as_root.sh emacs</execute>
-				</action>
-			</item>
-			<item label="Text Editor Alt (leafpad)">
-				<action name="Execute">
-					<execute>apps_as_root.sh leafpad</execute>
-				</action>
-			</item>
-			<item label="Text Editor CLI (vim)">
-				<action name="Execute">
-					<execute>apps_as_root.sh 'termite -e nvim'</execute>
-				</action>
-			</item>
-		</menu>
-
-		<menu id="root-menu-srct" label="Shortcuts">
-			<item label="Color Chooser">
-				<action name="Execute">
-					<execute>color_picker</execute>
-				</action>
-			</item>
-			<item label="Stick Notes">
-				<action name="Execute">
-					<execute>tasks</execute>
-				</action>
-			</item>
-			<item label="Music Player">
-				<action name="Execute">
-					<execute>deadbeef</execute>
-				</action>
-			</item>
-			<item label="Visualizer">
-				<action name="Execute">
-					<execute>termite -e 'cava'</execute>
-				</action>
-			</item>
-		</menu>
-
-		<menu id="root-menu-8399" label="Quick Links">
-			<item label="DuckDuckGo">
-				<action name="Execute">
-					<execute>qutebrowser https://start.duckduckgo.com/</execute>
-				</action>
-			</item>
-			<item label="Google">
-				<action name="Execute">
-					<execute>qutebrowser https://www.google.com</execute>
-				</action>
-			</item>
-			<item label="Facebook">
-				<action name="Execute">
-					<execute>qutebrowser https://www.facebook.com</execute>
-				</action>
-			</item>
-			<item label="Twitter">
-				<action name="Execute">
-					<execute>qutebrowser https://www.twitter.com</execute>
-				</action>
-			</item>
-			<item label="GitHub">
-				<action name="Execute">
-					<execute>qutebrowser https://www.github.com</execute>
-				</action>
-			</item>
-			<item label="Reddit">
-				<action name="Execute">
-					<execute>qutebrowser https://www.reddit.com</execute>
-				</action>
-			</item>
-			<item label="Gmail">
-				<action name="Execute">
-					<execute>qutebrowser https://mail.google.com</execute>
-				</action>
-			</item>
-			<item label="Youtube">
-				<action name="Execute">
-					<execute>qutebrowser https://www.youtube.com</execute>
-				</action>
-			</item>
-			<separator/>
-			<item label="Private">
-				<action name="Execute">
-					<execute>qutebrowser -p</execute>
-				</action>
-			</item>
-		</menu>
-		<menu id="root-menu-8365" label="Screenshot">
-			<item label="Screenshot Now">
-				<action name="Execute">
-					<execute>shotnow</execute>
-				</action>
-			</item>
-			<item label="Screenshot In 5s">
-				<action name="Execute">
-					<execute>shotin5</execute>
-				</action>
-			</item>
-			<item label="Screenshot In 10s">
-				<action name="Execute">
-					<execute>shotin10</execute>
-				</action>
-			</item>
-			<item label="Screenshot Area">
-				<action name="Execute">
-					<execute>shotArea</execute>
-				</action>
-			</item>
-			<item label="Screenshot Window">
-				<action name="Execute">
-					<execute>shotWindow</execute>
-				</action>
-			</item>
-		</menu>
-		<separator/>
-		<menu id="obConfig" label="Openbox">
-			<item label="Settings">
-				<action name="Execute">
-					<command>obconf</command>
-				</action>
-			</item>
-			<separator/>
-			<item label="Edit menu.xml">
-				<action name="Execute">
-					<command>exo-open ~/.config/openbox/menu.xml</command>
-				</action>
-			</item>
-			<item label="Edit rc.xml">
-				<action name="Execute">
-					<command>exo-open ~/.config/openbox/rc.xml</command>
-				</action>
-			</item>
-			<item label="Edit autostart">
-				<action name="Execute">
-					<command>exo-open ~/.config/openbox/autostart</command>
-				</action>
-			</item>
-			<separator/>
-			<item label="Openbox Reconfigure">
-				<action name="Reconfigure"/>
-			</item>
-			<item label="Openbox Restart">
-				<action name="Restart"/>
-			</item>
-		</menu>
-		<menu execute="ob-places-pipemenu --recent ~/" id="pipe-placesmenu" label="Places"/>
-		<menu execute="ob-kb-pipemenu" id="keybinds" label="Keybinds"/>
-		<separator/>
-		<menu id="obExit" label="System">
-				<item label="Logout">
-					<action name="Execute">
-						<command>ob_powermenu --logout</command>
-					</action>
-				</item>
-				<item label="Suspend">
-					<action name="Execute">
-						<command>ob_powermenu --suspent</command>
-					</action>
-				</item>
-				<item label="Reboot">
-					<action name="Execute">
-						<command>ob_powermenu --reboot</command>
-					</action>
-				</item>
-				<item label="Shutdown">
-					<action name="Execute">
-						<command>ob_powermenu --shutdown</command>
-					</action>
-				</item>
-		</menu>
-	</menu>
+<openbox_menu xmlns="http://openbox.org/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://openbox.org/">
+  <menu id="root-menu" label="Applications">
+    <item label="File Manager"><action name="Execute"><command><![CDATA[xdg-open .]]></command></action></item>
+    <item label="Terminal"><action name="Execute"><command><![CDATA[xterm]]></command></action></item>
+    <item label="Web Browser"><action name="Execute"><command><![CDATA[xdg-open http://]]></command></action></item>
+    <item label="Run command"><action name="Execute"><command><![CDATA[gmrun]]></command></action></item>
+  <separator label="Categories"/>
+  <menu id="0.932994501971738" label="Accessories">
+    <item label="About Xfce"><action name="Execute"><command><![CDATA[xfce4-about]]></command></action></item>
+    <item label="balenaEtcher"><action name="Execute"><command><![CDATA[/opt/balenaEtcher/balena-etcher-electron]]></command></action></item>
+    <item label="compton"><action name="Execute"><command><![CDATA[compton]]></command></action></item>
+    <item label="Disks"><action name="Execute"><command><![CDATA[gnome-disks]]></command></action></item>
+    <item label="File Manager PCManFM"><action name="Execute"><command><![CDATA[pcmanfm]]></command></action></item>
+    <item label="Gxmessage"><action name="Execute"><command><![CDATA[gxmessage]]></command></action></item>
+    <item label="LightDM GTK+ Greeter settings"><action name="Execute"><command><![CDATA[lightdm-gtk-greeter-settings-pkexec]]></command></action></item>
+    <item label="Neovim"><action name="Execute"><command><![CDATA[xterm -e 'nvim']]></command></action></item>
+    <item label="picom"><action name="Execute"><command><![CDATA[picom]]></command></action></item>
+    <item label="Qalculate!"><action name="Execute"><command><![CDATA[qalculate-gtk]]></command></action></item>
+    <item label="Stacer"><action name="Execute"><command><![CDATA[stacer]]></command></action></item>
+    <item label="Vim"><action name="Execute"><command><![CDATA[xterm -e 'vim']]></command></action></item>
+  </menu>
+  <menu id="0.306636507247703" label="Development">
+    <item label="CMake"><action name="Execute"><command><![CDATA[cmake-gui]]></command></action></item>
+    <item label="Emacs"><action name="Execute"><command><![CDATA[emacs]]></command></action></item>
+    <item label="Fluid Demo"><action name="Execute"><command><![CDATA[fluid-demo]]></command></action></item>
+    <item label="GdaBrowser"><action name="Execute"><command><![CDATA[gda-browser-5.0]]></command></action></item>
+    <item label="Qt Assistant"><action name="Execute"><command><![CDATA[assistant]]></command></action></item>
+    <item label="Qt Designer"><action name="Execute"><command><![CDATA[designer]]></command></action></item>
+    <item label="Qt Linguist"><action name="Execute"><command><![CDATA[linguist]]></command></action></item>
+    <item label="Qt QDbusViewer"><action name="Execute"><command><![CDATA[qdbusviewer]]></command></action></item>
+  </menu>
+  <menu id="0.6952961557928" label="Graphics">
+    <item label="E-book viewer"><action name="Execute"><command><![CDATA[ebook-viewer --detach]]></command></action></item>
+    <item label="GNU Image Manipulation Program"><action name="Execute"><command><![CDATA[gimp-2.10]]></command></action></item>
+    <item label="Inkscape"><action name="Execute"><command><![CDATA[inkscape]]></command></action></item>
+    <item label="LRF viewer"><action name="Execute"><command><![CDATA[lrfviewer]]></command></action></item>
+    <item label="Ristretto Image Viewer"><action name="Execute"><command><![CDATA[ristretto]]></command></action></item>
+  </menu>
+  <menu id="0.174912643476041" label="Multimedia">
+    <item label="Audacity"><action name="Execute"><command><![CDATA[env UBUNTU_MENUPROXY=0 audacity]]></command></action></item>
+    <item label="Celluloid"><action name="Execute"><command><![CDATA[celluloid]]></command></action></item>
+    <item label="DeaDBeeF"><action name="Execute"><command><![CDATA[deadbeef]]></command></action></item>
+    <item label="GNOME ALSA Mixer"><action name="Execute"><command><![CDATA[gnome-alsamixer]]></command></action></item>
+    <item label="MicTray"><action name="Execute"><command><![CDATA[mictray]]></command></action></item>
+    <item label="mpv Media Player"><action name="Execute"><command><![CDATA[mpv --player-operation-mode=pseudo-gui --]]></command></action></item>
+    <item label="Music"><action name="Execute"><command><![CDATA[io.elementary.music]]></command></action></item>
+    <item label="PulseAudio Volume Control"><action name="Execute"><command><![CDATA[pavucontrol]]></command></action></item>
+    <item label="Qt V4L2 test Utility"><action name="Execute"><command><![CDATA[qv4l2]]></command></action></item>
+    <item label="Qt V4L2 video capture utility"><action name="Execute"><command><![CDATA[qvidcap]]></command></action></item>
+    <item label="VLC media player"><action name="Execute"><command><![CDATA[/usr/bin/vlc --started-from-file]]></command></action></item>
+    <item label="Volume Icon"><action name="Execute"><command><![CDATA[volumeicon]]></command></action></item>
+  </menu>
+  <menu id="0.116858176549687" label="Network">
+    <item label="Avahi SSH Server Browser"><action name="Execute"><command><![CDATA[/usr/bin/bssh]]></command></action></item>
+    <item label="Avahi VNC Server Browser"><action name="Execute"><command><![CDATA[/usr/bin/bvnc]]></command></action></item>
+    <item label="Brave Web Browser (dev)"><action name="Execute"><command><![CDATA[/usr/bin/brave-dev]]></command></action></item>
+    <item label="Chromium"><action name="Execute"><command><![CDATA[/usr/bin/chromium]]></command></action></item>
+    <item label="Ferdi"><action name="Execute"><command><![CDATA[/usr/bin/ferdi]]></command></action></item>
+    <item label="KDE Connect Indicator"><action name="Execute"><command><![CDATA[kdeconnect-indicator]]></command></action></item>
+    <item label="KDE Connect SMS"><action name="Execute"><command><![CDATA[kdeconnect-sms]]></command></action></item>
+    <item label="KDE Connect"><action name="Execute"><command><![CDATA[kdeconnect-app]]></command></action></item>
+    <item label="Open on connected device via KDE Connect"><action name="Execute"><command><![CDATA[kdeconnect-handler --open]]></command></action></item>
+    <item label="qutebrowser"><action name="Execute"><command><![CDATA[qutebrowser]]></command></action></item>
+  </menu>
+  <menu id="0.616191439083181" label="Office">
+    <item label="Calibre"><action name="Execute"><command><![CDATA[calibre --detach]]></command></action></item>
+    <item label="E-book editor"><action name="Execute"><command><![CDATA[ebook-edit --detach]]></command></action></item>
+    <item label="ONLYOFFICE Desktop Editors"><action name="Execute"><command><![CDATA[/usr/bin/onlyoffice-desktopeditors]]></command></action></item>
+    <item label="Zathura"><action name="Execute"><command><![CDATA[zathura]]></command></action></item>
+  </menu>
+  <menu id="0.960369518163443" label="Settings">
+    <item label="Advanced Network Configuration"><action name="Execute"><command><![CDATA[nm-connection-editor]]></command></action></item>
+    <item label="Customize Look and Feel"><action name="Execute"><command><![CDATA[lxappearance]]></command></action></item>
+    <item label="Default applications for LXSession"><action name="Execute"><command><![CDATA[lxsession-default-apps]]></command></action></item>
+    <item label="Desktop Preferences"><action name="Execute"><command><![CDATA[pcmanfm --desktop-pref]]></command></action></item>
+    <item label="Desktop Session Settings"><action name="Execute"><command><![CDATA[lxsession-edit]]></command></action></item>
+    <item label="Gda Control Center"><action name="Execute"><command><![CDATA[gda-control-center-5.0]]></command></action></item>
+    <item label="KDE Connect Settings"><action name="Execute"><command><![CDATA[kdeconnect-settings]]></command></action></item>
+    <item label="LightDM GTK+ Greeter settings"><action name="Execute"><command><![CDATA[lightdm-gtk-greeter-settings-pkexec]]></command></action></item>
+    <item label="Openbox Configuration Manager"><action name="Execute"><command><![CDATA[obconf]]></command></action></item>
+    <item label="Openbox Menu Editor"><action name="Execute"><command><![CDATA[obmenu3]]></command></action></item>
+    <item label="Panel"><action name="Execute"><command><![CDATA[xfce4-panel --preferences]]></command></action></item>
+    <item label="Preferred Applications"><action name="Execute"><command><![CDATA[libfm-pref-apps]]></command></action></item>
+    <item label="PulseAudio Preferences"><action name="Execute"><command><![CDATA[paprefs]]></command></action></item>
+    <item label="Xfce Terminal Settings"><action name="Execute"><command><![CDATA[xfce4-terminal --preferences]]></command></action></item>
+  </menu>
+  <menu id="0.30679771261665" label="System">
+    <item label="Alacritty"><action name="Execute"><command><![CDATA[alacritty]]></command></action></item>
+    <item label="Avahi Zeroconf Browser"><action name="Execute"><command><![CDATA[/usr/bin/avahi-discover]]></command></action></item>
+    <item label="Disk Usage Analyzer"><action name="Execute"><command><![CDATA[baobab]]></command></action></item>
+    <item label="File Manager PCManFM"><action name="Execute"><command><![CDATA[pcmanfm]]></command></action></item>
+    <item label="GParted"><action name="Execute"><command><![CDATA[/usr/bin/gparted]]></command></action></item>
+    <item label="Hardware Locality lstopo"><action name="Execute"><command><![CDATA[lstopo]]></command></action></item>
+    <item label="Htop"><action name="Execute"><command><![CDATA[xterm -e 'htop']]></command></action></item>
+    <item label="LightDM GTK+ Greeter settings"><action name="Execute"><command><![CDATA[lightdm-gtk-greeter-settings-pkexec]]></command></action></item>
+    <item label="Package Updater"><action name="Execute"><command><![CDATA[gpk-update-viewer]]></command></action></item>
+    <item label="Packages"><action name="Execute"><command><![CDATA[gpk-application]]></command></action></item>
+    <item label="Termite"><action name="Execute"><command><![CDATA[termite]]></command></action></item>
+    <item label="UXTerm"><action name="Execute"><command><![CDATA[uxterm]]></command></action></item>
+    <item label="Xfce Terminal"><action name="Execute"><command><![CDATA[xfce4-terminal]]></command></action></item>
+    <item label="XTerm"><action name="Execute"><command><![CDATA[xterm]]></command></action></item>
+  </menu>
+  <separator/>
+  <menu id="0.584200233910824" label="Advanced Settings">
+    <item label="Conky RC"><action name="Execute"><command><![CDATA[geany ~/.conkyrc]]></command></action></item>
+    <item label="Tint2 Panel"><action name="Execute"><command><![CDATA[geany ~/.config/tint2/tint2rc]]></command></action></item>
+  <menu id="0.350354727649346" label="Obmenu-Generator">
+    <item label="Menu Schema"><action name="Execute"><command><![CDATA[geany ~/.config/obmenu-generator/schema.pl]]></command></action></item>
+    <item label="Menu Config"><action name="Execute"><command><![CDATA[geany ~/.config/obmenu-generator/config.pl]]></command></action></item>
+  <separator/>
+    <item label="Generate a static menu"><action name="Execute"><command><![CDATA[obmenu-generator -s -c]]></command></action></item>
+    <item label="Generate a static menu with icons"><action name="Execute"><command><![CDATA[obmenu-generator -s -i -c]]></command></action></item>
+  <separator/>
+    <item label="Generate a dynamic menu"><action name="Execute"><command><![CDATA[obmenu-generator -p]]></command></action></item>
+    <item label="Generate a dynamic menu with icons"><action name="Execute"><command><![CDATA[obmenu-generator -p -i]]></command></action></item>
+  <separator/>
+    <item label="Refresh cache"><action name="Execute"><command><![CDATA[obmenu-generator -d]]></command></action></item>
+  </menu>
+  <menu id="0.544972413468525" label="Openbox">
+    <item label="Openbox Autostart"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/autostart]]></command></action></item>
+    <item label="Openbox RC"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/rc.xml]]></command></action></item>
+    <item label="Openbox Menu"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/menu.xml]]></command></action></item>
+    <item label="Reconfigure Openbox"><action name="Execute"><command><![CDATA[openbox --reconfigure]]></command></action></item>
+  </menu>
+  </menu>
+  <separator/>
+    <item label="Lock"><action name="Execute"><command><![CDATA[xscreensaver-command -lock]]></command></action></item>
+    <item label="Exit"><action name="Exit"/></item>
+  </menu>
 </openbox_menu>
-<!-- vim:sw=2
--->
