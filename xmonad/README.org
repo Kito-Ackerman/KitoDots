@@ -602,7 +602,8 @@ Sets opacity for inactive (unfocused) windows. I prefer to not use this feature 
 #+BEGIN_SRC haskell
 myLogHook :: X ()
 myLogHook = fadeInactiveLogHook fadeAmount 
-    where fadeAmount = 0.85
+    where fadeAmount = 1.0
+    -- where fadeAmount = 0.85
 
 #+END_SRC
 

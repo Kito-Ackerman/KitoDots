@@ -495,7 +495,8 @@ myManageHook = composeAll
 
 myLogHook :: X ()
 myLogHook = fadeInactiveLogHook fadeAmount 
-    where fadeAmount = 0.85
+    where fadeAmount = 1.0
+    -- where fadeAmount = 0.85
 
 --Keys
 myKeys :: [(String, X ())]
@@ -535,11 +536,6 @@ myKeys =
         , ("M-i", incWindowSpacing 4)           -- Increase window spacing
         , ("M-S-d", decScreenSpacing 4)         -- Decrease screen spacing
         , ("M-S-i", incScreenSpacing 4)         -- Increase screen spacing
-
-    -- Grid Select (CTR-g followed by a key)
-        -- , ("C-g g", spawnSelected' myAppGrid)                 -- grid select favorite apps
-        -- , ("C-g t", goToSelected $ mygridConfig myColorizer)  -- goto selected window
-        -- , ("C-g b", bringSelected $ mygridConfig myColorizer) -- bring selected window
 
     -- Tree Select
         , ("C-t t", treeselectAction tsDefaultConfig)
