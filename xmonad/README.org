@@ -685,19 +685,15 @@ myKeys =
 
     -- Sublayouts
     -- This is used to push windows to tabbed sublayouts, or pull them out of it.
-        , ("M-C-h", sendMessage $ pullGroup L)
-        , ("M-C-l", sendMessage $ pullGroup R)
-        , ("M-C-k", sendMessage $ pullGroup U)
-        , ("M-C-j", sendMessage $ pullGroup D)
-        , ("M-C-m", withFocused (sendMessage . MergeAll))
-        , ("M-C-u", withFocused (sendMessage . UnMerge))
-        , ("M-C-/", withFocused (sendMessage . UnMergeAll))
-        , ("M-C-.", onGroup W.focusUp')    -- Switch focus to next tab
-        , ("M-C-,", onGroup W.focusDown')  -- Switch focus to prev tab
-
-    -- Scratchpads
-        -- , ("M-C-<Return>", namedScratchpadAction myScratchPads "terminal")
-        -- , ("M-C-c", namedScratchpadAction myScratchPads "mocp")
+        -- , ("M-C-h", sendMessage $ pullGroup L)
+        -- , ("M-C-l", sendMessage $ pullGroup R)
+        -- , ("M-C-k", sendMessage $ pullGroup U)
+        -- , ("M-C-j", sendMessage $ pullGroup D)
+        -- , ("M-C-m", withFocused (sendMessage . MergeAll))
+        -- , ("M-C-u", withFocused (sendMessage . UnMerge))
+        -- , ("M-C-/", withFocused (sendMessage . UnMergeAll))
+        -- , ("M-C-.", onGroup W.focusUp')    -- Switch focus to next tab
+        -- , ("M-C-,", onGroup W.focusDown')  -- Switch focus to prev tab
 
     -- Emacs (M-e followed by a key)
         , ("M-e e", spawn "emacsclient -c -a 'emacs'")                            -- start emacs
