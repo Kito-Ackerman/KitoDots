@@ -242,7 +242,7 @@ treeselectAction a = TS.treeselectAction a
        , Node (TS.TSNode "Etcher" "USB stick writer" (spawn "xxx")) []
        , Node (TS.TSNode "Htop" "Terminal process viewer" (spawn (myTerminal ++ " -e htop"))) []
        , Node (TS.TSNode "LXAppearance" "Customize look and feel" (spawn "lxappearance")) []
-       , Node (TS.TSNode "Pcmanfm" "GTK file manager" (spawn ("pcmanfm"))) []
+       , Node (TS.TSNode "Nautilus" "GTK file manager" (spawn ("pcmanfm"))) []
        ]
    , Node (TS.TSNode "------------------------" "" (spawn "xdotool key Escape")) []
    , Node (TS.TSNode "+ Bookmarks" "a list of web bookmarks" (return ()))
@@ -709,7 +709,7 @@ myKeys =
         , ("M-C-b", spawn (myBrowser))
         , ("M-C-q", spawn (myMinimalBrowser))
     ---file
-        , ("M-C-f", spawn "pcmanfm")
+        , ("M-C-f", spawn "nautilus")
     ---chat client
         , ("M-C-c", spawn (myChat))
     --- YUI
