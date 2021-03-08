@@ -210,8 +210,8 @@ c.url.start_pages = 'file:///home/kito/.config/qutebrowser/homepage.html'
 # qutebrowser`.
 
 # Bindings to use dmenu rather than qutebrowser's builtin search.
-config.bind('o', 'spawn --userscript dmenu')
-config.bind('O', 'spawn --userscript dmenu-tab')
+# config.bind('o', 'spawn --userscript dmenu')
+# config.bind('O', 'spawn --userscript dmenu-tab')
 
 # Bindings for normal mode
 config.bind('M', 'hint links spawn mpv {hint-url}')
