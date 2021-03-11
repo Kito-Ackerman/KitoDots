@@ -1,0 +1,65 @@
+open amazon.it
+open ebay.com
+open ebay.it
+homepage
+close
+startpage
+delete
+quit
+open  "file:///home/kito/.config/qutebrowser/homepage.html"
+open  "file:///home/kito/.config/qutebrowser/homepage.html"
+open arch
+open  "file:///home/kito/.config/qutebrowser/homepage.html"
+open  "file:///home/kito/.config/qutebrowser/homepage.html"
+open  "file:///home/kito/.config/qutebrowser/homepage.html"
+open arch
+open  "/home/kito/.config/qutebrowser/homepage.html"
+open arch
+open  /home/kito/.config/qutebrowser/homepage.html
+open  /home/kito/.config/qutebrowser/homepage.html
+open vimb config
+open  /home/kito/.config/qutebrowser/homepage.html
+clear
+planetarch
+open planetarch
+clear
+clear
+cleardata
+qclear
+open  /home/kito/.config/qutebrowser/homepage.html
+open https://github.com/Sloopy3333/Dotfiles/blob/master/.config/vimb/config
+open arch
+open  /home/kito/.config/qutebrowser/homepage.html
+open https://github.com/Sloopy3333/Dotfiles/blob/master/.config/vimb/config
+open https://github.com/Sloopy3333/Dotfiles/blob/master/.config/vimb/config
+open arch
+bookmark
+open vimb bookmarks
+back
+open https://wiki.archlinux.org/
+open yt
+tabopen
+open #282a36
+open google
+open youtube
+open  /home/kito/.config/qutebrowser/homepage.html<RM>
+open  /home/kito/.config/qutebrowser/homepage.html
+open arch
+open  /home/kito/.config/qutebrowser/homepage.html<RM>
+open arch
+open  /home/kito/.config/qutebrowser/homepage.html
+open  /home/kito/.config/qutebrowser/homepage.html
+open  /home/kito/.config/qutebrowser/homepage.html
+open vim icon
+open  /home/kito/.config/qutebrowser/homepage.html
+open internet icon
+open  /home/kito/.config/qutebrowser/homepage.html
+open vim icon
+sh! ./home/kito/.config/vimb/dmenu-bookmarks.sh
+sh! ./home/kito/.config/vimb/dmenu-bookmarks.sh
+sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh
+sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh
+sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh
+sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh
+sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh
+sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh

@@ -1,0 +1,183 @@
+body {
+    background-color: #2e3440;
+}
+
+input {
+    padding: 0 20em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #202A34;
+    width: 50px;
+    height: 35px;
+    border-radius: 15px;
+    font-size: 15px;
+    outline: 0;
+    border: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: beige;
+    transition: 0.25s;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 80%;
+    transition: 0.3s;
+}
+
+button:hover {
+    transition: 0.3s;
+    background-color: #566f9e;
+}
+
+  a {
+    display:block;
+  }
+
+#center:hover {
+    background-color: #566f9e;
+    transition: 0.35s;
+}
+#center {
+    transition: 0.25s;
+}
+
+input:hover {
+    background-color: #454c59;
+    transition: 0.35s;
+}
+
+#imagediv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    background-repeat:no-repeat;
+    background-size:contain;
+    height: 270px;
+    width: 270px;
+    background-image: url("icons/vim.png");
+    transition: 0.6s;
+    margin-left: 70px;
+}
+
+#imagediv.active {
+    background-image:none;
+    background-color: green;
+    transition: 1s;
+  }
+
+  #dogcontainer {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    background-repeat:no-repeat;
+    background-size:contain;
+    height: 250px;
+    width: 250px;
+    border-radius: 10px;
+    transition: 0.6s;
+}
+
+#center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    background-color: #2e3440;
+    height: 100px;
+    width: 100px;
+    border-radius: 15px;
+    color: beige;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom :20px;
+    flex-grow: 0; 
+    flex-shrink: 0; 
+    margin-left: 20px;
+    margin-right: 20px;   
+}
+
+/* classes start here */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   /* background-color: blueviolet; */
+    margin-top: 100px;
+    flex-wrap: nowrap;
+    /*width: 70vw;*/
+    margin-left: 37%;
+    margin-right: 32%;
+    flex: 5%;    
+}
+
+.searchcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-color: blueviolet;*/
+    margin-top: 8%;
+    /*width: 70vw;*/
+    margin-left: 37%;
+    margin-right: 33%;
+    flex: 5%;    
+}
+
+.imagecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-color: blue;*/
+    margin-top: 3%;
+}
+
+/*Links start here and include my work/school stuff. 
+Replace with your own if neccessary
+Images are placed in the root directory
+
+#TODO 
+
+Make logo for Optima*/
+
+.animeworld {
+    background-image: url("icons/deviantart.png");
+    background-size: 90px;
+    background-repeat: no-repeat;
+    background-position: center;  
+}
+
+.dwt {
+    background-image: url("icons/Gitlab.png");
+    background-size: 90px;
+    background-repeat: no-repeat;
+    background-position: center;  
+}
+
+.github {
+    background-image: url("icons/github.png");
+    background-size: 90px;
+    background-repeat: no-repeat;
+    background-position: center;  
+}
+
+.youtube { 
+    background-image: url("icons/youtube.png"); 
+    background-size: 90px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.arch {
+    background-image: url("icons/Arch.png");
+    background-size: 90px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+ 
+  
+ 
+
+
