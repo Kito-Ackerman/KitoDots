@@ -24,7 +24,7 @@ xmonad
 zsh
 quit")
 
-choice=$(echo -e "${options[@]}" | dmenu -nf '#999' -nb '#292d3e' -sf '#eee' -sb '#0077bb' -p 'Edit config file: ')
+choice=$(echo -e "${options[@]}" | dmenu -i -p 'Edit config file: ')
 
 case "$choice" in
 	quit)
