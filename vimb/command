@@ -63,3 +63,30 @@ sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh
 sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh
 sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh
 sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh
+open amd driver
+sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh
+open rischi della sedentarieta
+sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh
+open manage alsacards
+open xmonad alternatives
+open  /home/kito/.config/qutebrowser/homepage.html
+open  /home/kito/.config/qutebrowser/homepage.html
+open  "/home/kito/.config/startpage/index.html
+cleardata
+open  /home/kito/.config/startpage/index.html
+open fkwpfok
+open  /home/kito/.config/startpage/index.html
+open  /home/kito/.config/startpage/index.html
+open leftwm 
+open leftwm config
+open  /home/kito/.config/startpage/index.html
+open leftwm
+open leftwm git
+open leftwm key
+open leftwm alternatives
+open xmonad alternatives
+open  /home/kito/.config/startpage/index.html
+open qtile config
+open window transparency xmonad
+open xmonad transparency
+open fade active window xmonad

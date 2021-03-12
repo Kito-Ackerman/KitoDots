@@ -76,7 +76,7 @@ nmap - zO
 nmap = zz
 
 #map d to return to homepage
-nmap d o /home/kito/.config/qutebrowser/homepage.html<CR>
+nmap d o /home/kito/.config/startpage/index.html<CR>
 
 #map o t dmenu-open script'
 nnoremap O :sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh<CR><Esc>

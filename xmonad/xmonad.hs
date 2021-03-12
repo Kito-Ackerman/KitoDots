@@ -89,7 +89,7 @@ myTerminal = "alacritty"   -- Sets default terminal
 myBrowser :: String
 myBrowser = "brave-dev"
 myMinimalBrowser :: String
-myMinimalBrowser = "qutebrowser"
+myMinimalBrowser = "vimb"
 
 myChat :: String
 myChat = "ferdi"
@@ -366,28 +366,6 @@ myTreeNavigation = M.fromList
     , ((mod4Mask .|. altMask, xK_w), TS.moveTo ["+ Bookmarks", "+ Linux", "+ Window Managers"])
     ]
 
-myScratchPads :: [NamedScratchpad]
-myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
-                , NS "mocp" spawnMocp findMocp manageMocp
-                ]
-  where
-    spawnTerm  = myTerminal ++ " -n scratchpad"
-    findTerm   = resource =? "scratchpad"
-    manageTerm = customFloating $ W.RationalRect l t w h
-               where
-                 h = 0.9
-                 w = 0.9
-                 t = 0.95 -h
-                 l = 0.95 -w
-    spawnMocp  = myTerminal ++ " -n mocp 'mocp'"
-    findMocp   = resource =? "mocp"
-    manageMocp = customFloating $ W.RationalRect l t w h
-               where
-                 h = 0.9
-                 w = 0.9
-                 t = 0.95 -h
-                 l = 0.95 -w
-
 mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
 mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
 
@@ -400,19 +378,19 @@ mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
 tall     = renamed [Replace "tall"]
            $ windowNavigation
            $ addTabs shrinkText myTabTheme
-           $ subLayout [] (smartBorders Simplest)
+           $ subLayout [] ( Simplest)
            $ limitWindows 12
            $ mySpacing 8
            $ ResizableTall 1 (3/100) (1/2) []
 maximed  = renamed [Replace "max"]
            $ windowNavigation
            $ addTabs shrinkText myTabTheme
-           $ subLayout [] (smartBorders Simplest)
+           $ subLayout [] ( Simplest)
            $ limitWindows 20 Full
 matrix   = renamed [Replace "matrix"]
            $ windowNavigation
            $ addTabs shrinkText myTabTheme
-           $ subLayout [] (smartBorders Simplest)
+           $ subLayout [] ( Simplest)
            $ limitWindows 12
            $ mySpacing 8
            $ mkToggle (single MIRROR)
@@ -420,13 +398,13 @@ matrix   = renamed [Replace "matrix"]
 spirals  = renamed [Replace "spirals"]
            $ windowNavigation
            $ addTabs shrinkText myTabTheme
-           $ subLayout [] (smartBorders Simplest)
+           $ subLayout [] ( Simplest)
            $ mySpacing' 8
            $ spiral (6/7)
 threeRow = renamed [Replace "threeRow"]
            $ windowNavigation
            $ addTabs shrinkText myTabTheme
-           $ subLayout [] (smartBorders Simplest)
+           $ subLayout [] ( Simplest)
            $ limitWindows 7
            $ mySpacing' 4
            -- Mirror takes a layout and rotates it by 90 degrees.
@@ -440,7 +418,7 @@ tabs     = renamed [Replace "tabs"]
 floats   = renamed [Replace "floats"]
            $ windowNavigation
            $ addTabs shrinkText myTabTheme
-           $ subLayout [] (smartBorders Simplest)
+           $ subLayout [] ( Simplest)
            $ limitWindows 20 simplestFloat
 
 myTabTheme = def { fontName            = myFont
@@ -485,18 +463,18 @@ myClickableWorkspaces = clickable . (map xmobarEscape)
                       let n = i ]
 
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
-myManageHook = composeAll
+myManageHook = ComposeAll 
      -- using 'doShift ( myClickableWorkspaces !! 7)' sends program to workspace 8!
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces, and the names would very long if using clickable workspaces.
      [title =? "Oracle VM VirtualBox Manager"     --> doFloat
      , className =? "VirtualBox Manager" --> doShift  ( myClickableWorkspaces !! 4 )
-     ] <+> namedScratchpadManageHook myScratchPads
+     ]
 
 myLogHook :: X ()
-myLogHook = fadeInactiveLogHook fadeAmount 
-    where fadeAmount = 1.0
-    -- where fadeAmount = 0.85
+myLogHook = fadeInactiveLogHook fadeAmount
+    -- where fadeAmount = 1.0
+    where fadeAmount = 0.85
 
 --Keys
 myKeys :: [(String, X ())]
@@ -509,9 +487,9 @@ myKeys =
         , ("M-S-x", spawn "exec /home/kito/.dmenu/powermenu-dmenu.sh")             -- Quits xmonad
         , ("M-p x", spawn "exec /home/kito/.dmenu/powermenu-dmenu.sh")             -- Quits xmonad
         , ("M-p c", spawn "exec /home/kito/.dmenu/dmenu-edit-config.sh")           -- Edit configs
-        , ("M-p q", spawn "exec /home/kito/.dmenu/dmenu-qute.sh")                  -- Qutebrowser
+        , ("M-p q", spawn "exec /home/kito/.dmenu/dmenu-bookmarks.sh")                  -- Qutebrowser
         , ("M-p s", spawn "exec /home/kito/.dmenu/dmenu-scrot.sh")                 -- scrot
-        , ("M-S-<Return>", spawn "dmenu_run -nf '#999' -nb '#292d3e' -sf '#eee' -sb '#0077bb' -p ' Run :'")                                      -- Shell Prompt
+        , ("M-S-<Return>", spawn "dmenu_run  -p ' Run :'")                                      -- Shell Prompt
 
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal))
