@@ -90,3 +90,20 @@ open qtile config
 open window transparency xmonad
 open xmonad transparency
 open fade active window xmonad
+open disable windows update
+open disable windows update
+open disable windows update
+open disable windows update
+open amv
+open nightfall sanctuary meccanica
+open qtile config
+open qtile groups
+sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh
+open qtile config
+sh! sh /home/kito/.config/vimb/dmenu-bookmarks.sh
+open lazy groups management qtile
+open #74438f
+open 4f76c7
+open awesome icon
+open font awesome cheet sheet
+open qtile separetor

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 LAUNCHER='dmenu -p "power : "'
 DM=lxdm-plymouth

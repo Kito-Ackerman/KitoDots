@@ -1,8 +1,0 @@
-
-xmonad.hs:466:16: error:
-    • Data constructor not in scope:
-        ComposeAll :: [Query (Endo WindowSet)] -> Query (Endo WindowSet)
-    • Perhaps you meant variable ‘composeAll’ (imported from XMonad)
-    |
-466 | myManageHook = ComposeAll 
-    |                ^^^^^^^^^^
