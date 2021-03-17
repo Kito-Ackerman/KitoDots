@@ -23,7 +23,7 @@
 * About This Config
 #+CAPTION: Qtile Scrot
 #+ATTR_HTML: :alt Qtile Scrot :title Qtile Scrot :align left
-[[https://gitlab.com/dwt1/dotfiles/-/raw/master/.screenshots/dotfiles07-thumb.png]]
+[[https://github.com/atem-karma/KitoDots/blob/master/image/qtile.png]]
 
 This is my config for qtile. A minimal tiling window manager writen in python. First i used xmonad but the haskell language is very hard to got in, so i replaced it with qtile beacouse i think python is cool.
 
