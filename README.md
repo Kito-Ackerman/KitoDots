@@ -19,8 +19,8 @@ I added only a custom theme and a custom start page inspired from dt. The custom
 ## Alacritty
 Alacritty is my terminal. I found it very quick in tasks and customizable. I edit yaml file to match up with my nordic theme
 
-## Openbox
-The new entry of my config. I use it for chill when i wouldn't i tiling wm, maybe for testing some programs or for show something to someones. I know the openbox config are quite bloated but it is ok for the use i would give to this wm. I have to switch to gnome for some program but if i can i would re-switch to openbox ( less bloat and quicker )
+## Vimb
+The replace of qutebrowser. I am testing it beacouse is quite faster then other browser i ever seen but have some problems. If it's becaming very difficult to use i would re-switch to qute
 
 ### Polybar
 polybar is the best bar for any wm. Is a bit bloat but looks absolutely gorgeous !
