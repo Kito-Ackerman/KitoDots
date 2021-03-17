@@ -128,11 +128,6 @@ keys = [
              desc='launch htop replacement'
              ),
 
-         # Key(["control","shift"], "right",
-             # lazy.screen.next_group(),
-             # desc='move to next workspace ( gruop )'
-             # ),
-
          # Emacs programs launched using the key chord MOD+e followed by 'key'
          KeyChord([mod],"e", [
              Key([], "e",
@@ -210,7 +205,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
 layout_theme = {"border_width": 2,
-                "margin": 8,
+                "margin": 10,
                 "border_focus": "89ddff",
                 "border_normal": "89aaff"
                 }
@@ -256,8 +251,6 @@ colors = [["#2e3440", "#2e3440"], # background
           ["#c3e88d", "#c3e88d"], # green
           ["#ffcb6b", "#ffcb6b"], # orange
           ["#f07178", "#f07178"]] # red
-
-prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 ##### DEFAULT WIDGET SETTINGS #####
 widget_defaults = dict(
@@ -307,13 +300,6 @@ def init_widgets_list():
                        foreground = colors[2],
                        background = colors[1]
                        ),
-              widget.Prompt(
-                       prompt = prompt,
-                       font = "Ubuntu Mono",
-                       padding = 10,
-                       foreground = colors[3],
-                       background = colors[0]
-                       ),
               widget.Sep(
                        linewidth = 0,
                        padding = 40,
@@ -327,16 +313,19 @@ def init_widgets_list():
                        background = colors[1],
                        padding = 0
                        ),
-              widget.Systray(
-                       background = colors[1],
-                       padding = 5
+              widget.Sep(
+                       linewidth = 0,
+                       padding = 6,
+                       foreground = colors[1],
+                       background = colors[1]
                        ),
-              # widget.Sep(
-              #          linewidth = 0,
-              #          padding = 6,
-              #          foreground = colors[1],
-              #          background = colors[1]
-              #          ),
+              widget.TextBox(
+                       text = ' ',
+                       background = colors[1],
+                       foreground = colors[0],
+                       padding = 0,
+                       fontsize = 20
+                       ),
               widget.TextBox(
                        text = ' ',
                        background = colors[1],

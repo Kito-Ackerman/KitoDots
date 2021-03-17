@@ -11,43 +11,30 @@
 - [[#settings-for-some-layouts][Settings For Some Layouts]]
 - [[#layouts][Layouts]]
 - [[#colors][Colors]]
-- [[#prompt][Prompt]]
 - [[#default-widget-settings][Default Widget Settings]]
-- [[#widgets][Widgets]]
+- [[#top-panel][Top panel]]
 - [[#screens][Screens]]
 - [[#some-important-functions][Some Important Functions]]
 - [[#drag-floating-windows][Drag floating windows]]
 - [[#floating-windows][Floating windows]]
 - [[#startup-applications][Startup applications]]
+- [[#a-special-thank-to-][A special thank to ...]]
 
 * About This Config
 #+CAPTION: Qtile Scrot
 #+ATTR_HTML: :alt Qtile Scrot :title Qtile Scrot :align left
 [[https://gitlab.com/dwt1/dotfiles/-/raw/master/.screenshots/dotfiles07-thumb.png]]
 
-The following comments are the copyright and licensing information from the default
-qtile config. Copyright (c) 2010 Aldo Cortesi, 2010, 2014 dequis, 2012 Randall Ma,
-2012-2014 Tycho Andersen, 2012 Craig Barnes, 2013 horsik, 2013 Tao Sauvage
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this
-software and associated documentation files (the "Software"), to deal in the Software
-without restriction, including without limitation the rights to use, copy, modify,
-merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to the following
-conditions:
-
-The above copyright notice and this permission notice shall be included in all copies
-or substantial portions of the Software.
+This is my config for qtile. A minimal tiling window manager writen in python. First i used xmonad but the haskell language is very hard to got in, so i replaced it with qtile beacouse i think python is cool.
 
 * Features of Qtile
-- Simple, small and extensible. It's easy to write your own layouts, widgets and commands.
+- Minimal bloat ( not fully bloatless like dwm or xmonad but is ok too ) but easly extensible.
 - Configured in Python.
 - Command shell that allows all aspects of Qtile to be managed and inspected.
-- Complete remote scriptability - write scripts to set up workspaces, manipulate windows, update status bar widgets and more.
 - Qtile's remote scriptability makes it one of the most thoroughly unit-tested window managers around.
 
 * Imports
-These are python modules that must be imported for this config.
+Python modules to make this config work
 
 #+BEGIN_SRC python
 # -*- coding: utf-8 -*-
@@ -64,7 +51,7 @@ from typing import List  # noqa: F401
 #+END_SRC
 
 * Variables
-Just some variables I am setting to make my life easier.
+Variables to make life easy if i would change some program of this.
 
 #+BEGIN_SRC python
 mod = "mod4"                                     # Sets mod key to SUPER/WINDOWS
@@ -75,6 +62,8 @@ filemanager = "nautilus"
 #+END_SRC
 
 * Keybindings
+do you really need an explanation?
+
 #+BEGIN_SRC python
 keys = [
          ### The essentials
@@ -188,11 +177,6 @@ keys = [
              desc='launch htop replacement'
              ),
 
-         # Key(["control","shift"], "right",
-             # lazy.screen.next_group(),
-             # desc='move to next workspace ( gruop )'
-             # ),
-
          # Emacs programs launched using the key chord MOD+e followed by 'key'
          KeyChord([mod],"e", [
              Key([], "e",
@@ -255,7 +239,7 @@ keys = [
 #+END_SRC
 
 * Groups
-Groups are really workspaces.
+Groups are the tags of qtile.
 
 #+BEGIN_SRC python
 group_names = [("DEV", {'layout': 'monadtall'}),
@@ -280,14 +264,14 @@ Settings that I use in most layouts, so I'm defining them one time here.
 
 #+BEGIN_SRC python
 layout_theme = {"border_width": 2,
-                "margin": 8,
+                "margin": 10,
                 "border_focus": "89ddff",
                 "border_normal": "89aaff"
                 }
 #+END_SRC
 
 * Layouts
-The layouts that I use, plus several that I don't use. Uncomment the layouts you want; comment out the ones that you don't want to use.
+Layout inizialization and some other commented to use it if i would
 
 #+BEGIN_SRC python
 layouts = [
@@ -322,7 +306,7 @@ layouts = [
 #+END_SRC
 
 * Colors
-Defining some colors for use in our panel.  Colors have two values because you can use gradients.
+Colors for panel and customazation
 
 #+BEGIN_SRC python
 colors = [["#2e3440", "#2e3440"], # background
@@ -338,15 +322,8 @@ colors = [["#2e3440", "#2e3440"], # background
           ["#f07178", "#f07178"]] # red
 #+END_SRC
 
-* Prompt
-Settings for the qtile run prompt, even though I don't actually use this. I prefer to use dmenu instead.
-
-#+BEGIN_SRC python
-prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
-#+END_SRC
-
 * Default Widget Settings
-Defining a few default widget key values.
+Default widget settings
 
 #+BEGIN_SRC python
 ##### DEFAULT WIDGET SETTINGS #####
@@ -359,8 +336,8 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 #+END_SRC
 
-* Widgets
-This is the bar, or the panel, and the widgets within the bar.
+* Top panel
+Top panel settings
 
 #+BEGIN_SRC python
 def init_widgets_list():
@@ -402,13 +379,6 @@ def init_widgets_list():
                        foreground = colors[2],
                        background = colors[1]
                        ),
-              widget.Prompt(
-                       prompt = prompt,
-                       font = "Ubuntu Mono",
-                       padding = 10,
-                       foreground = colors[3],
-                       background = colors[0]
-                       ),
               widget.Sep(
                        linewidth = 0,
                        padding = 40,
@@ -422,16 +392,19 @@ def init_widgets_list():
                        background = colors[1],
                        padding = 0
                        ),
-              widget.Systray(
-                       background = colors[1],
-                       padding = 5
+              widget.Sep(
+                       linewidth = 0,
+                       padding = 6,
+                       foreground = colors[1],
+                       background = colors[1]
                        ),
-              # widget.Sep(
-              #          linewidth = 0,
-              #          padding = 6,
-              #          foreground = colors[1],
-              #          background = colors[1]
-              #          ),
+              widget.TextBox(
+                       text = ' ',
+                       background = colors[1],
+                       foreground = colors[0],
+                       padding = 0,
+                       fontsize = 20
+                       ),
               widget.TextBox(
                        text = ' ',
                        background = colors[1],
@@ -693,7 +666,7 @@ cursor_warp = False
 #+END_SRC
 
 * Floating windows
-Defining what class of windows should always be floating.
+Define some windows to be always floating ( like confermation blocks, window with password ask, etc etc )
 
 #+BEGIN_SRC python
 floating_layout = layout.Floating(float_rules=[
@@ -709,7 +682,7 @@ focus_on_window_activation = "smart"
 #+END_SRC
 
 * Startup applications
-The applications that should autostart every time qtile is started.
+Startup applications defined in a bash file
 
 #+BEGIN_SRC python
 @hook.subscribe.startup_once
@@ -717,13 +690,9 @@ def start_once():
     home = os.path.expanduser('~')
     subprocess.call([home + '/.config/qtile/autostart.sh'])
 
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
 wmname = "LG3D"
 #+END_SRC
+
+* A special thank to ...
+The base of this config is from DT's config. DistroTube is a cool guy who promote linux, foss and bloatless on his youtube channel ( with the support of lbry.net and distrotube.com ). Obviusly i customized this config on my own but some function are the same beacouse is simply a genious! I try to follow him despite i am italian and not english. i suggest to follow him if you wanna improve you learning on linux or something related
+I need to specify that my english is not perfect so if someone would correct me to be more readble you are open to do it :).
