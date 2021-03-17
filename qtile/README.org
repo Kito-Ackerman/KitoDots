@@ -229,6 +229,10 @@ keys = [
                  lazy.spawn("sh /home/kito/.config/dmenu/dmenu-bookmarks.sh"),
                  desc='vimb integration with dmenu'
                  ),
+             Key([], "j",
+                 lazy.spawn("sh /home/kito/.config/dmenu/dmenu-emoji.sh"),
+                 desc='emoji selctor with dmenu'
+                 ),
              Key([], "s",
                  lazy.spawn("sh /home/kito/.config/dmenu/dmenu-scrot.sh"),
                  desc='Take screenshots via dmenu'
