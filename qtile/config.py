@@ -13,7 +13,7 @@ from typing import List  # noqa: F401
 mod = "mod4"                                     # Sets mod key to SUPER/WINDOWS
 myTerm = "alacritty"                             # My terminal of choice
 browser = "brave-dev"
-minimalbrowser = "vimb"
+minimalbrowser = "qutebrowser"
 filemanager = "nautilus"
 
 keys = [

@@ -57,7 +57,7 @@ Variables to make life easy if i would change some program of this.
 mod = "mod4"                                     # Sets mod key to SUPER/WINDOWS
 myTerm = "alacritty"                             # My terminal of choice
 browser = "brave-dev"
-minimalbrowser = "vimb"
+minimalbrowser = "qutebrowser"
 filemanager = "nautilus"
 #+END_SRC
 
