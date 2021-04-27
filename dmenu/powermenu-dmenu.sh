@@ -7,8 +7,8 @@ if [ ${#option} -gt 0 ]
 then
     case $option in
       Esci)
-	loginctl terminate-session $XDG_SESSION_ID
-        ;;
+        killall "${manager}" || output "Process ${manager} was not running."
+	;;
       Riavvia)
         systemctl reboot
         ;;

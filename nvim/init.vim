@@ -38,6 +38,9 @@ Plug 'vim-airline/vim-airline-themes'
 "ciudere automaticamente i tag html
 Plug 'heracek/html-autoclosetag'
 
+"ORG-mode
+Plug 'jceb/vim-orgmode'
+
 call plug#end()
 
 " tema

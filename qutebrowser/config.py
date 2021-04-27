@@ -19,8 +19,6 @@
 config.load_autoconfig(False)
 c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save'}
 
-# Setting dark mode
-# config.set("colors.webpage.darkmode.enabled", True)
 
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
@@ -156,6 +154,10 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'https://animeworld.tv/*')
+
 # Allow websites to show notifications.
 # Type: BoolAsk
 # Valid values:
@@ -210,8 +212,8 @@ c.url.start_pages = 'file:///home/kito/.config/startpage/index.html'
 # qutebrowser`.
 
 # Bindings to use dmenu rather than qutebrowser's builtin search.
-config.bind('o', 'spawn --userscript dmenu')
-config.bind('O', 'spawn --userscript dmenu-tab')
+# config.bind('o', 'spawn --userscript dmenu')
+# config.bind('O', 'spawn --userscript dmenu-tab')
 
 # Bindings for normal mode
 config.bind('M', 'hint links spawn mpv {hint-url}')
@@ -233,3 +235,94 @@ config.bind(',bo', 'set-cmd-text -s :bookmark-load ')
 config.bind(',ba', 'bookmark-add')
 
 config.bind('D', 'open file:///home/kito/.config/startpage/index.html ')
+
+# Setting dark mode
+# config.set("colors.webpage.darkmode.enabled", True)
+#colors
+c.colors.completion.fg = ['#9cc4ff', 'white', 'white']
+# Background color of the completion widget for odd rows.
+# Type: QssColor
+c.colors.completion.odd.bg = '#1c1f24'
+
+# Background color of the completion widget for even rows.
+# Type: QssColor
+c.colors.completion.even.bg = '#232429'
+
+# Foreground color of completion widget category headers.
+# Type: QtColor
+c.colors.completion.category.fg = '#e1acff'
+
+# Background color of the completion widget category headers.
+# Type: QssColor
+c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #000000, stop:1 #232429)'
+
+# Top border color of the completion widget category headers.
+# Type: QssColor
+c.colors.completion.category.border.top = '#3f4147'
+
+# Bottom border color of the completion widget category headers.
+# Type: QssColor
+c.colors.completion.category.border.bottom = '#3f4147'
+
+# Foreground color of the selected completion item.
+# Type: QtColor
+c.colors.completion.item.selected.fg = '#282c34'
+
+# Background color of the selected completion item.
+# Type: QssColor
+c.colors.completion.item.selected.bg = '#ecbe7b'
+
+# Foreground color of the matched text in the selected completion item.
+# Type: QtColor
+c.colors.completion.item.selected.match.fg = '#c678dd'
+
+# Foreground color of the matched text in the completion.
+# Type: QtColor
+c.colors.completion.match.fg = '#c678dd'
+
+# Color of the scrollbar handle in the completion view.
+# Type: QssColor
+c.colors.completion.scrollbar.fg = 'white'
+
+# Background color for the download bar.
+# Type: QssColor
+c.colors.downloads.bar.bg = '#282c34'
+
+# Background color for downloads with errors.
+# Type: QtColor
+c.colors.downloads.error.bg = '#ff6c6b'
+
+# Font color for hints.
+# Type: QssColor
+c.colors.hints.fg = '#282c34'
+
+# Font color for the matched part of hints.
+# Type: QtColor
+c.colors.hints.match.fg = '#98be65'
+
+# Background color of an info message.
+# Type: QssColor
+c.colors.messages.info.bg = '#282c34'
+
+# Background color of the statusbar.
+# Type: QssColor
+c.colors.statusbar.normal.bg = '#282c34'
+
+# Foreground color of the statusbar in insert mode.
+# Type: QssColor
+c.colors.statusbar.insert.fg = 'white'
+
+# Background color of the statusbar in insert mode.
+# Type: QssColor
+c.colors.statusbar.insert.bg = '#497920'
+
+# Background color of the statusbar in passthrough mode.
+# Type: QssColor
+c.colors.statusbar.passthrough.bg = '#34426f'
+
+# Background color of the statusbar in command mode.
+# Type: QssColor
+c.colors.statusbar.command.bg = '#282c34'
+
+
+
