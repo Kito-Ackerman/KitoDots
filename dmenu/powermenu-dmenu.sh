@@ -6,7 +6,7 @@ option=`echo -e "Riavvia\nSpegni\nLogout" | dmenu -i -l 4 -p "Power : " `
 if [ ${#option} -gt 0 ]
 then
     case $option in
-      Esci)
+      Logout)
         killall "${manager}" || output "Process ${manager} was not running."
 	;;
       Riavvia)
