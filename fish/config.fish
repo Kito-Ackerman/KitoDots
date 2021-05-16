@@ -6,36 +6,71 @@ set EDITOR "nvim"
 set VISUAL "emacsclient -t -a emacs"
 
 ##prompt##
+
+# function fish_prompt
+#     set -l last_status $status
+#     echo -n '| '
+
+#     ##User
+#     set_color cyan
+#     echo -n $USER
+
+#     ##Chiocciola
+#     set_color yellow
+#     echo -n '@'
+
+#     ##Host
+#     set_color red
+#     echo -n (prompt_hostname)
+#     set_color normal
+#     echo -n ': '
+
+#     ##Cartelle
+#     set_color yellow
+#     echo -n (prompt_pwd)
+
+#     ##Git
+#     printf '%s ' (__fish_git_prompt)
+#     set_color normal
+
+#     ##$
+#     set_color normal
+#     echo -n ' > '
+#     set_color normal
+# end
+
 function fish_prompt
     set -l last_status $status
-    echo -n '| '
+
+    set_color red
+    echo -n '[ '
 
     ##User
     set_color cyan
     echo -n $USER
 
     ##Chiocciola
-    set_color yellow
+    set_color red
     echo -n '@'
 
     ##Host
-    set_color red
+    set_color yellow
     echo -n (prompt_hostname)
     set_color normal
     echo -n ': '
 
     ##Cartelle
-    set_color yellow
+    set_color green
     echo -n (prompt_pwd)
 
     ##Git
+    set_color purple
     printf '%s ' (__fish_git_prompt)
     set_color normal
 
-    ##$
-    set_color normal
-    echo -n ' > '
-    set_color normal
+    set_color red
+    echo -n ']$ '
+    set_color green
 end
 
 ##aliases##
@@ -99,6 +134,7 @@ alias yui="Yui"
 alias cls="clear"
 alias update="sudo pacman -Syy"
 alias upgrade="yay"
+alias emerge="emerge -q"
 
 ###Ntfsfixall
 alias ntfsfixall="sudo umount /dev/sdb;sudo umount /dev/sdb2;sudo ntfsfix /dev/sdb1 >/dev/null; sudo ntfsfix /dev/sdb2 >/dev/null;sudo mount -a >/dev/null"

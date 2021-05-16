@@ -7,7 +7,7 @@ if [ ${#option} -gt 0 ]
 then
     case $option in
       Logout)
-        killall "${manager}" || output "Process ${manager} was not running."
+	loginctl terminate-session $XDG_SESSION_ID
 	;;
       Riavvia)
         systemctl reboot

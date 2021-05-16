@@ -2,19 +2,31 @@
 if !exists('g:vscode')
 " plugin
 call plug#begin('~/.vim/plugged')
+
 "Nerd commenter
 Plug 'scrooloose/nerdcommenter'
+
 "Numeri a fianco
 Plug 'jeffkreeftmeijer/vim-numbertoggle'" 
+
 "Parentesi automatiche
 Plug 'jiangmiao/auto-pairs'
+
 "Cambia parentesi
 Plug 'tpope/vim-surround'
-"Nerd tree
+
+"Nerd tree e file manager
 Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " highlighitng nertree
+Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
+Plug 'vifm/vifm.vim'                               " Vifm
+
 "Tema
 Plug 'arcticicestudio/nord-vim'
+
+"Startpage
+Plug 'mhinz/vim-startify'
+
 "utiliti varie
 Plug 'tpope/vim-sensible'
 
@@ -31,15 +43,21 @@ Plug 'davidhalter/jedi-vim'
 "jump to definitions
 Plug 'pechorin/any-jump.vim'
 
-"modificare la barra sotto
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+""modificare la barra sotto
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 
-"ciudere automaticamente i tag html
+"chiudere automaticamente i tag html
 Plug 'heracek/html-autoclosetag'
+
+"Preview degli hex
+Plug 'ap/vim-css-color'
 
 "ORG-mode
 Plug 'jceb/vim-orgmode'
+
+" Markdown Preview
+Plug 'suan/vim-instant-markdown', {'rtp': 'after'} 
 
 call plug#end()
 
@@ -110,6 +128,32 @@ inoremap <C-Z> <ESC>:undo<CR><ESC>
 "settare ge per andare a fine file
 noremap ge G
 
+"vifm
+map <Leader>vv :Vifm<CR>
+map <Leader>vs :VsplitVifm<CR>
+map <Leader>sp :SplitVifm<CR>
+map <Leader>dv :DiffVifm<CR>
+map <Leader>tv :TabVifm<CR>
+
 let g:python3_host_prog = '/usr/bin/python3'
 let g:loaded_python_provider = 0
+
+"nerdtree
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = '▼'
+let NERDTreeShowLineNumbers=1
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize=38
+
+"startify
+let g:startify_bookmarks = [ {'config': '~/.config/nvim/init.vim'}, {'fish':'~/.config/fish/config.fish'},{ 'apps backup':'/mnt/103C02053C01E696/pacchetti e temi/apps/apps.txt'}, {'vifm':'~/.config/vifm/vifmrc'}, {'qtile':'~/.config/qtile/config.py'},{'qute': '~/.config/qutebrowser/config.py'} ]
+
+let g:startify_lists = [
+          \ { 'type': 'sessions',  'header': ['   Sessions']       },
+          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+          \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+          \ { 'type': 'files',     'header': ['   MRU']            },
+          \ { 'type': 'commands',  'header': ['   Commands']       },
+          \ ]
 

@@ -226,7 +226,7 @@ keys = [
                  desc='Quick configuration file edit with dmenu'
                  ),
              Key([], "q",
-                 lazy.spawn("sh /home/kito/.config/dmenu/dmenu-bookmarks.sh"),
+                 lazy.spawn("sh /home/kito/.config/dmenu/dmenu-qute.sh"),
                  desc='vimb integration with dmenu'
                  ),
              Key([], "j",

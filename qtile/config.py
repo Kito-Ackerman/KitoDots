@@ -128,6 +128,17 @@ keys = [
              desc='launch htop replacement'
              ),
 
+         KeyChord([mod],"v", [
+             Key([], "e",
+                 lazy.spawn(myTerm + " -e nvim"),
+                 desc='Nvim empty buffer'
+                 ),
+             Key([], "d",
+                 lazy.spawn(myTerm + " -e vifm")
+                 ),
+             ]),
+
+ 
          # Emacs programs launched using the key chord MOD+e followed by 'key'
          KeyChord([mod],"e", [
              Key([], "e",
@@ -163,6 +174,7 @@ keys = [
                  desc='Launch vterm inside Emacs'
                  )
          ]),
+         
 
          # Gui applications using key chord MOD+Control followed by 'key'
 
@@ -177,7 +189,7 @@ keys = [
                  desc='Quick configuration file edit with dmenu'
                  ),
              Key([], "q",
-                 lazy.spawn("sh /home/kito/.config/dmenu/dmenu-bookmarks.sh"),
+                 lazy.spawn("sh /home/kito/.config/dmenu/dmenu-qute.sh"),
                  desc='vimb integration with dmenu'
                  ),
              Key([], "j",
