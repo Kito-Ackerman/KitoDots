@@ -12,7 +12,7 @@ from typing import List  # noqa: F401
 
 mod = "mod4"                                     # Sets mod key to SUPER/WINDOWS
 myTerm = "alacritty"                             # My terminal of choice
-browser = "brave-dev"
+browser = "firefox"
 minimalbrowser = "qutebrowser"
 filemanager = "nautilus"
 
@@ -134,7 +134,7 @@ keys = [
                  desc='Nvim empty buffer'
                  ),
              Key([], "d",
-                 lazy.spawn(myTerm + " -e vifm")
+                 lazy.spawn(myTerm + " -e ranger")
                  ),
              ]),
 

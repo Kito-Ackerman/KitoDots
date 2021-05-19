@@ -12,6 +12,9 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'"
 "Parentesi automatiche
 Plug 'jiangmiao/auto-pairs'
 
+"Rainbow
+Plug 'frazrepo/vim-rainbow'
+
 "Cambia parentesi
 Plug 'tpope/vim-surround'
 
@@ -19,8 +22,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " highlighitng nertree
 Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
-Plug 'vifm/vifm.vim'                               " Vifm
-
+Plug 'francoiscabrol/ranger.vim'                   "ranger integration
 "Tema
 Plug 'arcticicestudio/nord-vim'
 
@@ -120,6 +122,8 @@ noremap <leader>a ^
 vnoremap <leader>e $
 vnoremap <leader>a ^
 
+"ranger
+map <leader>f :Ranger<CR>s
 
 "settare il Control Z
 noremap <C-Z> <ESC>:undo<CR><ESC>
@@ -128,16 +132,13 @@ inoremap <C-Z> <ESC>:undo<CR><ESC>
 "settare ge per andare a fine file
 noremap ge G
 
-"vifm
-map <Leader>vv :Vifm<CR>
-map <Leader>vs :VsplitVifm<CR>
-map <Leader>sp :SplitVifm<CR>
-map <Leader>dv :DiffVifm<CR>
-map <Leader>tv :TabVifm<CR>
 
+"Python
 let g:python3_host_prog = '/usr/bin/python3'
 let g:loaded_python_provider = 0
 
+"rainbow
+let g:rainbow_active = 1
 "nerdtree
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = '▼'
