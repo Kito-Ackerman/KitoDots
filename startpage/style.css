@@ -1,5 +1,6 @@
 body {
-    background-color: #2e3440;
+    /* background-color: #2e3440; */
+    background-color: #282828 
 }
 
 input {
@@ -7,7 +8,7 @@ input {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background-color: #202A34;
+    background-color: #3c3836;
     width: 50px;
     height: 35px;
     border-radius: 15px;
@@ -28,7 +29,7 @@ img {
 
 button:hover {
     transition: 0.3s;
-    background-color: #566f9e;
+    background-color: #3c3836;
 }
 
   a {
@@ -36,7 +37,8 @@ button:hover {
   }
 
 #center:hover {
-    background-color: #566f9e;
+    background-color: #282828;
+    /* background-color: #566f9e; */
     transition: 0.35s;
 }
 #center {
@@ -44,7 +46,8 @@ button:hover {
 }
 
 input:hover {
-    background-color: #454c59;
+    background-color: #282828;
+    /* background-color: #454c59; */
     transition: 0.35s;
 }
 
@@ -85,7 +88,8 @@ input:hover {
     justify-content: center;
     align-items: center;
     margin:auto;
-    background-color: #2e3440;
+    background-color: #282828;
+    /* background-color: #2e3440; */
     height: 100px;
     width: 100px;
     border-radius: 15px;

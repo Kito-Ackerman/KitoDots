@@ -25,7 +25,7 @@ Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
 Plug 'francoiscabrol/ranger.vim'                   "ranger integration
 "Tema
 Plug 'arcticicestudio/nord-vim'
-
+Plug 'morhetz/gruvbox'
 "Startpage
 Plug 'mhinz/vim-startify'
 
@@ -74,8 +74,14 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme nord
 set number norelativenumber
+let g:gruvbox_italic=1
+let g:gruvbox_bold=1
+let g:gruvbox_transparent_bg=1
+let g:gruvbox_underline=1
+let g:gruvbox_termcolors=1
+let g:gruvbox_contrast_dark= 'hard'
+colorscheme gruvbox
 "ricerca con evidenziatore
 endif
 ":set hlsearch
@@ -96,17 +102,17 @@ inoremap <leader><F3> <ESC>:NERDTreeClose<CR><ESC>
 
 "Set Control più k-j-l-h per navigare nelle finestre
 
-noremap <C-J> <C-W> j
-noremap <C-K> <C-W>k
-noremap <C-H> <C-W>h
-noremap <C-L> <C-W>l
+noremap <leader>j <C-W>j
+noremap <leader>k <C-W>k
+noremap <leader>h <C-W>h
+noremap <leader>l <C-W>l
 
 "Set Control più frecce direzionali per navigare nelle finestre
 
-noremap <C-Down> <C-W>j
-noremap <C-Up> <C-W>k
-noremap <C-Left> <C-W>h
-noremap <C-Right> <C-W>l
+noremap <leader>j <C-W>j
+noremap <leader>k <C-W>k
+noremap <leader>h <C-W>h
+noremap <leader>l <C-W>l
 
 "Set <leader> + F5 per ricaricare le configurazioni di vim
 
@@ -117,10 +123,10 @@ map <leader>1 <ESC>:tabprevious<CR><ESC>
 map <leader>2 <ESC>:tabnext<CR><ESC>
 
 "set <leader> + a/e per andare a inizio/fine riga
-noremap <leader>e $
-noremap <leader>a ^
-vnoremap <leader>e $
-vnoremap <leader>a ^
+noremap <leader>e g$
+noremap <leader>a g^
+vnoremap <leader>e g$
+vnoremap <leader>a g^
 
 "ranger
 map <leader>f :Ranger<CR>s
@@ -148,7 +154,7 @@ let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=38
 
 "startify
-let g:startify_bookmarks = [ {'config': '~/.config/nvim/init.vim'}, {'fish':'~/.config/fish/config.fish'},{ 'apps backup':'/mnt/103C02053C01E696/pacchetti e temi/apps/apps.txt'}, {'vifm':'~/.config/vifm/vifmrc'}, {'qtile':'~/.config/qtile/config.py'},{'qute': '~/.config/qutebrowser/config.py'} ]
+let g:startify_bookmarks = [ {'config': '~/.config/nvim/init.vim'}, {'fish':'~/.config/fish/config.fish'},{ 'apps backup':'/mnt/103C02053C01E696/pacchetti e temi/apps/apps.txt'},  {'qtile':'~/.config/qtile/config.py'},{'qute': '~/.config/qutebrowser/config.py'} ]
 
 let g:startify_lists = [
           \ { 'type': 'sessions',  'header': ['   Sessions']       },

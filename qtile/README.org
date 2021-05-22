@@ -155,7 +155,7 @@ keys = [
              desc='Switch which side main pane occupies (XmonadTall)'
              ),
 
-         #Gui apps
+         # Gui apps
          Key([mod,"control"], "f",
              lazy.spawn(filemanager),
              desc='launch GUI filemanager'
@@ -176,6 +176,17 @@ keys = [
              lazy.spawn("bpytop"),
              desc='launch htop replacement'
              ),
+
+         # vim
+         KeyChord([mod],"v", [
+             Key([], "e",
+                 lazy.spawn(myTerm + " -e nvim"),
+                 desc='Nvim empty buffer'
+                 ),
+             Key([], "d",
+                 lazy.spawn(myTerm + " -e ranger")
+                 ),
+             ]),
 
          # Emacs programs launched using the key chord MOD+e followed by 'key'
          KeyChord([mod],"e", [

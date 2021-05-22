@@ -255,18 +255,32 @@ layouts = [
     #      panel_width = 320
     #      ),
 ]
+# nord
+# colors = [["#2e3440", "#2e3440"], # background
+#           ["#242831", "#242831"], # background alt
+#           ["#ffffff", "#ffffff"], # white
+#           ["#ff5555", "#ff5555"], # white alt
+#           ["#797FD4", "#797FD4"], # violet
+#           ["#89aaff", "#89aaff"], # blue
+#           ["#89ddff", "#89ddff"], # ice
+#           ["#E05F27", "#E05F27"], # orange
+#           ["#c3e88d", "#c3e88d"], # green
+#           ["#ffcb6b", "#ffcb6b"], # orange
+#           ["#f07178", "#f07178"]] # red
 
-colors = [["#2e3440", "#2e3440"], # background
-          ["#242831", "#242831"], # background alt
-          ["#ffffff", "#ffffff"], # white
-          ["#ff5555", "#ff5555"], # white alt
-          ["#797FD4", "#797FD4"], # violet
+#gruvbox
+
+colors = [["#282828", "#282828"], # background
+          ["#1d2021", "#1d2021"], # background alt
+          ["#ebdbb2", "#ebdbb2"], # white
+          ["#cc241d", "#cc241d"], # red
+          ["#b16286", "#b16286"], # violet
           ["#89aaff", "#89aaff"], # blue
           ["#89ddff", "#89ddff"], # ice
-          ["#E05F27", "#E05F27"], # orange
-          ["#c3e88d", "#c3e88d"], # green
-          ["#ffcb6b", "#ffcb6b"], # orange
-          ["#f07178", "#f07178"]] # red
+          ["#d65d0e", "#d65d0e"], # orange
+          ["#98971a", "#98971a"], # green
+          ["#fabd2f", "#fabd2f"], # orange
+          ["#fb4934", "#fb4934"]] # red
 
 ##### DEFAULT WIDGET SETTINGS #####
 widget_defaults = dict(

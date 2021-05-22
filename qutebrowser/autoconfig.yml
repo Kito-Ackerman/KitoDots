@@ -6,10 +6,5 @@
 
 config_version: 2
 settings:
-  content.notifications.enabled:
-    https://1867.allow-to-continue.com: false
-    https://4687.allow-to-continue.com: false
-    https://8581.allow-to-continue.com: false
-    https://www.my-personaltrainer.it: false
   content.user_stylesheets:
-    global: null
+    global: ~/.config/qutebrowser/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css
