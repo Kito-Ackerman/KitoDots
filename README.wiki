@@ -1,19 +1,7 @@
- = MyDotfiles =
+= MyDotfiles =
 
 My dotfiles inspired by DT
 
-=== Table for using ===
-
-|------------|---------------------|
-| use        | program             |
-|------------|---------------------|
-| WM         | Xmonad              |
-| Bar        | Xmobar              |
-| Editor     | NeoVim/Emacs        |
-| Quick edit | NeoVim              |
-| Browser    | Qutebrowser/Firefox |
-| Terminal   | Alacritty           |
-|------------|---------------------|
 
 == What is xmonad? ==
 
