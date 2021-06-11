@@ -24,8 +24,9 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " highlighitng nertree
 Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
 Plug 'francoiscabrol/ranger.vim'                   "ranger integration
 "Tema
-Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox'
+"Plug 'arcticicestudio/nord-vim'
+"Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 "Startpage
 Plug 'mhinz/vim-startify'
 
@@ -46,8 +47,8 @@ Plug 'davidhalter/jedi-vim'
 Plug 'pechorin/any-jump.vim'
 
 ""modificare la barra sotto
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 "chiudere automaticamente i tag html
 Plug 'heracek/html-autoclosetag'
@@ -56,32 +57,37 @@ Plug 'heracek/html-autoclosetag'
 Plug 'ap/vim-css-color'
 
 "ORG-mode
-Plug 'jceb/vim-orgmode'
+"Plug 'jceb/vim-orgmode'
+"Plug 'dhruvasagar/vim-dotoo'
+Plug 'vimwiki/vimwiki'
 
 " Markdown Preview
 Plug 'suan/vim-instant-markdown', {'rtp': 'after'} 
 
+
 call plug#end()
 
-" tema
+" tema + vimwiki
+filetype plugin on
 syntax on
-if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
+"if (has("nvim"))
+"  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+"  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"endif
 
 if (has("termguicolors"))
   set termguicolors
 endif
 
 set number norelativenumber
-let g:gruvbox_italic=1
-let g:gruvbox_bold=1
-let g:gruvbox_transparent_bg=1
-let g:gruvbox_underline=1
-let g:gruvbox_termcolors=1
-let g:gruvbox_contrast_dark= 'hard'
-colorscheme gruvbox
+"let g:gruvbox_italic=1
+"let g:gruvbox_bold=1
+"let g:gruvbox_transparent_bg=1
+"let g:gruvbox_underline=1
+"let g:gruvbox_termcolors=1
+"let g:gruvbox_contrast_dark= 'hard'
+let g:onedark_terminal_italics=1
+colorscheme onedark
 "ricerca con evidenziatore
 endif
 ":set hlsearch
@@ -163,4 +169,6 @@ let g:startify_lists = [
           \ { 'type': 'files',     'header': ['   MRU']            },
           \ { 'type': 'commands',  'header': ['   Commands']       },
           \ ]
+
+
 

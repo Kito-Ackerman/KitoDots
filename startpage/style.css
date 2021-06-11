@@ -1,6 +1,6 @@
 body {
     /* background-color: #2e3440; */
-    background-color: #282828 
+    background-color: #282C34 
 }
 
 input {
@@ -37,7 +37,7 @@ button:hover {
   }
 
 #center:hover {
-    background-color: #282828;
+    background-color: #282C34;
     /* background-color: #566f9e; */
     transition: 0.35s;
 }
@@ -46,7 +46,7 @@ button:hover {
 }
 
 input:hover {
-    background-color: #282828;
+    background-color: #282C34;
     /* background-color: #454c59; */
     transition: 0.35s;
 }
@@ -88,7 +88,7 @@ input:hover {
     justify-content: center;
     align-items: center;
     margin:auto;
-    background-color: #282828;
+    background-color: #282C34;
     /* background-color: #2e3440; */
     height: 100px;
     width: 100px;
