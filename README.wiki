@@ -19,7 +19,7 @@ Doom Emacs is my default ide. I program with it and i found it perfect. I added 
 
 I added only a custom theme and a custom start page. The custom theme is, obviusly, onedark, modified a bit mixing it with dracula for a better navigation
 
-= Alacritty =
+== Alacritty ==
 
 Alacritty is my terminal. I found it very quick in tasks and customizable. I edit yaml file to match up with my onedark theme
 
