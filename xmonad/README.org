@@ -300,7 +300,6 @@ myKeys =
 
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal))
-        , ("M-M1-h", spawn (myTerminal ++ " -e bpytop"))
 
     -- Kill windows
         , ("M-q", kill1)                         -- Kill the currently focused client
@@ -364,7 +363,13 @@ myKeys =
         , ("M-e v", spawn "emacsclient -c -a 'emacs' --eval '(+vterm/here nil)'") -- vterm within emacs
         -- emms is an emacs audio player. I set it to auto start playing in a specific directory.
 
+    -- Vim (M-v followed by a key)
+        , ("M-v e", spawn (myTerminal ++ " -e 'nvim'"))                             -- start vim
+        , ("M-v d", spawn (myTerminal ++ " -e 'ranger'"))                           -- start ranger
+
     -- M + C
+    ---bpytop
+        , ("M-C-h", spawn (myTerminal ++ " -e bpytop"))
     ---browser
         , ("M-C-b", spawn (myBrowser))
         , ("M-C-q", spawn (myMinimalBrowser))
