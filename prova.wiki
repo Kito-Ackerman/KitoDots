@@ -1,0 +1,36 @@
+= heder =
+ 35 == header2 ==
+ 34
+ 33 = My knowledge base =
+ 32     * Tasks -- things to be done yesterday!!!
+ 31     * Project Gutenberg -- good books are power.
+ 30     * Scratchpad -- various temporary stuff.
+ 29 = My knowledge base =
+ 28     * [[Tasks]] -- things to be done yesterday!!!
+ 27     * [[Project Gutenberg]] -- good books are power.
+ 26     * Scratchpad -- various temporary stuff.
+ 25
+ 24
+ 23 = Header1 =
+ 22 == Header2 ==
+ 21 === Header3 ===
+ 20
+ 19 *bold text*
+ 18 italic text
+ 17
+ 16 [[wiki link]]
+ 15 [[wiki link|description]]
+ 14
+ 13 * bullet list item 1
+ 12 * bullet list item 2
+ 11     a) numbered list item 1
+ 10     b) numbered list item 2
+  9
+  8 {{{[[python]]
+  7 def greet(s):
+  6     print("Hello, " + s)
+  5 }}}
+  4
+  3 | a table              |       |
+  2 |----------------------|-------|
+  1 |                      | prova | 
