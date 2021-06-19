@@ -32,19 +32,19 @@ Qtile is a twm inspired by xmonad but written in python. It is more simple to co
 
 ** other apps
 
-== Vim ==
+*** Vim
 
 i added some plugins for trasform nvim in a semi-ide for quick edit, with a theme that match with my general theme (onedark)
 
-== Emacs ==
+*** Emacs
 
 Doom Emacs is my default ide. I program with it and i found it perfect. I added only a few packages for new languages and the onedark theme ( beacouse i found it fantastic and match up with all sistem)
 
-== Qutebrowser ==
+*** Qutebrowser
 
 I added only a custom theme and a custom start page. The custom theme is, obviusly, onedark, modified a bit mixing it with dracula for a better navigation
 
-== Alacritty ==
+*** Alacritty
 
 Alacritty is my terminal. I found it very quick in tasks and customizable. I edit yaml file to match up with my onedark theme
 
