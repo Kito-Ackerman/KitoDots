@@ -64,6 +64,9 @@ Plug 'vimwiki/vimwiki'
 " Markdown Preview
 Plug 'suan/vim-instant-markdown', {'rtp': 'after'} 
 
+"Sxhkd-vim
+Plug 'kovetskiy/sxhkd-vim'
+
 
 call plug#end()
 
