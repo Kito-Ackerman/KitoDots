@@ -1,0 +1,134 @@
+From 385141aa77f52836ea395a5a406d50aab89a67c8 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Tom=20B=C3=B6hmer?= <qtom.boehmer@googlemail.com>
+Date: Sat, 15 May 2021 22:24:00 +0200
+Subject: [PATCH 1/2] Revert "Do not allow focus to drift from fullscreen
+ client via focusstack()"
+
+This reverts commit 67d76bdc68102df976177de351f65329d8683064.
+
+The reverted commit conflicts with the functionality of the
+fakefullscreen patch.
+---
+ dwm.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/dwm.c b/dwm.c
+index b0b3466..664c527 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -835,7 +835,7 @@ focusstack(const Arg *arg)
+ {
+ 	Client *c = NULL, *i;
+
+-	if (!selmon->sel || selmon->sel->isfullscreen)
++	if (!selmon->sel)
+ 		return;
+ 	if (arg->i > 0) {
+ 		for (c = selmon->sel->next; c && !ISVISIBLE(c); c = c->next);
+--
+2.31.1
+
+
+From 05acd5d95400de6efe0d6ec584a5ca20a03f1267 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Tom=20B=C3=B6hmer?= <qtom.boehmer@googlemail.com>
+Date: Sat, 15 May 2021 22:27:19 +0200
+Subject: [PATCH 2/2] Applied patch dwm-fakefullscreen-20170508-ceac8c9.diff
+
+---
+ dwm.c | 28 ++--------------------------
+ 1 file changed, 2 insertions(+), 26 deletions(-)
+
+diff --git a/dwm.c b/dwm.c
+index 664c527..d42b1ee 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -522,7 +522,7 @@ clientmessage(XEvent *e)
+ 		if (cme->data.l[1] == netatom[NetWMFullscreen]
+ 		|| cme->data.l[2] == netatom[NetWMFullscreen])
+ 			setfullscreen(c, (cme->data.l[0] == 1 /* _NET_WM_STATE_ADD    */
+-				|| (cme->data.l[0] == 2 /* _NET_WM_STATE_TOGGLE */ && !c->isfullscreen)));
++				|| cme->data.l[0] == 2 /* _NET_WM_STATE_TOGGLE */));
+ 	} else if (cme->message_type == netatom[NetActiveWindow]) {
+ 		if (c != selmon->sel && !c->isurgent)
+ 			seturgent(c, 1);
+@@ -552,7 +552,6 @@ void
+ configurenotify(XEvent *e)
+ {
+ 	Monitor *m;
+-	Client *c;
+ 	XConfigureEvent *ev = &e->xconfigure;
+ 	int dirty;
+
+@@ -565,9 +564,6 @@ configurenotify(XEvent *e)
+ 			drw_resize(drw, sw, bh);
+ 			updatebars();
+ 			for (m = mons; m; m = m->next) {
+-				for (c = m->clients; c; c = c->next)
+-					if (c->isfullscreen)
+-						resizeclient(c, m->mx, m->my, m->mw, m->mh);
+ 				XMoveResizeWindow(dpy, m->barwin, m->wx, m->by, m->ww, bh);
+ 			}
+ 			focus(NULL);
+@@ -1144,8 +1140,6 @@ movemouse(const Arg *arg)
+
+ 	if (!(c = selmon->sel))
+ 		return;
+-	if (c->isfullscreen) /* no support moving fullscreen windows by mouse */
+-		return;
+ 	restack(selmon);
+ 	ocx = c->x;
+ 	ocy = c->y;
+@@ -1299,8 +1293,6 @@ resizemouse(const Arg *arg)
+
+ 	if (!(c = selmon->sel))
+ 		return;
+-	if (c->isfullscreen) /* no support resizing fullscreen windows by mouse */
+-		return;
+ 	restack(selmon);
+ 	ocx = c->x;
+ 	ocy = c->y;
+@@ -1477,24 +1469,10 @@ setfullscreen(Client *c, int fullscreen)
+ 		XChangeProperty(dpy, c->win, netatom[NetWMState], XA_ATOM, 32,
+ 			PropModeReplace, (unsigned char*)&netatom[NetWMFullscreen], 1);
+ 		c->isfullscreen = 1;
+-		c->oldstate = c->isfloating;
+-		c->oldbw = c->bw;
+-		c->bw = 0;
+-		c->isfloating = 1;
+-		resizeclient(c, c->mon->mx, c->mon->my, c->mon->mw, c->mon->mh);
+-		XRaiseWindow(dpy, c->win);
+ 	} else if (!fullscreen && c->isfullscreen){
+ 		XChangeProperty(dpy, c->win, netatom[NetWMState], XA_ATOM, 32,
+ 			PropModeReplace, (unsigned char*)0, 0);
+ 		c->isfullscreen = 0;
+-		c->isfloating = c->oldstate;
+-		c->bw = c->oldbw;
+-		c->x = c->oldx;
+-		c->y = c->oldy;
+-		c->w = c->oldw;
+-		c->h = c->oldh;
+-		resizeclient(c, c->x, c->y, c->w, c->h);
+-		arrange(c->mon);
+ 	}
+ }
+
+@@ -1619,7 +1597,7 @@ showhide(Client *c)
+ 	if (ISVISIBLE(c)) {
+ 		/* show clients top down */
+ 		XMoveWindow(dpy, c->win, c->x, c->y);
+-		if ((!c->mon->lt[c->mon->sellt]->arrange || c->isfloating) && !c->isfullscreen)
++		if (!c->mon->lt[c->mon->sellt]->arrange || c->isfloating)
+ 			resize(c, c->x, c->y, c->w, c->h, 0);
+ 		showhide(c->snext);
+ 	} else {
+@@ -1713,8 +1691,6 @@ togglefloating(const Arg *arg)
+ {
+ 	if (!selmon->sel)
+ 		return;
+-	if (selmon->sel->isfullscreen) /* no support for fullscreen windows */
+-		return;
+ 	selmon->sel->isfloating = !selmon->sel->isfloating || selmon->sel->isfixed;
+ 	if (selmon->sel->isfloating)
+ 		resize(selmon->sel, selmon->sel->x, selmon->sel->y,
+--
+2.31.1
