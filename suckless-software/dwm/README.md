@@ -11,29 +11,17 @@ _Common tile layout_
 
 ## dwm
 
-dwm is an incredible lightweight and fast tiling window manager for X developed by the [suckless](https://suckless.org/) community. The window manager is written in C and also requires the enduser to modify the code if changes are desired. Luckily there are a lot of patches written by dwm/suckless users for those that are less familiar with C.
+dwm is an incredible lightweight and fast tiling window manager for X developed by the [suckless](https://suckless.org/) community. The window manager is written in C, but the very particular feature of dwm is that there isn' t a real config file: you write the source code to make your DWM! There are a lot of prebuilded patch to make functions avaiable and that makes dwm the most extensible twm in the world, on par with xmonad or even better.
 
 ## Patches
 
+I use this patches to make some functions i need to work :
+
 - [fullgaps](https://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-6.2.diff). Enable gaps between windows.
 - [status2d](https://dwm.suckless.org/patches/status2d/dwm-status2d-20200508-60bb3df.diff). Enable colors for the statusbar.
-- [centeredmaster](https://dwm.suckless.org/patches/centeredmaster/dwm-centeredmaster-6.1.diff). Only usefull on widescreens, not so much on mine
-- [attachaside](https://dwm.suckless.org/patches/attachaside/dwm-attachaside-6.1.diff). New windows are added in the stack. Should've been the default behaviour in my opinion.
-
-## Usage
-
-Recommended to clone into you `.congif/` directory.
-
-```
-git clone https://github.com/manu-febie/dwm
-```
-
-```
-sudo make clean install
-```
-
-```
-# .xinitrc
-
-exec dwm
-```
+- [centeredmaster](https://dwm.suckless.org/patches/centeredmaster/dwm-centeredmaster-6.1.diff). Cool layout to use. It is perfect on large screens but it can be awesome either on small ones like the mine.
+- [attachaside](https://dwm.suckless.org/patches/attachaside/dwm-attachaside-6.1.diff). New windows are added in the stack.
+- [cyclelayout](https://dwm.suckless.org/patches/cyclelayouts/). Switch layouts with a keycombination.
+- [movestack](https://dwm.suckless.org/patches/movestack/). Move a window around the stack.
+- [autostart](https://dwm.suckless.org/patches/autostart/). Start up some application automaticly when launch dwm.
+- [actualfullscreen](https://dwm.suckless.org/patches/actualfullscreen/). Make windows fullscreen ( so borderless and without the topbar and gaps ).
