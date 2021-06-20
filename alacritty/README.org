@@ -1,0 +1,7 @@
+#+TITLE: Alacritty config
+
+* What is alacritty ?
+[[https://github.com/alacritty/alacritty][Alacritty]] is a terminal emulator who is GPU accellerated so it is the fastest terminal you can use. It is the successor of [[https://github.com/thestinger/termite/][termite]] and is written in rust.
+
+* What is my config about?
+Alacritty has very good defaults but i need to configure it to use my color scheme and font. My config is almost solely dedicated on look and feel, but also has some keybindings initialized into it.
