@@ -1,4 +1,4 @@
-#+TITLE: dmenu-distrotube
+#+TITLE: dmenu-build-kito
 
 * Table of Contents :toc:
 - [[#what-is-dmenu][What is dmenu?]]
@@ -14,15 +14,15 @@ dmenu is a dynamic menu for X, originally designed for dwm. It manages large num
 * What is dmenu-build-kito
 dmenu-distroube is my patched build of dmenu. It is very functional and lightway, so i always use it in my shell scripts.
 The patch i use are:
-+ [Dmenu-border][https://tools.suckless.org/dmenu/patches/border/].Adds border around dmenu window
-+ [Dmenu-center][https://tools.suckless.org/dmenu/patches/center/].Allow dmenu to run in a rofi style in the middle of the screen
-+ [Dmenu-fuzzyhighlight][https://tools.suckless.org/dmenu/patches/fuzzyhighlight/].Fuzzy matches gets highlighted
-+ [Dmenu-fuzzymatch][https://tools.suckless.org/dmenu/patches/fuzzymatch/].Adds support for fuzzy-matching
-+ [Dmenu-grid][https://tools.suckless.org/dmenu/patches/grid/]. Allow to choose the number of lines and columns of dmenu
-+ [Dmenu-lineheight][https://tools.suckless.org/dmenu/patches/line-height/].Allow to choose the minimun height of the line
-+ [Dmenu-morecolor][https://tools.suckless.org/dmenu/patches/morecolor/]. Creates a color option for use the entries adjacent to the selection
-+ [Dmenu-mousesupport][https://tools.suckless.org/dmenu/patches/mouse-support/].Enable to use the mouse with dmenu
-+ [Dmenu-numbers][https://tools.suckless.org/dmenu/patches/numbers/].Displays number of matched and total items in top right corner
++ [[https://tools.suckless.org/dmenu/patches/border/][Dmenu-border]].Adds border around dmenu window
++ [[https://tools.suckless.org/dmenu/patches/center/][Dmenu-center]].Allow dmenu to run in a rofi style in the middle of the screen
++ [[https://tools.suckless.org/dmenu/patches/fuzzyhighlight/][Dmenu-fuzzyhighlight]].Fuzzy matches gets highlighted
++ [[https://tools.suckless.org/dmenu/patches/fuzzymatch/][Dmenu-fuzzymatch]].Adds support for fuzzy-matching
++ [[https://tools.suckless.org/dmenu/patches/grid/][Dmenu-grid]]. Allow to choose the number of lines and columns of dmenu
++ [[https://tools.suckless.org/dmenu/patches/line-height/][Dmenu-lineheight]].Allow to choose the minimun height of the line
++ [[https://tools.suckless.org/dmenu/patches/morecolor/][Dmenu-morecolor]]. Creates a color option for use the entries adjacent to the selection
++ [[https://tools.suckless.org/dmenu/patches/mouse-support/][Dmenu-mousesupport]].Enable to use the mouse with dmenu
++ [[https://tools.suckless.org/dmenu/patches/numbers/][Dmenu-numbers]].Displays number of matched and total items in top right corner
 
 * Mouse functionality
 Mouse actions supported:
