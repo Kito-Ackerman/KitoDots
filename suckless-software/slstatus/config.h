@@ -67,7 +67,7 @@ static const struct arg args[] = {
 	/* function format          argument */
 	{ datetime,		 "^c#89ddff^   %s                                                          ",           "%b %d %Y, %R" },
 	{ run_command,   "^c#C678DD^ <  %s ",      "pacupdate"    },
-	{ run_command,   "^c#89aaff^<%s ",         "~/.config/suckless/slstatus/scripts/volume.sh"  },
+	{ run_command,   "^c#89aaff^<%s ",         "~/.config/suckless-software/slstatus/scripts/volume.sh"  },
 	{ disk_free,     "^c#98c379^<  %s ",        "/"            },
 	{ ram_used,		 "^c#E06C75^<   %s ",       NULL           },
 	{ username,      "^c#E5C07B^ <  %s ",       NULL           },
