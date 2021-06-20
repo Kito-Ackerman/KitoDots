@@ -30,11 +30,14 @@ Xmonad is a very extensible twm. It is very tiny in terms of code, so is the opp
 
 Qtile is a twm inspired by xmonad but written in python. It is more simple to configure and manage but less powerfull so i left it in favor of dwm who is " the best seller "
 
+** DWM
+Dwm is my current tiling window manager and is gorgeus.  If you would learn more read my dwm's readme.org
+
 ** other apps
 
 *** Vim
 
-i added some plugins for trasform nvim in a semi-ide for quick edit, with a theme that match with my general theme (onedark)
+I added some plugins for trasform nvim in a semi-ide for quick edit, with a theme that match with my general theme (onedark)
 
 *** Emacs
 
@@ -47,6 +50,3 @@ I added only a custom theme and a custom start page. The custom theme is, obvius
 *** Alacritty
 
 Alacritty is my terminal. I found it very quick in tasks and customizable. I edit yaml file to match up with my onedark theme
-
-<!-- =# Polybar -->
-<!-- Polybar is the best bar for any wm. Is a bit bloat but looks absolutely gorgeous ! -->
