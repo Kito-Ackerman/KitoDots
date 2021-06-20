@@ -22,31 +22,24 @@ The apps in question are :
 ** Past Wm
 *** Xmonad
 **** What is xmonad and why i left it
-
 Xmonad is a very extensible twm. It is very tiny in terms of code, so is the opposite of bloated vms. I create a custome theme with the clockl in the center and very active colors instead of standard onedark colors. The center of the clock is actually fake beacouse is an amount of " " in succession but is a simple and efficient solution for xmobar ( my default bar ) who not allow to use center text. The resault is quite perfect, the only thing i don 't like is how mutch difficult is to implement the centered master layout but is not a big deal.  The real problem of this wm is the haskell language, who is very hard to use and i actually don' t undestand some lines of my config XD.( Obviusly just  joking ).
 
 *** Qtile
 **** What is qtile and why i left it
-
 Qtile is a twm inspired by xmonad but written in python. It is more simple to configure and manage but less powerfull so i left it in favor of dwm who is " the best seller "
 
 ** DWM
 Dwm is my current tiling window manager and is gorgeus.  If you would learn more read my dwm's readme.org
-
 ** other apps
-
 *** Vim
-
 I added some plugins for trasform nvim in a semi-ide for quick edit, with a theme that match with my general theme (onedark)
-
 *** Emacs
-
 Doom Emacs is my default ide. I program with it and i found it perfect. I added only a few packages for new languages and the onedark theme ( beacouse i found it fantastic and match up with all sistem)
-
 *** Qutebrowser
-
 I added only a custom theme and a custom start page. The custom theme is, obviusly, onedark, modified a bit mixing it with dracula for a better navigation
-
 *** Alacritty
-
 Alacritty is my terminal. I found it very quick in tasks and customizable. I edit yaml file to match up with my onedark theme
+
+* Special thanks to :
+I need to thanks Derek Taylor ( [[https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg][Youtube]] [[https://gitlab.com/dwt1][Git lab]]), Mental Outlaw ([[https://www.youtube.com/channel/UC7YOGHUfC1Tb6E4pudI9STA][Youtube]] [[https://github.com/MentalOutlaw][Github]]) and Luke Smith ( [[https://www.youtube.com/channel/UC2eYFnH61tmytImy1mTYvhA][Youtube]] [[https://github.com/LukeSmithxyz][Github]]) for heavly help and inspire me in this "mission". Is only thanks to them, expecially the first 2, if a 16-year-old boy like me (not even English but Italian, and I take this opportunity to report writing errors if you find them ) was able to get to where he is with the study of linux and the love for FOSS.
+I need to specify one thing: despite what I just said, this repository IS NOT a copy and paste of theirs but a transposition of my knowledge with their files used only as a starting point
