@@ -1,12 +1,74 @@
+#+TITLE: Qutebrowser config
+#+PROPERTY: header-args :tangle ~/.config/qutebrowser/config.py
+#+STARTUP: showeverything
+
+
+* Table of content :toc:
+- [[#what-is-qutebrowser][What is Qutebrowser]]
+  - [[#qutebrowser-documentation][Qutebrowser documentation]]
+- [[#config][Config]]
+  - [[#first-aliases][First aliases]]
+  - [[#cookie][Cookie]]
+  - [[#user-agent][User agent]]
+  - [[#load-images-and-js-automatically-in-web-pages][Load images and js automatically in web pages.]]
+  - [[#notification][Notification]]
+  - [[#c-config][C. config]]
+  - [[#extra-keybindings][Extra keybindings]]
+
+* What is Qutebrowser
+Qutebrowser is a webkit + minamal browser written in python. It is very quick and customizable so i use it for the most part of internet thing i do. I have firefox in my system only for some webapp who don' t recognize qutebrowser as a complete browser and some function aren' t working wel
+** Qutebrowser documentation
+The documentation for qute is cool and is splitted in 2 links:
+  "qute://help/configuring.html"
+  "qute://help/settings.html"
+
+* Config
+These is my config explained part by part
+** First aliases
+These is the first alias essensial for use this browser
+#+begin_src python
 # config.py for qutebrowser of Kito. Read my README.org
 config.load_autoconfig(False)
 c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save'}
 
+#+end_src
+** Cookie
+Which cookies to accept. With QtWebEngine, this setting also controls
+other features with tracking capabilities similar to those of cookies;
+including IndexedDB, DOM storage, filesystem API, service workers, and
+AppCache. Note that with QtWebKit, only `all` and `never` are
+supported as per-domain values. Setting `no-3rdparty` or `no-
+unknown-3rdparty` per-domain on QtWebKit will have the same effect as
+`all`.
+Type: String
+Valid values:
+  - all: Accept all cookies.
+  - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
+  - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
+  - never: Don't accept cookies at all.
+#+begin_src python
 #Cookies
 
 config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
 config.set('content.cookies.accept', 'all', 'devtools://*')
 
+#+end_src
+** User agent
+User agent to send.  The following placeholders are defined:  *
+`{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
+The underlying WebKit version (set to a fixed value   with
+QtWebEngine). * `{qt_key}`: "Qt" for QtWebKit, "QtWebEngine" for
+QtWebEngine. * `{qt_version}`: The underlying Qt version. *
+`{upstream_browser_key}`: "Version" for QtWebKit, "Chrome" for
+QtWebEngine. * `{upstream_browser_version}`: The corresponding
+Safari/Chrome version. * `{qutebrowser_version}`: The currently
+running qutebrowser version.  The default value is equal to the
+unchanged user agent of QtWebKit/QtWebEngine.  Note that the value
+read from JavaScript is always the global value. With QtWebEngine
+between 5.12 and 5.14 (inclusive), changing the value exposed to
+JavaScript requires a restart.
+Type: FormatString
+#+begin_src python
 #user agent
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}', 'https://web.whatsapp.com/')
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:71.0) Gecko/20100101 Firefox/71.0', 'https://accounts.google.com/*')
@@ -14,6 +76,9 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/53
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:71.0) Gecko/20100101 Firefox/71.0', 'https://docs.google.com/*')
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:71.0) Gecko/20100101 Firefox/71.0', 'https://drive.google.com/*')
 
+#+end_src
+** Load images and js automatically in web pages.
+#+begin_src python
 # Load images automatically in web pages.
 # Type: Bool
 config.set('content.images', True, 'devtools://*')
@@ -38,22 +103,57 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'https://animeworld.tv/*')
 
+#+end_src
+** Notification
+Allow websites to show notifications.
+Type: BoolAsk
+Valid values:
+  - true
+  - false
+  - ask
+#+begin_src python
 #notifications
 
 
 config.set('content.notifications.enabled', True, 'https://www.reddit.com')
 config.set('content.notifications.enabled', True, 'https://www.youtube.com')
+#+end_src
+** C. config
+*** Downloads
+Directory to save downloads to. If unset, a sensible OS-specific
+default is used.
+Type: Directory
+
+#+begin_src python
 
 c.downloads.location.directory = '/home/kito/Scaricati'
 
+#+end_src
+*** Bars
+When to show the tab bar.
+Type: String
+Valid values:
+  - always: Always show the tab bar.
+  - never: Always hide the tab bar.
+  - multiple: Hide the tab bar if only one tab is open.
+  - switching: Show the tab bar when switching tabs.
+    #+begin_src python
 #bars
 c.tabs.show = 'multiple'
 c.statusbar.show = 'never'
 
+    #+end_src
+*** Start page
+ Setting default page for when opening new tabs or new windows with commands like :open -t and :open -w .
+ #+begin_src python
 #startpage
 c.url.default_page = 'file:///home/kito/.config/startpage/index.html'
 c.url.start_pages = 'file:///home/kito/.config/startpage/index.html'
 
+ #+end_src
+*** Colors
+Setup color scheme
+#+begin_src python
 # Setting dark mode
 # config.set("colors.webpage.darkmode.enabled", True)
 #colors
@@ -142,6 +242,10 @@ c.colors.statusbar.passthrough.bg = '#34426f'
 # Type: QssColor
 c.colors.statusbar.command.bg = '#282c34'
 
+#+end_src
+** Extra keybindings
+Add extra keybindings for a better experience
+#+begin_src python
 #keybindings
 # Bindings for normal mode
 config.bind('M', 'hint links spawn mpv {hint-url}')
@@ -163,3 +267,6 @@ config.bind(',bo', 'set-cmd-text -s :bookmark-load ')
 config.bind(',ba', 'bookmark-add')
 
 config.bind('D', 'open file:///home/kito/.config/startpage/index.html ')
+
+
+#+end_src
