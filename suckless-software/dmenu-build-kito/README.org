@@ -2,29 +2,28 @@
 
 * Table of Contents :toc:
 - [[#what-is-dmenu][What is dmenu?]]
-- [[#what-is-dmenu-distrotube][What is dmenu-distrotube]]
+- [[#what-is-dmenu-build-kito][What is dmenu-build-kito]]
 - [[#mouse-functionality][Mouse functionality]]
 - [[#available-flags][Available flags]]
-- [[#installing-dmenu-distrotube-on-arch-linux][Installing dmenu-distrotube on Arch Linux]]
-- [[#installing-dmenu-distrotube-on-other-linux-distributions][Installing dmenu-distrotube on other Linux distributions]]
 
 * What is dmenu?
 #+CAPTION: dmenu-distrotube
 #+ATTR_HTML: :alt dmenu-distrotube :title dmenu-distrotube :align left
-[[https://gitlab.com/dwt1/dotfiles/-/raw/master/.screenshots/dmenu-distrotube01.png]]
 
 dmenu is a dynamic menu for X, originally designed for dwm. It manages large numbers of user-defined menu items efficiently.  It is a very powerful tool that allows you to pipe information into it.  This makes dmenu a perfect utility to incorporate into your scripting.
-* What is dmenu-distrotube
-dmenu-distroube is my personal build of dmenu that is very heavily patched to add more functionality and more customization options.  The patches that I used in this build include:
-+ dmenu-border -- adds border around dmenu window
-+ dmenu-center -- centers dmenu in the middle of screen (-c)
-+ dmenu-fuzzyhighlight -- fuzzy matches gets highlighted
-+ dmenu-fuzzymatch -- adds support for fuzzy-matching
-+ dmenu-grid -- adds a flag (-g) to specify the number of grid columns
-+ dmenu-lineheight -- adds a flag (-h) to set the minimum height of dmenu lines
-+ dmenu-morecolor -- creates a color option for use the entries adjacent to the selection
-+ dmenu-mousesupport -- basic mouse support
-+ dmenu-numbers -- Displays number of matched and total items in top right corner
+* What is dmenu-build-kito
+dmenu-distroube is my patched build of dmenu. It is very functional and lightway, so i always use it in my shell scripts.
+The patch i use are:
++ [Dmenu-border][https://tools.suckless.org/dmenu/patches/border/].Adds border around dmenu window
++ [Dmenu-center][https://tools.suckless.org/dmenu/patches/center/].Allow dmenu to run in a rofi style in the middle of the screen
++ [Dmenu-fuzzyhighlight][https://tools.suckless.org/dmenu/patches/fuzzyhighlight/].Fuzzy matches gets highlighted
++ [Dmenu-fuzzymatch][https://tools.suckless.org/dmenu/patches/fuzzymatch/].Adds support for fuzzy-matching
++ [Dmenu-grid][https://tools.suckless.org/dmenu/patches/grid/]. Allow to choose the number of lines and columns of dmenu
++ [Dmenu-lineheight][https://tools.suckless.org/dmenu/patches/line-height/].Allow to choose the minimun height of the line
++ [Dmenu-morecolor][https://tools.suckless.org/dmenu/patches/morecolor/]. Creates a color option for use the entries adjacent to the selection
++ [Dmenu-mousesupport][https://tools.suckless.org/dmenu/patches/mouse-support/].Enable to use the mouse with dmenu
++ [Dmenu-numbers][https://tools.suckless.org/dmenu/patches/numbers/].Displays number of matched and total items in top right corner
+
 * Mouse functionality
 Mouse actions supported:
 + Left-mouse click:
@@ -42,6 +41,7 @@ Mouse actions supported:
 + Scroll down:
   - In horizontal mode: same as left-clicking on right arrow.
   - In vertical mode: show items below.
+
 * Available flags
 + [-l lines]
 + [-g columns]
@@ -49,6 +49,8 @@ Mouse actions supported:
 + [-fn font]
 + [-m monitor]
 + [-h height]
++ [-w windowid]
++ [-c center view]
 + [-nb color]
 + [-nf color]
 + [-sb color]
@@ -57,32 +59,4 @@ Mouse actions supported:
 + [-nhf color]
 + [-shb color]
 + [-shf color]
-+ [-w windowid]
-+ [-c] for centering
 
-An example: dmenu_run -c -bw 2 -l 20 -g 4 -p 'Run: '
-
-This launches dmenu_run with -c (centered), -bw (border width), -l (number of vertical lines) and -g (number of grid columns).
-* Installing dmenu-distrotube on Arch Linux
-All you need to do is to download the PKGBUILD from this repository.  Then run the following command:
-
-=makepkg -cf=
-
-This will create a file that ends in .pkg.tar.xz (for example, dmenu-distrotube-git-5.0-1-x86_64.pkg.tar.xz).  Then run:
-
-=sudo pacman -U *.pkg.tar.xz=
-
-Alternately, you could also install dmenu-distrotube-git from the AUR using an AUR helper such as yay:
-
-=yay -S dmenu-distrotube-git=
-
-=NOTE:= Installing dmenu-distrotube-git conflicts with the standard dmenu package.  If you already have dmenu installed, you will be asked if you want to remove dmenu and install dmenu-distrotube-git instead.
-
-* Installing dmenu-distrotube on other Linux distributions
-Download the source code from this repository or use a git clone:
-
-+ git clone https://gitlab.com/dwt1/dmenu-distrotube.git
-+ cd dmenu-distrotube
-+ sudo make clean install
-
-=NOTE:= Installing dmenu-distrotube will overwrite your existing dmenu installation so make a backup of your current config if you need it.
