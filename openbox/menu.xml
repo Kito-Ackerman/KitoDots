@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/  file:///usr/share/openbox/menu.xsd">
+  <menu id="root-menu" title="Menu" label="Openbox 3">
+    <!--	<separator label="Main Menu"/>  -->
+    <item label="Terminal Emulator">
+      <action name="Execute">
+        <command>alacritty</command>
+      </action>
+    </item>
+    <item label="Web Browser">
+      <action name="Execute">
+        <command>qutebrowser</command>
+      </action>
+    </item>
+    <item label="File Manager">
+      <action name="Execute">
+        <command>pcmanfm</command>
+      </action>
+    </item>
+    <item label="Text Editor">
+      <action name="Execute">
+        <command>emacs</command>
+      </action>
+    </item>
+    <separator/>
+    <menu execute="obmenu-generator" id="app-menu" label="Applications"/>
+    <menu id="root-menu-8399" label="Quick Links">
+      <item label="DuckDuckGo">
+        <action name="Execute">
+          <execute>qutebrowser https://start.duckduckgo.com/</execute>
+        </action>
+      </item>
+      <item label="Google">
+        <action name="Execute">
+          <execute>qutebrowser https://www.google.com</execute>
+        </action>
+      </item>
+      <item label="GitHub">
+        <action name="Execute">
+          <execute>qutebrowser https://www.github.com</execute>
+        </action>
+      </item>
+      <item label="Reddit">
+        <action name="Execute">
+          <execute>qutebrowser https://www.reddit.com</execute>
+        </action>
+      </item>
+      <item label="Gmail">
+        <action name="Execute">
+          <execute>qutebrowser https://mail.google.com</execute>
+        </action>
+      </item>
+      <item label="Youtube">
+        <action name="Execute">
+          <execute>qutebrowser https://www.youtube.com</execute>
+        </action>
+      </item>
+      <separator/>
+      <item label="Private">
+        <action name="Execute">
+          <execute>qutebrowser -p</execute>
+        </action>
+      </item>
+    </menu>
+    <menu id="root-menu-8365" label="Screenshot">
+      <item label="Screenshot Now">
+        <action name="Execute">
+          <execute>scrot -d 1 ~/scrot/%Y-%m-%d-@%H-%M-%S-scrot.png</execute>
+        </action>
+      </item>
+      <item label="Screenshot In 5s">
+        <action name="Execute">
+          <execute>spawn "scrot -d 5 ~/scrot/%Y-%m-%d-@%H-%M-%S-scrot.png</execute>
+        </action>
+      </item>
+      <item label="Screenshot In 10s">
+        <action name="Execute">
+          <execute>"scrot -d 10 ~/scrot/%Y-%m-%d-@%H-%M-%S-scrot.png</execute>
+        </action>
+      </item>
+      <item label="Screenshot Area">
+        <action name="Execute">
+          <execute>"scrot -s ~/scrot/%Y-%m-%d-@%H-%M-%S-scrot.png</execute>
+        </action>
+      </item>
+    </menu>
+    <menu id="root-menu-8366" label="dmenu">
+      <item label="edit config">
+        <action name="Execute">
+          <execute>sh ~/.dmenu/dmenu-edit-config.sh</execute>
+        </action>
+      </item>
+      <item label="screenshot">
+        <action name="Execute">
+          <execute>sh ~/.dmenu/dmenu-scrot.sh</execute>
+        </action>
+      </item>
+      <item label="powermenu">
+        <action name="Execute">
+          <execute>sh ~/.dmenu/powermenu-dmenu.sh</execute>
+        </action>
+      </item>
+      <item label="tab">
+        <action name="Execute">
+          <execute>sh ~/.dmenu/dmenu-tab.sh</execute>
+        </action>
+      </item>
+      </menu>
+    <separator/>
+    <menu id="obConfig" label="Openbox">
+      <item label="Settings">
+        <action name="Execute">
+          <command>obconf</command>
+        </action>
+      </item>
+      <separator/>
+      <item label="Edit menu.xml">
+        <action name="Execute">
+          <command>exo-open ~/.config/openbox/menu.xml</command>
+        </action>
+      </item>
+      <item label="Edit rc.xml">
+        <action name="Execute">
+          <command>exo-open ~/.config/openbox/rc.xml</command>
+        </action>
+      </item>
+      <item label="Edit autostart">
+        <action name="Execute">
+          <command>exo-open ~/.config/openbox/autostart</command>
+        </action>
+      </item>
+      <separator/>
+      <item label="Openbox Reconfigure">
+        <action name="Reconfigure"/>
+      </item>
+      <item label="Openbox Restart">
+        <action name="Restart"/>
+      </item>
+    </menu>
+    <separator/>
+    <menu id="obExit" label="System">
+      <item label="Logout">
+        <action name="Execute">
+          <command>loginctl terminate-session $XDG_SESSION_ID</command>
+        </action>
+      </item>
+      <item label="Reboot">
+        <action name="Execute">
+          <command>reboot</command>
+        </action>
+      </item>
+      <item label="Shutdown">
+        <action name="Execute">
+          <command>shutdown -f now</command>
+        </action>
+      </item>
+    </menu>
+  </menu>
+</openbox_menu>
+<!-- vim:sw=2
+-->
