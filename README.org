@@ -34,7 +34,7 @@ Qtile is a twm inspired by xmonad but written in python. It is more simple to co
 Dwm is my current tiling window manager and is gorgeus.  If you would learn more read my dwm's readme.org
 
 ** Openbox
-Openbox is simply the best floating window manager by far. Polybar is the perfect mix. JUST SO FU****G AESTETICH!
+Openbox is simply the best floating window manager by far. Polybar is the perfect mix. JUST SO GORGEOUS!
 
 ** other apps
 *** Vim
