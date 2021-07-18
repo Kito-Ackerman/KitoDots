@@ -15,8 +15,10 @@ The apps in question are :
 | Emacs               | IDE                   |
 | Nvim                | Quick Text Editor     |
 | Sxhkd               | Keybindings manager   |
-| Nautilus            | File manager          |
+| PCmanFm             | File manager          |
 | Ferdi               | Chat Client           |
+| Openbox             | Floating WM           |
+| Polybar             | Bar for Openbox       |
 |---------------------+-----------------------|
 
 ** Past Wm
@@ -30,6 +32,10 @@ Qtile is a twm inspired by xmonad but written in python. It is more simple to co
 
 ** DWM
 Dwm is my current tiling window manager and is gorgeus.  If you would learn more read my dwm's readme.org
+
+** Openbox
+Openbox is simply the best floating window manager by far. Polybar is the perfect mix. JUST SO FU****G AESTETICH!
+
 ** other apps
 *** Vim
 I added some plugins for trasform nvim in a semi-ide for quick edit, with a theme that match with my general theme (onedark)

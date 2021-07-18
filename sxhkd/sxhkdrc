@@ -2,7 +2,7 @@ super + p; {c,q,j,s,x}
 	exec ~/.config/suckless-software/dmenu-scripts/{dmenu-edit-config.sh,dmenu-qute.sh,dmenu-emoji.sh,dmenu-scrot.sh,powermenu-dmenu.sh}
 
 super + control + {q,b,f}
-	{qutebrowser,firefox,thunar}
+	{qutebrowser,firefox,pcmanfm}
 
 super + e; {e,b,d,f}
 	emacsclient -c -a { 'emacs','emacs' --eval '(ibuffer)','emacs' --eval '(dired nil)','emacs' --eval '(elfeed)'}
