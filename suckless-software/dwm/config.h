@@ -14,7 +14,7 @@ static const char dmenufont[]       = "Mononoki Nerd Font:size=9:antialias=true:
 static const char col_gray1[]       = "#282c34";
 static const char col_gray2[]       = "#282c20";
 static const char col_gray3[]       = "#282c10";
-static const char col_gray4[]       = "#ffffff";
+static const char col_gray4[]       = "#2e2c20";
 static const char col_gray5[]       = "#89ddff";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -130,7 +130,7 @@ static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
+	//{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },

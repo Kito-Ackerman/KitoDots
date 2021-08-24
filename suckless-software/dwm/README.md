@@ -25,3 +25,4 @@ I use this patches to make some functions i need to work :
 - [movestack](https://dwm.suckless.org/patches/movestack/). Move a window around the stack.
 - [autostart](https://dwm.suckless.org/patches/autostart/). Start up some application automaticly when launch dwm.
 - [actualfullscreen](https://dwm.suckless.org/patches/actualfullscreen/). Make windows fullscreen ( so borderless and without the topbar and gaps ).
+- [no-title](https://dwm.suckless.org/patches/notitle/dwm-notitle-20210715-138b405.diff). Don' t show the window title

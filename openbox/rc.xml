@@ -61,7 +61,7 @@
     </font>
   </theme>
   <desktops>
-    <number>5</number>
+    <number>7</number>
     <firstdesk>0</firstdesk>
     <names>
       <name>&#xF111;</name>
@@ -72,7 +72,6 @@
       <name>&#xF111;</name>
       <name>&#xF111;</name>
       <name>&#xF111;</name>
-      <name>VBOXC</name>
     </names>
     <popupTime>875</popupTime>
   </desktops>
