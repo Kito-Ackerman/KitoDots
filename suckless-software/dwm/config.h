@@ -96,9 +96,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} }, /* centered master */ 
 	//{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} }, [> centered master <]
-	{ MODKEY,		                XK_comma,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ShiftMask,		        XK_Tab,    cyclelayout,    {.i = -1 } },
-	{ MODKEY,                       XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY,		                XK_Tab,    cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_space,  togglefullscr,  {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },

@@ -292,8 +292,6 @@ static Window root, wmcheckwin;
 /* compile-time check if all tags fit into an unsigned int bit array. */
 struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };
 
-static ClrScheme tagscheme[LENGTH(tags)];
-
 /* function implementations */
 void
 applyrules(Client *c)

@@ -1,10 +1,14 @@
 --- config.def.h
 +++ config.def.h
-@@ -78,6 +78,7 @@ static Key keys[] = {
- 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
- 	{ MODKEY,                       XK_space,  setlayout,      {0} },
- 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-+	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
- 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
- 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
- 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+@@ -49,7 +49,10 @@ static const Layout layouts[] = {
+ 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+ 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+ 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
++	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} }, \
++        { ALTMOD,                       KEY,      focusnthmon,    {.i  = TAG } }, \
++        { ALTMOD|ShiftMask,             KEY,      tagnthmon,      {.i  = TAG } },
++
+ 
+ /* helper for spawning shell commands in the pre dwm-5.0 fashion */
+ #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
