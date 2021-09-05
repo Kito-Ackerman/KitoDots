@@ -1,8 +1,11 @@
-super + p; {c,q,j,s,x}
+super + d; {c,q,j,s,x}
 	exec ~/.config/suckless-software/dmenu-scripts/{dmenu-edit-config.sh,dmenu-qute.sh,dmenu-emoji.sh,dmenu-scrot.sh,powermenu-dmenu.sh}
 
 super + control + {q,b,f,m,c}
-	{qutebrowser,firefox,thunar,MellowPlayer,ferdi}
+	{qutebrowser,firefox,nemo,MellowPlayer,ferdi}
 
 super + e; {e,b,d,f}
-	emacsclient -c -a { 'emacs','emacs' --eval '(ibuffer)','emacs' --eval '(dired nil)','emacs' --eval '(elfeed)'}
+	emacsclient -c -a { 'emacs','emacs' --eval '(ibuffer)','emacs' --eval '(ranger)','emacs' --eval '(elfeed)'}
+
+super + v; {e,f}
+	{neovide,alacritty -e ranger}

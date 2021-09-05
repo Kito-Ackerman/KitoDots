@@ -6,41 +6,73 @@
 Theese are my dotfiles for my twms and apps i usually use on my bedrock machine
 
 The apps in question are :
-|---------------------+-----------------------|
-| App                 | Use                   |
-|---------------------+-----------------------|
-| Dwm                 | Tiling Window Manager |
-| Alacritty           | Terminal              |
-| Qutebrowser/Firefox | Browsers              |
-| Emacs               | IDE                   |
-| Nvim                | Quick Text Editor     |
-| Sxhkd               | Keybindings manager   |
-| thunar              | File manager          |
-| Ferdi               | Chat Client           |
-|---------------------+-----------------------|
+|---------------------+-------------------------------|
+| App                 | Use                           |
+|---------------------+-------------------------------|
+| Xmonad              | Primary Tiling Window Manager |
+| Dwm                 | Backup Tiling Window Manager  |
+| Alacritty           | Terminal                      |
+| Qutebrowser/Firefox | Browsers                      |
+| Emacs               | Read Emacs paragraph          |
+| Nvim                | Quick Text Editor             |
+| Sxhkd               | Keybindings manager           |
+| Nemo                | File manager                  |
+| Ferdi               | Chat Client                   |
+|---------------------+-------------------------------|
 
 ** Past Wm
-*** Xmonad
-**** What is xmonad and why i left it
-Xmonad is a very extensible twm. It is very tiny in terms of code, so is the opposite of bloated vms. I create a custome theme with the clockl in the center and very active colors instead of standard onedark colors. The center of the clock is actually fake beacouse is an amount of " " in succession but is a simple and efficient solution for xmobar ( my default bar ) who not allow to use center text. The resault is quite perfect, the only thing i don 't like is how mutch difficult is to implement the centered master layout but is not a big deal.  The real problem of this wm is the haskell language, who is very hard to use and i actually don' t undestand some lines of my config XD.( Obviusly just  joking ).
+*** Awesomewm
+**** What is awesomewm and why i left it
+Awesomewm was a dwm fork written in lua language. Today that project become so
+big as a stand alone window manager. Problably is the more extensible of all
+twm, he's got a bar and widgets library. So, why i left it? The responce is that
+awesome is kinda straight and i would like something i can create from myself
+from screatch.
 
 *** Qtile
 **** What is qtile and why i left it
-Qtile is a twm inspired by xmonad but written in python. It is more simple to configure and manage but less powerfull so i left it in favor of dwm who is " the best seller "
+Qtile is a twm inspired by xmonad but written in python. It is more simple to
+configure and manage but less powerfull so i left it in favor of dwm who is "
+the best seller "
+*** Dwm
+**** What is Dwm and why i left it
+Dwm is one of my fevorite twm. He is totally different from all the other
+beacouse you don't configure it but you write it from source code yourself. The
+problem is how old the method of writing is, in fact all the function you would
+add to dwm are pre-written in patches, who are easy to install in most cases but
+sometimes they are impossible or not compatible with each other. for this
+question I switch another time to Xmonad. I actually use it as back-up wm beacouse is a little quicker than emacs and is pretty immobile ( you don't need to upgrade it / rewrite config for breaking updates )
 
-** DWM
-Dwm is my current tiling window manager and is gorgeus.  If you would learn more read my dwm's readme.org
+** Xmonad
+Xmonad is a twm written in haskell, a very complex programming language that I
+hate, but it is simply the best. It is fast, suckless, powerfull and
+aesthetichally beautifull at the same time, literally all you can think is
+possible on xmonad so spending some hours to learn how it works is a good thing
+and a great lerning experience.
 
 ** other apps
 *** Vim
 I added some plugins for trasform nvim in a semi-ide for quick edit, with a theme that match with my general theme (onedark)
 *** Emacs
-Doom Emacs is my default ide. I program with it and i found it perfect. I added only a few packages for new languages and the onedark theme ( beacouse i found it fantastic and match up with all sistem)
+Doom emacs is my IDE but not just that. When you start using emacs all your
+system beacome Emacs : I use dired-ranger as file manager if i don't need some
+graphic features, i use vterm a lot and elfeed is my default rss reader. I tryed
+to switch out of emacs a lot of times but every single feature i miss is
+unreplicable in other program. The only "killer feature" i don' t really use is
+MaGit, never used and never understand his utility: there is git cmd who is more
+simple to use and official, but i understand some peaple like that interface so
+is ok.
 *** Qutebrowser
 I added only a custom theme and a custom start page. The custom theme is, obviusly, onedark, modified a bit mixing it with dracula for a better navigation
 *** Alacritty
 Alacritty is my terminal. I found it very quick in tasks and customizable. I edit yaml file to match up with my onedark theme
 
 * Special thanks to :
-I need to thanks Derek Taylor ( [[https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg][Youtube]] [[https://gitlab.com/dwt1][Git lab]]), Mental Outlaw ([[https://www.youtube.com/channel/UC7YOGHUfC1Tb6E4pudI9STA][Youtube]] [[https://github.com/MentalOutlaw][Github]]) and Luke Smith ( [[https://www.youtube.com/channel/UC2eYFnH61tmytImy1mTYvhA][Youtube]] [[https://github.com/LukeSmithxyz][Github]]) for heavly help and inspire me in this "mission". Is only thanks to them, expecially the first 2, if a 16-year-old boy like me (not even English but Italian, and I take this opportunity to report writing errors if you find them ) was able to get to where he is with the study of linux and the love for FOSS.
-I need to specify one thing: despite what I just said, this repository IS NOT a copy and paste of theirs but a transposition of my knowledge with their files used only as a starting point
+I need to thanks Derek Taylor ( [[https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg][Youtube]] [[https://gitlab.com/dwt1][Git lab]]), Mental Outlaw ([[https://www.youtube.com/channel/UC7YOGHUfC1Tb6E4pudI9STA][Youtube]] [[https://github.com/MentalOutlaw][Github]])
+and Luke Smith ( [[https://www.youtube.com/channel/UC2eYFnH61tmytImy1mTYvhA][Youtube]] [[https://github.com/LukeSmithxyz][Github]]) for heavly help and inspire me in this
+"mission". Is only thanks to them, expecially the first 2, if a 16-year-old boy
+like me (not even English but Italian, and I take this opportunity to report
+writing errors if you find them ) was able to get to where he is with the study
+of linux and the love for FOSS. I need to specify one thing: despite what I just
+said, this repository IS NOT a copy and paste of theirs but a transposition of
+my knowledge with their files used only as a starting point

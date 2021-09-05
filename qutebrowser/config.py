@@ -38,6 +38,13 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'https://animeworld.tv/*')
 
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'https://www.iisfocaccia.edu.it/*')
+
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'http://192.168.1.112:32400/web/index.html#!/setup/e2bcc52eb2a0cc1003f7060538d0d867e9e07eab')
 #notifications
 
 

@@ -6,7 +6,9 @@ static const unsigned int borderpx  = 3;
 static const unsigned int gappx     = 5;
 static const unsigned int snap      = 32;       
 static const int showbar            = 1;        
-static const int topbar             = 1;       
+static const int topbar        = 1;          /* 0 means bottom bar */
+static const int usealtbar     = 1;          /* 1 means use non-dwm status bar */
+static const char *altbarclass = "tint2";  /* Alternate bar class name */
 static const char *fonts[]     = {"Mononoki Nerd Font:size=9:antialias=true:autohint=true",
                                   "Hack:size=8:antialias=true:autohint=true",
                                   "JoyPixels:size=10:antialias=true:autohint=true"};
@@ -22,7 +24,7 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_gray5, col_gray5 },
 };
 
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { " ", " ", "", " ", " ", " ", " ", " ", " " };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */

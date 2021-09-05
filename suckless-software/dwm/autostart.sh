@@ -1,4 +1,5 @@
 #!/bin/bash
+xrandr --output HDMI-2 --auto --right-of HDMI-1
 picom &
 slstatus &
 dunst &

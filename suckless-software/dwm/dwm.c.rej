@@ -1,25 +1,21 @@
 --- dwm.c
 +++ dwm.c
-@@ -718,7 +716,7 @@ drawbar(Monitor *m)
- 	x = 0;
- 	for (i = 0; i < LENGTH(tags); i++) {
- 		w = TEXTW(tags[i]);
--		drw_setscheme(drw, m->tagset[m->seltags] & 1 << i ? &tagscheme[i] : &scheme[SchemeNorm]);
-+		drw_setscheme(drw, m->tagset[m->seltags] & 1 << i ? &scheme[SchemeSel] : &scheme[SchemeNorm]);
- 		drw_text(drw, x, 0, w, bh, tags[i], urg & 1 << i);
- 		drw_rect(drw, x + 1, 1, dx, dx, m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
- 		           occ & 1 << i, urg & 1 << i);
-@@ -1586,13 +1584,6 @@ setup(void)
- 	scheme[SchemeSel].border = drw_clr_create(drw, selbordercolor);
- 	scheme[SchemeSel].bg = drw_clr_create(drw, selbgcolor);
- 	scheme[SchemeSel].fg = drw_clr_create(drw, selfgcolor);
--
--	for (unsigned int i = 0; i < LENGTH(tags); i++) {
--		tagscheme[i].bg = drw_clr_create(drw, tagselbg[i]);
--		tagscheme[i].fg = drw_clr_create(drw, tagselfg[i]);
--		tagscheme[i].border = drw_clr_create(drw, selbordercolor);
--	}
--
- 	/* init bars */
- 	updatebars();
- 	updatestatus();
+@@ -47,8 +47,8 @@
+ /* macros */
+ #define BUTTONMASK              (ButtonPressMask|ButtonReleaseMask)
+ #define CLEANMASK(mask)         (mask & ~(numlockmask|LockMask) & (ShiftMask|ControlMask|Mod1Mask|Mod2Mask|Mod3Mask|Mod4Mask|Mod5Mask))
+-#define INTERSECT(x,y,w,h,m)    (MAX(0, MIN((x)+(w),(m)->wx+(m)->ww) - MAX((x),(m)->wx)) \
+-                               * MAX(0, MIN((y)+(h),(m)->wy+(m)->wh) - MAX((y),(m)->wy)))
++#define INTERSECT(x,y,w,h,m)    (MAX(0, MIN((x)+(w),(m)->mx+(m)->mw) - MAX((x),(m)->mx)) \
++                               * MAX(0, MIN((y)+(h),(m)->my+(m)->mh) - MAX((y),(m)->my)))
+ #define ISVISIBLE(C)            ((C->tags & C->mon->tagset[C->mon->seltags]))
+ #define LENGTH(X)               (sizeof X / sizeof X[0])
+ #define MOUSEMASK               (BUTTONMASK|PointerMotionMask)
+@@ -645,6 +651,7 @@ createmon(void)
+ 	m->nmaster = nmaster;
+ 	m->showbar = showbar;
+ 	m->topbar = topbar;
++	m->bh = bh;
+ 	m->lt[0] = &layouts[0];
+ 	m->lt[1] = &layouts[1 % LENGTH(layouts)];
+ 	strncpy(m->ltsymbol, layouts[0].symbol, sizeof m->ltsymbol);

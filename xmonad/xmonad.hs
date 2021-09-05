@@ -1,0 +1,568 @@
+--Imports
+  -- Base
+import XMonad
+import System.Directory
+import System.IO (hPutStrLn)
+import System.Exit (exitSuccess)
+import qualified XMonad.StackSet as W
+
+    -- Actions
+import XMonad.Actions.CopyWindow (kill1)
+import XMonad.Actions.CycleWS (Direction1D(..), moveTo, shiftTo, WSType(..), nextScreen, prevScreen)
+import XMonad.Actions.GridSelect
+import XMonad.Actions.MouseResize
+import XMonad.Actions.Promote
+import XMonad.Actions.RotSlaves (rotSlavesDown, rotAllDown)
+import XMonad.Actions.WindowGo (runOrRaise)
+import XMonad.Actions.WithAll (sinkAll, killAll)
+import qualified XMonad.Actions.TreeSelect as TS
+import qualified XMonad.Actions.Search as S
+
+    -- Data
+import Data.Char (isSpace, toUpper)
+import Data.Maybe (fromJust)
+import Data.Monoid
+import Data.Maybe (isJust)
+import Data.Tree
+import qualified Data.Map as M
+
+    -- Hooks
+import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
+import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
+import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks, ToggleStruts(..))
+import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doCenterFloat)
+import XMonad.Hooks.ServerMode
+import XMonad.Hooks.SetWMName
+import XMonad.Hooks.WorkspaceHistory
+
+    -- Layouts
+import XMonad.Layout.GridVariants (Grid(Grid))
+import XMonad.Layout.SimplestFloat
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.Tabbed
+import XMonad.Layout.CenteredMaster
+import XMonad.Layout.ThreeColumns
+
+    -- Layouts modifiers
+import XMonad.Layout.LayoutModifier
+import XMonad.Layout.LimitWindows (limitWindows, increaseLimit, decreaseLimit)
+import XMonad.Layout.Magnifier
+import XMonad.Layout.MultiToggle (mkToggle, single, EOT(EOT), (??))
+import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, MIRROR, NOBORDERS))
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Renamed
+import XMonad.Layout.ShowWName
+import XMonad.Layout.Simplest
+import XMonad.Layout.Spacing
+import XMonad.Layout.WindowArranger (windowArrange, WindowArrangerMsg(..))
+import XMonad.Layout.WindowNavigation
+import qualified XMonad.Layout.ToggleLayouts as T (toggleLayouts, ToggleLayout(Toggle))
+import qualified XMonad.Layout.MultiToggle as MT (Toggle(..))
+
+   -- Utilities
+import XMonad.Util.EZConfig (additionalKeysP)
+import XMonad.Util.NamedScratchpad
+import XMonad.Util.Run (runProcessWithInput, safeSpawn, spawnPipe)
+import XMonad.Util.SpawnOnce
+
+-- Variables
+myFont :: String
+myFont = "xft:SauceCodePro Nerd Font Mono:regular:size=9:antialias=true:hinting=true"
+
+myModMask :: KeyMask
+myModMask = mod4Mask       -- Sets modkey to super/windows key
+
+altMask :: KeyMask
+altMask = mod1Mask         -- Setting this for use in xprompts
+
+
+myNormColor :: String
+myNormColor   = "#282c34"  -- Border color of normal windows
+
+myFocusColor :: String
+myFocusColor  = "#82ddff"  -- Border color of focused windows
+
+myBorderWidth :: Dimension
+myBorderWidth = 4           -- Sets border width for windows
+
+myTerminal :: String
+myTerminal = "alacritty"   -- Sets default terminal
+
+myEditor :: String
+myEditor = "emacsclient -c -a 'emacs' "  -- Sets emacs as editor
+-- myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor
+
+myBrowser :: String
+myBrowser = "qutebrowser"
+
+windowCount :: X (Maybe String)
+windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
+
+--Startup apps
+myStartupHook :: X ()
+myStartupHook = do
+          spawnOnce "xrandr --output HDMI-2 --auto --right-of HDMI-1"
+          spawnOnce "~/.fehbg &"
+          spawnOnce "lxsession &"
+          spawnOnce "sxhkd &"
+          spawnOnce "picom --experimental-backends &"
+          -- spawnOnce "nm-applet &"
+          -- spawnOnce "volumeicon &"
+          -- spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
+          spawnOnce "/usr/bin/emacs --daemon &"
+          spawnOnce "kdeconnect-cli &"
+          spawnOnce "dunst &"
+          setWMName "LG3D"
+
+treeselectAction :: TS.TSConfig (X ()) -> X ()
+treeselectAction a = TS.treeselectAction a
+   [Node (TS.TSNode "+ System" "system tools and utilities" (return ()))
+       [ Node (TS.TSNode "Alacritty" "GPU accelerated terminal" (spawn "alacritty")) []
+       , Node (TS.TSNode "Dired" "Emacs file manager" (spawn "xxx")) []
+       , Node (TS.TSNode "Etcher" "USB stick writer" (spawn "xxx")) []
+       , Node (TS.TSNode "Htop" "Terminal process viewer" (spawn (myTerminal ++ " -e htop"))) []
+       , Node (TS.TSNode "LXAppearance" "Customize look and feel" (spawn "lxappearance")) []
+       , Node (TS.TSNode "Nautilus" "GTK file manager" (spawn ("pcmanfm"))) []
+       ]
+   , Node (TS.TSNode "------------------------" "" (spawn "xdotool key Escape")) []
+   , Node (TS.TSNode "+ Bookmarks" "a list of web bookmarks" (return ()))
+       [ Node (TS.TSNode "+ Linux" "a list of web bookmarks" (return ()))
+           [ Node (TS.TSNode "+ Arch Linux" "btw, i use arch!" (return ()))
+               [ Node (TS.TSNode "Arch Linux" "Arch Linux homepage" (spawn (myBrowser ++ "https://www.archlinux.org/"))) []
+               , Node (TS.TSNode "Arch Wiki" "The best Linux wiki" (spawn (myBrowser ++ "https://wiki.archlinux.org/"))) []
+               , Node (TS.TSNode "AUR" "Arch User Repository" (spawn (myBrowser ++ "https://aur.archlinux.org/"))) []
+               , Node (TS.TSNode "Arch Forums" "Arch Linux web forum" (spawn (myBrowser ++ "https://bbs.archlinux.org/"))) []
+               ]
+           , Node (TS.TSNode "+ Linux News" "linux news and blogs" (return ()))
+               [ Node (TS.TSNode "DistroWatch" "Linux distro release announcments" (spawn (myBrowser ++ "https://distrowatch.com/"))) []
+               , Node (TS.TSNode "LXer" "LXer linux news aggregation" (spawn (myBrowser ++ "http://lxer.com"))) []
+               , Node (TS.TSNode "OMG Ubuntu" "Ubuntu news, apps and reviews" (spawn (myBrowser ++ "https://www.omgubuntu.co.uk"))) []
+               ]
+           , Node (TS.TSNode "+ Window Managers" "window manager documentation" (return ()))
+               [ Node (TS.TSNode "+ Awesome" "awesomewm documentation" (return ()))
+                   [ Node (TS.TSNode "Awesome" "Homepage for awesome wm" (spawn (myBrowser ++ "https://awesomewm.org/"))) []
+                   , Node (TS.TSNode "Awesome GitHub" "The GutHub page for awesome" (spawn (myBrowser ++ "https://github.com/awesomeWM/awesome"))) []
+                   , Node (TS.TSNode "r/awesome" "Subreddit for awesome" (spawn (myBrowser ++ "https://www.reddit.com/r/awesomewm/"))) []
+                   ]
+               , Node (TS.TSNode "+ XMonad" "xmonad documentation" (return ()))
+                   [ Node (TS.TSNode "XMonad" "Homepage for XMonad" (spawn (myBrowser ++ "http://xmonad.org"))) []
+                   , Node (TS.TSNode "XMonad GitHub" "The GitHub page for XMonad" (spawn (myBrowser ++ "https://github.com/xmonad/xmonad"))) []
+                   , Node (TS.TSNode "xmonad-contrib" "Third party extensions for XMonad" (spawn (myBrowser ++ "https://hackage.haskell.org/package/xmonad-contrib"))) []
+                   , Node (TS.TSNode "xmonad-ontrib GitHub" "The GitHub page for xmonad-contrib" (spawn (myBrowser ++ "https://github.com/xmonad/xmonad-contrib"))) []
+                   , Node (TS.TSNode "Xmobar" "Minimal text-based status bar"  (spawn (myBrowser ++ "https://hackage.haskell.org/package/xmobar"))) []
+                   ]
+               ]
+           ]
+       , Node (TS.TSNode "+ Emacs" "Emacs documentation" (return ()))
+           [ Node (TS.TSNode "GNU Emacs" "Extensible free/libre text editor" (spawn (myBrowser ++ "https://www.gnu.org/software/emacs/"))) []
+           , Node (TS.TSNode "Doom Emacs" "Emacs distribution with sane defaults" (spawn (myBrowser ++ "https://github.com/hlissner/doom-emacs"))) []
+           , Node (TS.TSNode "r/emacs" "M-x emacs-reddit" (spawn (myBrowser ++ "https://www.reddit.com/r/emacs/"))) []
+           , Node (TS.TSNode "EmacsWiki" "EmacsWiki Site Map" (spawn (myBrowser ++ "https://www.emacswiki.org/emacs/SiteMap"))) []
+           , Node (TS.TSNode "Emacs StackExchange" "Q&A site for emacs" (spawn (myBrowser ++ "https://emacs.stackexchange.com/"))) []
+           ]
+       , Node (TS.TSNode "+ Search and Reference" "Search engines, indices and wikis" (return ()))
+           [ Node (TS.TSNode "DuckDuckGo" "Privacy-oriented search engine" (spawn (myBrowser ++ "https://duckduckgo.com/"))) []
+           , Node (TS.TSNode "Google" "The evil search engine" (spawn (myBrowser ++ "http://www.google.com"))) []
+           , Node (TS.TSNode "Wikipedia" "The free encyclopedia" (spawn (myBrowser ++ "https://www.wikipedia.org/"))) []
+           ]
+       , Node (TS.TSNode "+ Programming" "programming and scripting" (return ()))
+           [ Node (TS.TSNode "+ Bash and Shell Scripting" "shell scripting documentation" (return ()))
+               [ Node (TS.TSNode "GNU Bash" "Documentation for bash" (spawn (myBrowser ++ "https://www.gnu.org/software/bash/manual/"))) []
+               , Node (TS.TSNode "r/bash" "Subreddit for bash" (spawn (myBrowser ++ "https://www.reddit.com/r/bash/"))) []
+               , Node (TS.TSNode "r/commandline" "Subreddit for the command line" (spawn (myBrowser ++ "https://www.reddit.com/r/commandline/"))) []
+               , Node (TS.TSNode "Learn Shell" "Interactive shell tutorial" (spawn (myBrowser ++ "https://www.learnshell.org/"))) []
+               ]
+         , Node (TS.TSNode "+ Elisp" "emacs lisp documentation" (return ()))
+             [ Node (TS.TSNode "Emacs Lisp" "Reference manual for elisp" (spawn (myBrowser ++ "https://www.gnu.org/software/emacs/manual/html_node/elisp/"))) []
+             , Node (TS.TSNode "Learn Elisp in Y Minutes" "Single webpage for elisp basics" (spawn (myBrowser ++ "https://learnxinyminutes.com/docs/elisp/"))) []
+             , Node (TS.TSNode "r/Lisp" "Subreddit for lisp languages" (spawn (myBrowser ++ "https://www.reddit.com/r/lisp/"))) []
+             ]
+         , Node (TS.TSNode "+ Haskell" "haskell documentation" (return ()))
+             [ Node (TS.TSNode "Haskell.org" "Homepage for haskell" (spawn (myBrowser ++ "http://www.haskell.org"))) []
+             , Node (TS.TSNode "Hoogle" "Haskell API search engine" (spawn "https://hoogle.haskell.org/")) []
+             , Node (TS.TSNode "r/haskell" "Subreddit for haskell" (spawn (myBrowser ++ "https://www.reddit.com/r/Python/"))) []
+             , Node (TS.TSNode "Haskell on StackExchange" "Newest haskell topics on StackExchange" (spawn (myBrowser ++ "https://stackoverflow.com/questions/tagged/haskell"))) []
+             ]
+         , Node (TS.TSNode "+ Python" "python documentation" (return ()))
+             [ Node (TS.TSNode "Python.org" "Homepage for python" (spawn (myBrowser ++ "https://www.python.org/"))) []
+             , Node (TS.TSNode "r/Python" "Subreddit for python" (spawn (myBrowser ++ "https://www.reddit.com/r/Python/"))) []
+             , Node (TS.TSNode "Python on StackExchange" "Newest python topics on StackExchange" (spawn (myBrowser ++ "https://stackoverflow.com/questions/tagged/python"))) []
+             ]
+         ]
+       , Node (TS.TSNode "+ Vim" "vim and neovim documentation" (return ()))
+           [ Node (TS.TSNode "Vim.org" "Vim, the ubiquitous text editor" (spawn (myBrowser ++ "https://www.vim.org/"))) []
+           , Node (TS.TSNode "r/Vim" "Subreddit for vim" (spawn (myBrowser ++ "https://www.reddit.com/r/vim/"))) []
+           , Node (TS.TSNode "Vi/m StackExchange" "Vi/m related questions" (spawn (myBrowser ++ "https://vi.stackexchange.com/"))) []
+           ]
+       , Node (TS.TSNode "My Start Page" "Custom start page for browser" (spawn (myBrowser ++ "file:///home/kito/.surf/html/homepage.html"))) []
+       ]
+   , Node (TS.TSNode "+ Config Files" "config files that edit often" (return ()))
+       [ Node (TS.TSNode "+ emacs configs" "My xmonad config files" (return ()))
+         [ Node (TS.TSNode "doom emacs config.org" "doom emacs config" (spawn (myEditor ++ "/home/kito/.doom.d/config.el"))) []
+         , Node (TS.TSNode "doom emacs init.el" "doom emacs init" (spawn (myEditor ++ "/home/kito/.doom.d/init.el"))) []
+         , Node (TS.TSNode "doom emacs packages.el" "doom emacs packages" (spawn (myEditor ++ "/home/kito/.doom.d/packages.el"))) []
+         ]
+       , Node (TS.TSNode "+ xmobar configs" "My xmobar config files" (return ()))
+           [ Node (TS.TSNode "xmobar" "status bar" (spawn (myEditor ++ "/home/kito/.config/xmobar/xmobarrc0"))) []
+           ]
+       , Node (TS.TSNode "+ xmonad configs" "My xmonad config files" (return ()))
+           [ Node (TS.TSNode "xmonad.hs" "My XMonad Main" (spawn (myEditor ++ "/home/kito/.xmonad/README.org"))) []
+           ]
+       , Node (TS.TSNode "alacritty" "alacritty terminal emulator" (spawn (myEditor ++ "/home/kito/.config/alacritty/alacritty.yml"))) []
+       , Node (TS.TSNode "awesome" "awesome window manager" (spawn (myEditor ++ "/home/kito/.config/awesome/README.org"))) []
+       , Node (TS.TSNode "bashrc" "the bourne again shell" (spawn (myEditor ++ "/home/kito/.bashrc.org"))) []
+       , Node (TS.TSNode "neovim init.vim" "neovim text editor" (spawn (myEditor ++ "/home/kito/.config/nvim/init.vim"))) []
+       , Node (TS.TSNode "polybar" "easy-to-use status bar" (spawn (myEditor ++ "/home/kito/.config/polybar/config"))) []
+       , Node (TS.TSNode "qutebrowser config.py" "qutebrowser web browser" (spawn (myEditor ++ "/home/kito/.config/qutebrowser/config.py"))) []
+       , Node (TS.TSNode "zshrc" "Config for the z shell" (spawn (myEditor ++ "/home/kito/.zshrc.org"))) []
+       , Node (TS.TSNode "fish" "Config for the z shell" (spawn (myEditor ++ "/home/kito/.config/fish/config.fish.org"))) []
+       ]
+   , Node (TS.TSNode "+ Screenshots" "take a screenshot" (return ()))
+       [ Node (TS.TSNode "Quick fullscreen" "take screenshot immediately" (spawn "scrot -d 1 ~/scrot/%Y-%m-%d-@%H-%M-%S-scrot.png")) []
+       , Node (TS.TSNode "Delayed fullscreen" "take screenshot in 5 secs" (spawn "scrot -d 5 ~/scrot/%Y-%m-%d-@%H-%M-%S-scrot.png")) []
+       , Node (TS.TSNode "Section screenshot" "take screenshot of section" (spawn "scrot -s ~/scrot/%Y-%m-%d-@%H-%M-%S-scrot.png")) []
+       ]
+   , Node (TS.TSNode "------------------------" "" (spawn "xdotool key Escape")) []
+   , Node (TS.TSNode "+ XMonad" "window manager commands" (return ()))
+       [ Node (TS.TSNode "+ View Workspaces" "View a specific workspace" (return ()))
+         [ Node (TS.TSNode "View 1" "View workspace 1" (spawn "~/.xmonad/xmonadctl 1")) []
+         , Node (TS.TSNode "View 2" "View workspace 2" (spawn "~/.xmonad/xmonadctl 3")) []
+         , Node (TS.TSNode "View 3" "View workspace 3" (spawn "~/.xmonad/xmonadctl 5")) []
+         , Node (TS.TSNode "View 4" "View workspace 4" (spawn "~/.xmonad/xmonadctl 7")) []
+         , Node (TS.TSNode "View 5" "View workspace 5" (spawn "~/.xmonad/xmonadctl 9")) []
+         , Node (TS.TSNode "View 6" "View workspace 6" (spawn "~/.xmonad/xmonadctl 11")) []
+         , Node (TS.TSNode "View 7" "View workspace 7" (spawn "~/.xmonad/xmonadctl 13")) []
+         , Node (TS.TSNode "View 8" "View workspace 8" (spawn "~/.xmonad/xmonadctl 15")) []
+         , Node (TS.TSNode "View 9" "View workspace 9" (spawn "~/.xmonad/xmonadctl 17")) []
+         ]
+       , Node (TS.TSNode "+ Shift Workspaces" "Send focused window to specific workspace" (return ()))
+         [ Node (TS.TSNode "View 1" "View workspace 1" (spawn "~/.xmonad/xmonadctl 2")) []
+         , Node (TS.TSNode "View 2" "View workspace 2" (spawn "~/.xmonad/xmonadctl 4")) []
+         , Node (TS.TSNode "View 3" "View workspace 3" (spawn "~/.xmonad/xmonadctl 6")) []
+         , Node (TS.TSNode "View 4" "View workspace 4" (spawn "~/.xmonad/xmonadctl 8")) []
+         , Node (TS.TSNode "View 5" "View workspace 5" (spawn "~/.xmonad/xmonadctl 10")) []
+         , Node (TS.TSNode "View 6" "View workspace 6" (spawn "~/.xmonad/xmonadctl 12")) []
+         , Node (TS.TSNode "View 7" "View workspace 7" (spawn "~/.xmonad/xmonadctl 14")) []
+         , Node (TS.TSNode "View 8" "View workspace 8" (spawn "~/.xmonad/xmonadctl 16")) []
+         , Node (TS.TSNode "View 9" "View workspace 9" (spawn "~/.xmonad/xmonadctl 18")) []
+         ]
+       , Node (TS.TSNode "Next layout" "Switch to next layout" (spawn "~/.xmonad/xmonadctl next-layout")) []
+       , Node (TS.TSNode "Recompile" "Recompile XMonad" (spawn "xmonad --recompile")) []
+       , Node (TS.TSNode "Restart" "Restart XMonad" (spawn "xmonad --restart")) []
+       , Node (TS.TSNode "Quit" "Restart XMonad" (io exitSuccess)) []
+       ]
+   , Node (TS.TSNode "------------------------" "" (spawn "xdotool key Escape")) []
+   , Node (TS.TSNode "Yui" "Yui AI for digital assistant" (spawn (myTerminal ++ " -e yui"))) []
+   ]
+
+tsDefaultConfig :: TS.TSConfig a
+tsDefaultConfig = TS.TSConfig { TS.ts_hidechildren = True
+                              , TS.ts_background   = 0xdd282c34
+                              , TS.ts_font         = myFont
+                              , TS.ts_node         = (0xffd0d0d0, 0xff1c1f24)
+                              , TS.ts_nodealt      = (0xffd0d0d0, 0xff282c34)
+                              , TS.ts_highlight    = (0xffffffff, 0xff755999)
+                              , TS.ts_extra        = 0xffd0d0d0
+                              , TS.ts_node_width   = 200
+                              , TS.ts_node_height  = 20
+                              , TS.ts_originX      = 100
+                              , TS.ts_originY      = 100
+                              , TS.ts_indent       = 80
+                              , TS.ts_navigate     = myTreeNavigation
+                              }
+
+myTreeNavigation = M.fromList
+    [ ((0, xK_Escape),   TS.cancel)
+    , ((0, xK_Return),   TS.select)
+    , ((0, xK_space),    TS.select)
+    , ((0, xK_Up),       TS.movePrev)
+    , ((0, xK_Down),     TS.moveNext)
+    , ((0, xK_Left),     TS.moveParent)
+    , ((0, xK_Right),    TS.moveChild)
+    , ((0, xK_k),        TS.movePrev)
+    , ((0, xK_j),        TS.moveNext)
+    , ((0, xK_h),        TS.moveParent)
+    , ((0, xK_l),        TS.moveChild)
+    , ((0, xK_o),        TS.moveHistBack)
+    , ((0, xK_i),        TS.moveHistForward)
+    , ((0, xK_a),        TS.moveTo ["+ Accessories"])
+    , ((0, xK_e),        TS.moveTo ["+ Games"])
+    , ((0, xK_g),        TS.moveTo ["+ Graphics"])
+    , ((0, xK_i),        TS.moveTo ["+ Internet"])
+    , ((0, xK_m),        TS.moveTo ["+ Multimedia"])
+    , ((0, xK_o),        TS.moveTo ["+ Office"])
+    , ((0, xK_p),        TS.moveTo ["+ Programming"])
+    , ((0, xK_s),        TS.moveTo ["+ System"])
+    , ((0, xK_b),        TS.moveTo ["+ Bookmarks"])
+    , ((0, xK_c),        TS.moveTo ["+ Config Files"])
+    , ((0, xK_r),        TS.moveTo ["+ Screenshots"])
+    , ((mod4Mask, xK_l), TS.moveTo ["+ Bookmarks", "+ Linux"])
+    , ((mod4Mask, xK_e), TS.moveTo ["+ Bookmarks", "+ Emacs"])
+    , ((mod4Mask, xK_s), TS.moveTo ["+ Bookmarks", "+ Search and Reference"])
+    , ((mod4Mask, xK_p), TS.moveTo ["+ Bookmarks", "+ Programming"])
+    , ((mod4Mask, xK_v), TS.moveTo ["+ Bookmarks", "+ Vim"])
+    , ((mod4Mask .|. altMask, xK_a), TS.moveTo ["+ Bookmarks", "+ Linux", "+ Arch Linux"])
+    , ((mod4Mask .|. altMask, xK_n), TS.moveTo ["+ Bookmarks", "+ Linux", "+ Linux News"])
+    , ((mod4Mask .|. altMask, xK_w), TS.moveTo ["+ Bookmarks", "+ Linux", "+ Window Managers"])
+    ]
+
+myScratchPads :: [NamedScratchpad]
+myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
+                , NS "calculator" spawnCalc findCalc manageCalc
+                ]
+  where
+    spawnTerm  = myTerminal ++ " -t scratchpad"
+    findTerm   = title =? "scratchpad"
+    manageTerm = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.5
+                 w = 0.4
+                 t = 0.75 -h
+                 l = 0.70 -w
+    spawnCalc  = "qalculate-gtk"
+    findCalc   = className =? "Qalculate-gtk"
+    manageCalc = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.5
+                 w = 0.4
+                 t = 0.75 -h
+                 l = 0.70 -w
+
+-- layouts
+--Makes setting the spacingRaw simpler to write. The spacingRaw module adds a configurable amount of space around windows.
+mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
+mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
+
+-- Below is a variation of the above except no borders are applied
+-- if fewer than two windows. So a single window has no gaps.
+mySpacing' :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
+mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
+
+-- Defining a bunch of layouts, many that I don't use.
+-- limitWindows n sets maximum number of windows displayed for layout.
+-- mySpacing n sets the gap size around the windows.
+tall     = renamed [Replace "tall"]
+           $ smartBorders
+           $ windowNavigation
+           $ addTabs shrinkText myTabTheme
+           $ limitWindows 12
+           $ mySpacing 8
+           $ ResizableTall 1 (3/100) (1/2) []
+monocle  = renamed [Replace "monocle"]
+           $ smartBorders
+           $ windowNavigation
+           $ addTabs shrinkText myTabTheme
+           $ limitWindows 20 Full
+floats   = renamed [Replace "floats"]
+           $ smartBorders
+           $ limitWindows 20 simplestFloat
+matrix     = renamed [Replace "matrix"]
+           $ smartBorders
+           $ windowNavigation
+           $ addTabs shrinkText myTabTheme
+           $ limitWindows 12
+           $ mySpacing 8
+           $ mkToggle (single MIRROR)
+           $ Grid (16/10)
+threeRow = renamed [Replace "threeRow"]
+           $ smartBorders
+           $ windowNavigation
+           $ addTabs shrinkText myTabTheme
+           $ limitWindows 7
+           -- Mirror takes a layout and rotates it by 90 degrees.
+           -- So we are applying Mirror to the ThreeCol layout.
+           $ Mirror
+           $ ThreeCol 1 (3/100) (1/2)
+magnify = renamed [Replace "magnify"]
+           $ smartBorders
+           $ windowNavigation
+           $ addTabs shrinkText myTabTheme
+           $ limitWindows 12
+           $ mySpacing 8
+           $ mkToggle (single MIRROR)
+           $ XMonad.Layout.CenteredMaster.centerMaster (Grid 0.5)
+-- setting colors for tabs layout.
+myTabTheme = def { fontName            = myFont
+                 , activeColor         = "#46d9ff"
+                 , inactiveColor       = "#313846"
+                 , activeBorderColor   = "#46d9ff"
+                 , inactiveBorderColor = "#282c34"
+                 , activeTextColor     = "#282c34"
+                 , inactiveTextColor   = "#d0d0d0"
+                 }
+
+-- Theme for showWName which prints current workspace when you change workspaces.
+myShowWNameTheme :: SWNConfig
+myShowWNameTheme = def
+    { swn_font              = "xft:Ubuntu:bold:size=60"
+    , swn_fade              = 1.0
+    , swn_bgcolor           = "#1c1f24"
+    , swn_color             = "#ffffff"
+    }
+
+-- The layout hook
+myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts floats
+               $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) myDefaultLayout
+             where
+               myDefaultLayout =     withBorder myBorderWidth tall
+                                 ||| noBorders monocle
+                                 ||| floats
+                                 ||| matrix
+                                 ||| threeRow
+                                 ||| magnify
+
+-- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
+myWorkspaces = [" dev ", " www ", " chat ", " sys ", " doc ", " vbox ", " mus ", " vid ", " gfx "]
+myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..] -- (,) == \x y -> (x,y)
+
+clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
+    where i = fromJust $ M.lookup ws myWorkspaceIndices
+
+myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
+myManageHook = composeAll
+     -- 'doFloat' forces a window to float.  Useful for dialog boxes and such.
+     -- using 'doShift ( myWorkspaces !! 7)' sends program to workspace 8!
+     -- I'm doing it this way because otherwise I would have to write out the full
+     -- name of my workspaces and the names would be very long if using clickable workspaces.
+     [ className =? "confirm"         --> doFloat
+     , className =? "file_progress"   --> doFloat
+     , className =? "dialog"          --> doFloat
+     , className =? "download"        --> doFloat
+     , className =? "error"           --> doFloat
+     , className =? "notification"    --> doFloat
+     , className =? "pinentry-gtk-2"  --> doFloat
+     , className =? "splash"          --> doFloat
+     , className =? "toolbar"         --> doFloat
+     , className =? "Yad"             --> doCenterFloat
+     , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
+     , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
+     , isFullscreen -->  doFullFloat
+     ]  <+> namedScratchpadManageHook myScratchPads
+
+--Keys
+myKeys :: [(String, X ())]
+myKeys =
+    -- Xmonad
+        [ ("M-C-r", spawn "xmonad --recompile") -- Recompiles xmonad
+        , ("M-S-r", spawn "xmonad --restart")   -- Restarts xmonad
+        , ("M-.", nextScreen)  -- Switch focus to next monitor
+        , ("M-,", prevScreen)  -- Switch focus to prev monitor
+
+    -- Useful programs to have a keybinding for launch
+        , ("M-<Return>", spawn (myTerminal))
+        , ("M-S-<Return>", spawn "dmenu_run -p 'Run : '")
+        , ("M-M1-h", spawn (myTerminal ++ " -e htop"))
+
+    -- Kill windows
+        , ("M-q", kill1)                         -- Kill the currently focused client
+        , ("M-S-q", killAll)                       -- Kill all windows on current workspace
+
+    -- -- Workspaces
+        , ("M-C-<Right>", shiftTo Next nonNSP >> moveTo Next nonNSP)       -- Shifts focused window to next ws
+        , ("M-C-<Left>", shiftTo Prev nonNSP >> moveTo Prev nonNSP)  -- Shifts focused window to prev ws
+        , ("C-M1-<Right>", moveTo Next nonNSP)
+        , ("C-M1-<Left>", moveTo Prev nonNSP)
+
+    -- Floating windows
+        , ("M-f", sendMessage (T.Toggle "floats")) -- Toggles my 'floats' layout
+        , ("M-t", withFocused $ windows . W.sink)  -- Push floating window back to tile
+        , ("M-S-t", sinkAll)                       -- Push ALL floating windows to tile
+
+    -- Increase/decrease spacing (gaps)
+        , ("M-s", decWindowSpacing 4)           -- Decrease window spacing
+        , ("M-i", incWindowSpacing 4)           -- Increase window spacing
+        , ("M-S-s", decScreenSpacing 4)         -- Decrease screen spacing
+        , ("M-S-i", incScreenSpacing 4)         -- Increase screen spacing
+
+    -- Tree Select
+        , ("C-t t", treeselectAction tsDefaultConfig)
+
+    -- Scratchpads
+        , ("C-s t", namedScratchpadAction myScratchPads "terminal")
+        , ("C-s m", namedScratchpadAction myScratchPads "Mellow")
+        , ("C-s c", namedScratchpadAction myScratchPads "calculator")
+
+
+    -- Windows navigation
+        , ("M-m", windows W.focusMaster)  -- Move focus to the master window
+        , ("M-<Right>", windows W.focusDown)    -- Move focus to the next window
+        , ("M-<Left>", windows W.focusUp)      -- Move focus to the prev window
+        , ("M-S-m", windows W.swapMaster) -- Swap the focused window and the master window
+        , ("M-S-<Right>", windows W.swapDown)   -- Swap focused window with next window
+        , ("M-S-<Left>", windows W.swapUp)     -- Swap focused window with prev window
+        , ("M-<Backspace>", promote)      -- Moves focused window to master, others maintain order
+        , ("M-S-<Tab>", rotSlavesDown)    -- Rotate all windows except master and keep focus in place
+        , ("M-C-<Tab>", rotAllDown)       -- Rotate all the windows in the current stack
+
+    -- Layouts
+        , ("M-<Tab>", sendMessage NextLayout)           -- Switch to next layout
+        , ("M-C-M1-<Up>", sendMessage Arrange)
+        , ("M-C-M1-<Down>", sendMessage DeArrange)
+        , ("M-<Space>", sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts) -- Toggles noborder/full
+        , ("M-S-<Space>", sendMessage ToggleStruts)     -- Toggles struts
+        , ("M-S-n", sendMessage $ MT.Toggle NOBORDERS)  -- Toggles noborder
+
+    -- Increase/decrease windows in the master pane or the stack
+        , ("M-S-<Up>", sendMessage (IncMasterN 1))      -- Increase number of clients in master pane
+        , ("M-S-<Down>", sendMessage (IncMasterN (-1))) -- Decrease number of clients in master pane
+        , ("M-C-<Up>", increaseLimit)                   -- Increase number of windows
+        , ("M-C-<Down>", decreaseLimit)                 -- Decrease number of windows
+
+    -- Window resizing
+        , ("M-h", sendMessage Shrink)                   -- Shrink horiz window width
+        , ("M-l", sendMessage Expand)                   -- Expand horiz window width
+        , ("M-M1-j", sendMessage MirrorShrink)          -- Shrink vert window width
+        , ("M-M1-k", sendMessage MirrorExpand)          -- Exoand vert window width
+    -- Emacs (M-e followed by a key)
+        , ("M-e e", spawn "emacsclient -c -a 'emacs'")                            -- start emacs
+        , ("M-e b", spawn "emacsclient -c -a 'emacs' --eval '(ibuffer)'")         -- list emacs buffers
+        , ("M-e d", spawn "emacsclient -c -a 'emacs' --eval '(dired nil)'")       -- dired emacs file manager
+        , ("M-e s", spawn "emacsclient -c -a 'emacs' --eval '(eshell)'")          -- eshell within emacs
+        , ("M-e f", spawn "emacsclient -c -a 'emacs' --eval '(elfeed)'")          -- emacs feed reader
+        , ("M-e v", spawn "emacsclient -c -a 'emacs' --eval '(+vterm/here nil)'") -- vterm within emacs
+        -- emms is an emacs audio player. I set it to auto start playing in a specific directory.
+        ]
+   -- The following lines are needed for named scratchpads.
+          where nonNSP          = WSIs (return (\ws -> W.tag ws /= "NSP"))
+                nonEmptyNonNSP  = WSIs (return (\ws -> isJust (W.stack ws) && W.tag ws /= "NSP"))
+
+-- Define Main
+main :: IO ()
+main = do
+    -- Launching three instances of xmobar on their monitors.
+    xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc0"
+    xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/xmobarrc0"
+    -- xmproc2 <- spawnPipe "xmobar -x 2 $HOME/.config/xmobar/xmobarrc2"
+    -- the xmonad, ya know...what the WM is named after!
+    xmonad $ ewmh def
+        { manageHook         = myManageHook <+> manageDocks
+        , handleEventHook    = docksEventHook
+                               -- Uncomment this line to enable fullscreen support on things like YouTube/Netflix.
+                               -- This works perfect on SINGLE monitor systems. On multi-monitor systems,
+                               -- it adds a border around the window if screen does not have focus. So, my solution
+                               -- is to use a keybinding to toggle fullscreen noborders instead.  (M-<Space>)
+                               -- <+> fullscreenEventHook
+        , modMask            = myModMask
+        , terminal           = myTerminal
+        , startupHook        = myStartupHook
+        , layoutHook         = showWName' myShowWNameTheme $ myLayoutHook
+        , workspaces         = myWorkspaces
+        , borderWidth        = myBorderWidth
+        , normalBorderColor  = myNormColor
+        , focusedBorderColor = myFocusColor
+        , logHook = dynamicLogWithPP $ namedScratchpadFilterOutWorkspacePP $ xmobarPP
+              -- the following variables beginning with 'pp' are settings for xmobar.
+              { ppOutput = \x -> hPutStrLn xmproc0 x                          -- xmobar on monitor 1
+                              >> hPutStrLn xmproc1 x                          -- xmobar on monitor 2
+                              -- >> hPutStrLn xmproc2 x                          -- xmobar on monitor 2
+              , ppCurrent = xmobarColor "#c792ea" "" . wrap "<box type=Bottom width=2 mb=2 color=#c792ea>" "</box>"         -- Current workspace
+              , ppVisible = xmobarColor "#c792ea" "" . clickable              -- Visible but not current workspace
+              , ppHidden = xmobarColor "#82AAFF" "" . wrap "<box type=Top width=2 mt=2 color=#82AAFF>" "</box>" . clickable -- Hidden workspaces
+              , ppHiddenNoWindows = xmobarColor "#82AAFF" ""  . clickable     -- Hidden workspaces (no windows)
+              , ppTitle = xmobarColor "#b3afc2" "" . shorten 60               -- Title of active window
+              , ppSep =  "<fc=#666666> <fn=1>|</fn> </fc>"                    -- Separator character
+              , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"            -- Urgent workspace
+              , ppExtras  = [windowCount]                                     -- # of windows current workspace
+              , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]                    -- order of things in xmobar
+              }
+        } `additionalKeysP` myKeys
