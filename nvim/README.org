@@ -23,7 +23,7 @@ quick.
 * Plugin manager
 I use Plug and i find it very usefull and easy to use. Never think to switch to
 another plugin manager
-#+begin_src vimscript
+#+begin_src vim
 " plugin
 call plug#begin('~/.vim/plugged')
 
@@ -128,7 +128,7 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 #+end_src
 * My keybinding
 I use a lot of keybindings and they are all written here:
-#+begin_src vimscript
+#+begin_src vim
 
 "#ricerca con evidenziatore
 ":set hlsearch

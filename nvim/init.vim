@@ -1,5 +1,3 @@
-"if per far funzionare bene neovim su VSCode
-if !exists('g:vscode')
 " plugin
 call plug#begin('~/.vim/plugged')
 
@@ -7,7 +5,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdcommenter'
 
 "Numeri a fianco
-Plug 'jeffkreeftmeijer/vim-numbertoggle'" 
+Plug 'jeffkreeftmeijer/vim-numbertoggle'"
 
 "Parentesi automatiche
 Plug 'jiangmiao/auto-pairs'
@@ -62,7 +60,7 @@ Plug 'ap/vim-css-color'
 Plug 'vimwiki/vimwiki'
 
 " Markdown Preview
-Plug 'suan/vim-instant-markdown', {'rtp': 'after'} 
+Plug 'suan/vim-instant-markdown', {'rtp': 'after'}
 
 "Sxhkd-vim
 Plug 'kovetskiy/sxhkd-vim'
@@ -73,6 +71,8 @@ call plug#end()
 " tema + vimwiki
 filetype plugin on
 syntax on
+colorscheme onedark
+
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -91,34 +91,11 @@ set number norelativenumber
 "let g:gruvbox_contrast_dark= 'hard'
 "
 let g:onedark_terminal_italics=1
-"highlight Statement        guifg=#c678dd ctermfg=2    guibg=none    ctermbg=none  cterm=italic
-colorscheme onedark
-
-"highlight Normal           guifg=#dfdfdf ctermfg=15   guibg=#282c34 ctermbg=none  cterm=none
-"highlight LineNr           guifg=#5b6268 ctermfg=8    guibg=#282c34 ctermbg=none  cterm=none
-"highlight CursorLineNr     guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
-"highlight VertSplit        guifg=#1c1f24 ctermfg=0    guifg=#5b6268 ctermbg=8     cterm=none
-"highlight Statement        guifg=#98be65 ctermfg=2    guibg=none    ctermbg=none  cterm=none
-"highlight Directory        guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=none
-"highlight StatusLine       guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
-"highlight StatusLineNC     guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
-"highlight NERDTreeClosable guifg=#98be65 ctermfg=2
-"highlight NERDTreeOpenable guifg=#5b6268 ctermfg=8
-"highlight Comment          guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=italic
-"highlight Constant         guifg=#3071db ctermfg=12   guibg=none    ctermbg=none  cterm=none
-"highlight Special          guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=none
-"highlight Identifier       guifg=#5699af ctermfg=6    guibg=none    ctermbg=none  cterm=none
-"highlight PreProc          guifg=#c678dd ctermfg=5    guibg=none    ctermbg=none  cterm=none
-"highlight String           guifg=#3071db ctermfg=12   guibg=none    ctermbg=none  cterm=none
-"highlight Number           guifg=#ff6c6b ctermfg=1    guibg=none    ctermbg=none  cterm=none
-"highlight Function         guifg=#ff6c6b ctermfg=1    guibg=none    ctermbg=none  cterm=none
-"highlight Visual           guifg=#dfdfdf ctermfg=1    guibg=#1c1f24 ctermbg=none  cterm=none
 
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 "#ricerca con evidenziatore
-endif
 ":set hlsearch
 
 "set leader key
@@ -176,10 +153,10 @@ inoremap <C-Z> <ESC>:undo<CR><ESC>
 "settare ge per andare a fine file
 noremap ge G
 
-
 "Python
 let g:python3_host_prog = '/usr/bin/python3'
 let g:loaded_python_provider = 0
+let g:python_highlight_all = 1
 
 "rainbow
 let g:rainbow_active = 1
@@ -203,11 +180,9 @@ let g:startify_lists = [
           \ { 'type': 'commands',  'header': ['   Commands']       },
           \ ]
 
-
 "other stuff
-let g:python_highlight_all = 1
 
-au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
+au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
 au BufEnter *.org            call org#SetOrgFileType()
 
 set guioptions-=m  "remove menu bar
@@ -219,4 +194,3 @@ set guifont=SauceCodePro\ Nerd\ Font:h13
 "set guifont=JetBrains\ Mono:h15
 
 "let g:neovide_transparency=0.95
-

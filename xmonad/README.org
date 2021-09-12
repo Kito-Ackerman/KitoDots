@@ -23,6 +23,8 @@ Xmonad is a dynamically tiling X11 window manager that is written and configured
 - XMonad Official Website: [[https://xmonad.org][https://xmonad.org]]
 #+CAPTION: XMonad Scrot
 #+ATTR_HTML: :alt XMonad Scrot :title XMonad Scrot :align left [[https://github.com/atem-karma/KitoDots/blob/master/image/xmonad.png?raw=true]]
+Xmonad is simply the best twm in the place. Everything you can only imagin is
+possible. Take a look at this config!
 * Imports
 These are Haskell modules that we must import so that we can use their functions later in the config.
 
