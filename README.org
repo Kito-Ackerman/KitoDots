@@ -42,6 +42,7 @@ problem is how old the method of writing is, in fact all the function you would
 add to dwm are pre-written in patches, who are easy to install in most cases but
 sometimes they are impossible or not compatible with each other. for this
 question I switch another time to Xmonad. I actually use it as back-up wm beacouse is a little quicker than emacs and is pretty immobile ( you don't need to upgrade it / rewrite config for breaking updates )
+You can see my DWM config on my [[https://github.com/Kito-Ackerman/suckless-kito][Suckless repo]]
 
 ** Xmonad
 Xmonad is a twm written in haskell, a very complex programming language that I
